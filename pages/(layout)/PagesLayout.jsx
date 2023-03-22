@@ -25,7 +25,11 @@ export default function PagesLayout({ children }) {
       </Head>
       <main className="font-bodyText bg-primaryBg text-primary h-[calc(100vh-40px)] w-screen flex-1 snap-y snap-mandatory scroll-pt-0 overflow-y-scroll">
         <Navigation />
-        {children}
+        <section className="flex flex-1 grid-flow-col grid-cols-12 sm:grid">
+          <div className="col-span-2 p-2"></div>
+          <div className="bg-primaryBg col-span-8 p-2 pt-8">{children}</div>
+          <div className=" col-span-2 p-2 "></div>
+        </section>
       </main>
       <Footer />
     </div>

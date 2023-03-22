@@ -1,11 +1,10 @@
-// @ts-check
 import Image from "next/image";
 import harbourBridge from "/public/IMG_2996.jpg";
 
 function Quote(props) {
   return (
-    <section className="h-[25vh] w-screen snap-start ">
-      <div className="relative flex h-[25vh] rounded-md ">
+    <section className="relative h-[25vh] w-screen snap-start">
+      <div className=" flex h-[25vh] rounded-md ">
         <Image
           src={harbourBridge}
           alt="Sydney Harbour Bridge"

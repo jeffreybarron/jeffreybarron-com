@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="from-primaryBg to-secondaryBg mt-auto flex h-8 w-full justify-evenly bg-gradient-to-r box-decoration-clone">
+    <footer className="from-primaryBg to-secondaryBg flex h-10 w-full justify-evenly bg-gradient-to-r box-decoration-clone">
       <div className="flex w-full items-center justify-end p-2 text-sm">
         <span className="text-callout">
           © 2023 Jeffrey Barron. All Rights Reserved
