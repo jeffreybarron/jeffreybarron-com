@@ -16,12 +16,9 @@ export default function Navigation() {
             Home
           </div>
         </a> */}
-        <Link
-          href="/articles"
-          className="border-primary border-b border-dotted"
-        >
+        <Link href="/blog" className="border-primary border-b border-dotted">
           <div className="hover:text-callout flex items-center justify-center p-1 hover:-rotate-6">
-            articles
+            blog
           </div>
         </Link>
         <Link

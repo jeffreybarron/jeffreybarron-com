@@ -54,7 +54,6 @@ export default function ExperiencePage() {
         </li>
       </ul>
       <h2>Software Engineering</h2>
-      <p></p>
       <h3>Project Mananagement</h3>
       <h3>IT Management</h3>
       <h2>Developer Operations (DevOps)</h2>

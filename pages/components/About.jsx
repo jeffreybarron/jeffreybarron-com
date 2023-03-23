@@ -40,7 +40,7 @@ export default function About() {
           for all of us.
         </p>
         <br />
-        <p>
+        <div>
           Your's Sincerely,
           <br />
           <p className="font-fancyText text-callout py-4 text-2xl md:pl-4">
@@ -49,7 +49,7 @@ export default function About() {
           <p className="italic md:text-left">
             B. Psych. Sc.(Minor in Neuroscience), GradCert Computers
           </p>
-        </p>
+        </div>
       </div>
     </>
   );
