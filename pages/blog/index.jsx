@@ -43,15 +43,16 @@ export default function BlogPage({ blog }) {
 }
 
 export async function getStaticProps() {
-  const fs = require("fs");
-  const directoryPath = path.join(process.cwd(), "pages/blog/posts");
-  const allFiles = fs.readdirSync(directoryPath, "utf-8");
-  const blogFiles = allFiles.filter((file) => {
-    return file.endsWith(".md") || file.endsWith(".mdx");
-  });
-  console.log(blogFiles);
-  const data = truncateFileExtensions(blogFiles);
-  console.log(data);
+  // const fs = require("fs");
+  // const directoryPath = path.join(process.cwd(), "pages/blog/posts");
+  // const allFiles = fs.readdirSync(directoryPath, "utf-8");
+  // const blogFiles = allFiles.filter((file) => {
+  //   return file.endsWith(".md") || file.endsWith(".mdx");
+  // });
+  // console.log(blogFiles);
+  // const data = truncateFileExtensions(blogFiles);
+  // console.log(data);
+  const data = getBlogPosts();
 
   return {
     // Passed to the page component as props
@@ -66,7 +67,7 @@ BlogPage.getLayout = function getLayout(page) {
 };
 
 function getBlogPosts(location = "pages/blog/posts") {
-  // const fs = require("fs");
+  const fs = require("fs");
   const directoryPath = path.join(process.cwd(), location);
   const allFiles = fs.readdirSync(directoryPath, "utf-8");
   const blogFiles = allFiles.filter((file) => {
