@@ -1,4 +1,4 @@
-import React from "react";
+// pages/components/HeroPage.js [Server Side]
 
 export default function HeroPage() {
   return (

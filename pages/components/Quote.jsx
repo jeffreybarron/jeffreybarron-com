@@ -1,3 +1,5 @@
+// pages/components/Quote.js [Server Side]
+
 import Image from "next/image";
 import harbourBridge from "/public/IMG_2996.jpg";
 

@@ -1,3 +1,5 @@
+// pages/experience.js [Server Side]
+
 import PagesLayout from "./(layout)/PagesLayout";
 
 import { Montserrat, Dancing_Script } from "next/font/google";

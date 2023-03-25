@@ -23,12 +23,15 @@ export default function PagesLayout({ children }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main className="font-bodyText bg-primaryBg text-primary h-auto w-screen flex-1 snap-y snap-mandatory scroll-pt-0 overflow-y-scroll">
+      <main className="font-bodyText bg-primaryBg text-primary w-screen flex-1 snap-y snap-mandatory scroll-pt-0 overflow-y-scroll">
         <Navigation />
         <section className="flex flex-1 grid-flow-col grid-cols-12 sm:grid">
-          <div className="col-span-2 p-2"></div>
-          <div className="bg-primaryBg col-span-8 p-2 pt-8">{children}</div>
-          <div className=" col-span-2 p-2 "></div>
+          <div className="col-span-2  p-2"></div>
+          <div className="bg-primaryBg col-span-8 flex min-h-[calc(100vh-135px)] flex-1 flex-col break-words p-8">
+            {/* <div className="bg-primaryBg col-span-8 flex flex-col items-center break-words p-6 pt-8 "> */}
+            {children}
+          </div>
+          <div className="col-span-2  p-2 "></div>
         </section>
       </main>
       <Footer />

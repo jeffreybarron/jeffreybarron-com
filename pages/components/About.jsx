@@ -1,3 +1,5 @@
+// pages/components/About.js [Server Side]
+
 import React from "react";
 
 export default function About() {

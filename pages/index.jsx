@@ -1,4 +1,5 @@
-// pages/index.js
+// pages/index.js [Server Side]
+
 import RootLayout from "./(layout)/RootLayout";
 import About from "./components/About";
 import HeroPage from "./components/HeroPage";

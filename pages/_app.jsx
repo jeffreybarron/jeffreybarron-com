@@ -1,4 +1,5 @@
-// pages/_app.js
+// pages/_app.js [Server Side]
+
 import "@/styles/globals.css";
 
 export default function MyApp({ Component, pageProps }) {

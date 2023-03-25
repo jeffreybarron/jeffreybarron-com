@@ -1,15 +1,18 @@
 # psql command
-See this link for full list of psql command options 
+
+See this link for full list of psql command options
 https://www.postgresql.org/docs/devel/app-psql.html
 
 ## to execute SQL from psql clie
-_`command`_ must be either a command string that is completely parsable by the server (i.e., it contains no psql-specific features), or a single backslash command. Thus you cannot mix SQL and psql meta-commands within a `-c` option. To achieve that, you could use repeated `-c` options or pipe the string into psql, for example:
 
-``` sh
+*`command`* must be either a command string that is completely parsable by the server (i.e., it contains no psql-specific features), or a single backslash command. Thus you cannot mix SQL and psql meta-commands within a `-c` option. To achieve that, you could use repeated `-c` options or pipe the string into psql, for example:
+
+```sh
 psql -c 'SELECT * FROM foo;'
 ```
 
 # Connections
+
 You need
 Hostname
 portNumber
@@ -21,81 +24,97 @@ password
 
 ```bash
 $ ssh -l postgres 200.34.22.75
-postgres@200.34.22.75's password: 
+postgres@200.34.22.75's password:
 Linux localhost 4.9.0-9-amd64 #1 SMP Debian 4.9.168-1 (2019-04-12) x86_64
 ```
+
 // Login as PostgreSQL superuser “postgres” on remote PostgreSQL server using ssh (Linux)
 
 ```bash
 root@localhost:~# su - postgres
 ```
+
 // Login as PostgreSQL superuser “postgres” (Linux)
 
 ---
 
 ## Enter postgres terminal (shell)
+
 ```bash
 postgres@localhost:~$ psql
 ```
+
 // Enter PostgreSQL Command Line via “psql” client (psql)
 
 ---
 
 ## Connect database (psql)
+
 ```bash
 \c test
 You are now connected to database "test" as user "postgres".
 ```
+
 // Connect to a PostgreSQL database “test” as “postgres” user (psql)
 
 ---
 
 ## Check psql Client version (shell)
+
 ```bash
 $ psql -V
 ```
 
 (psql)
-``` sh
+
+```sh
 psql (PostgreSQL) 9.6.12
 ```
+
 // Check psql client version (psql)
 
 ---
 
 ## Check Postgres server version (SQL)
+
 ```bash
 select version();
 ```
+
 // Check postgres server version (SQL)
 
 # Users
 
 ## Create User
+
 https://www.postgresql.org/docs/8.0/sql-createuser.html
 
-``` SQL
+```SQL
 CREATE USER name [ [ WITH ] option [ ... ] ]
 
 where option can be:
- 
-      SYSID uid 
+
+      SYSID uid
     | CREATEDB | NOCREATEDB
     | CREATEUSER | NOCREATEUSER
     | IN GROUP groupname [, ...]
     | [ ENCRYPTED | UNENCRYPTED ] PASSWORD 'password'
     | VALID UNTIL 'abstime'
-    
+
 ```
-For Example 
-``` sql
+
+For Example
+
+```sql
 CREATE USER myadmin WITH PASSWORD 'veryhardpassword';
 ```
 
 ## Set/Reset postgres user password (psql)
+
 ```bash
 \password username
 ```
+
 // To set/reset a password for PostgreSQL database user (psql)
 For example: Change password for current user “postgres”:
 
@@ -105,166 +124,208 @@ Enter new password: xxxx
 Enter it again: xxxx
 ```
 
-``` sql
+```sql
 ALTER USER myadmin1 WITH PASSWORD 'mypassword';
 ```
 
 ---
 
 ## Show all users (psql)
+
 ```bash
 select * from pg_user;
 ```
+
 // Display PostgreSQL database users (SQL)
 
 ```bash
 \du
                                    List of roles
- Role name |                         Attributes                           | Member of 
+ Role name |                         Attributes                           | Member of
 -----------+------------------------------------------------------------+-----------
  testrole    |                                                            | {}
  postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS   | {}
 ```
+
 // Display PostgreSQL database roles (psql)
 
 ---
 
 ## Login & enter postgres terminal (psql)
+
 ```bash
 $ psql -U testuser mytest
 Password for user testuser: ......
 psql (9.6.12)
 Type "help" for help.
 ```
+
 // Login to PostgreSQL: psql -U user database (psql)
 
 # Databases
+
 ## List databases (psql)
+
 ```bash
 \l
 ```
+
 // List all databases using \l (or \list) (psql)
 
 ---
 
 ## List databases, more details(psql)
+
 ```bash
 \l+
 ```
 
 ---
+
 ## Connect to Database (psql)
-``` sh
+
+```sh
 \c [database-name]
 ```
+
 ---
+
 ## Help on `CREATE DATABASE` command syntax
+
 ```bash
 \h CREATE DATABASE
 ```
+
 // Help on SQL Command Syntax (For e.g. CREATE DATABASE) (psql)
 
 ## Create database (SQL)
+
 ```bash
 CREATE DATABASE mytest;
 ```
+
 // Creates a new database “mytest” (SQL)
 By default, the owner of the database is the current login user.
 
 ## Create database (psql)
+
 ```bash
 \c test
 You are now connected to database "test" as user "postgres".
 ```
+
 ---
+
 # Tables
+
 ## Show table (psql)
+
 ```bash
 \d TABLE_NAME
 ```
+
 // Show table definition including indexes, constraints & triggers (psql)
 
 ---
 
 ## Show details (psql)
+
 ```bash
 \d+ TABLE_NAME
 ```
+
 // More detailed table definition including description and physical disk size (psql)
 
 ---
 
 ## List tables from current schema (psql)
+
 ```bash
 \dt
 ```
+
 // List tables from current schema (psql)
 
 ---
 
 ## List tables from all schemas (psql)
+
 ```bash
 \dt *.*
 ```
+
 // List tables from all schemas (psql)
 
 ---
 
 ## List tables for a schema (psql)
+
 ```bash
 \dt <name-of-schema>.*
 ```
+
 // List the tables in a specific schema (psql)
 
 ---
 
 ## Copy table data to CSV file (psql (SQL))
+
 ```bash
 \copy (SELECT * FROM __table_name__) TO 'file_path_and_name.csv' WITH CSV
 ```
+
 // Export a table as CSV (psql)
 
 ---
 
 ## Check indexes for a table using sql (psql)
+
 ```bash
 SELECT * FROM pg_indexes WHERE tablename='__table_name__' AND
 schemaname='__schema_name__';
 ```
+
 // Show table indexes (SQL)
 
 ---
 
 ## Collects statistics about the contents of tables (SQL)
+
 ```bash
 ANALYZE [__table__]
 ```
+
 // Analyze a table and store the results in the pg_statistic system catalog (SQL)
 With no parameter, `ANALYZE` examines every table in the current database
 
 ---
 
 ## Adding comment on table/column (SQL)
+
 ```bash
 Comment on table employee is 'Stores employee records';
 ```
+
 // Comment on table (SQL)
 
 ```bash
 Comment on column employee.ssn is 'Employee Social Security Number';
 ```
+
 // Comment on column (SQL)
 
 ---
 
 ## Approximate Table Row count / Table Cardinality(SQL)
+
 ```bash
 SELECT reltuples AS card FROM pg_class WHERE relname = '<table_name>';
 ```
+
 // Use this to do fast (but not exact) counts from tables. Helpful if table has millions / billions of records and you just want estimated rows quickly. (SQL)
 
-
 # Views
+
 ## [List views](https://postgrescheatsheet.com/#/views?id=list-views)
 
 ```bash
@@ -282,7 +343,6 @@ SELECT reltuples AS card FROM pg_class WHERE relname = '<table_name>';
 ```
 
 // List views from all schemas (psql)
-
 
 # Indexes
 
@@ -304,7 +364,7 @@ This index specifies “btree” as the index method and uses “asc” to store
 \d employee
 postgres=# \d employee;
                                     Table "public.employee"
-   Column   |         Type          |                         Modifiers                         
+   Column   |         Type          |                         Modifiers
 ------------+-----------------------+-----------------------------------------------------------
  emp_id     | integer               | not null default nextval('employee_emp_id_seq'::regclass)
  emp_name   | character varying(50) | not null
@@ -323,7 +383,7 @@ Indexes:
 ```bash
 \di
                       List of relations
- Schema |         Name          | Type  |  Owner   |  Table   
+ Schema |         Name          | Type  |  Owner   |  Table
 --------+-----------------------+-------+----------+----------
  public | employee_pkey         | index | postgres | employee
  public | idx_employee_emp_name | index | postgres | employee
@@ -341,7 +401,6 @@ drop index idx_employee_emp_name;
 ```
 
 // Drop an existing index from a table (SQL)
-
 
 # Functions
 
@@ -368,7 +427,7 @@ This function takes 2 integers as parameters
 
 ```bash
 select add(5,9);
- add 
+ add
 -----
   14
 (1 row)
@@ -383,7 +442,7 @@ select add(5,9);
 ```bash
 \df
                         List of functions
- Schema | Name | Result data type | Argument data types |  Type  
+ Schema | Name | Result data type | Argument data types |  Type
 --------+------+------------------+---------------------+--------
  public | add  | integer          | integer, integer    | normal
 (1 row)
@@ -421,9 +480,9 @@ select add(5,9);
 ```bash
 $$
 CREATE TABLE IF NOT EXISTS employee (
-  emp_id SERIAL `PRIMARY` KEY,        
-  emp_name VARCHAR(50) NOT NULL,    
-  emp_ssn VARCHAR (30) NOT NULL `UNIQUE`, 
+  emp_id SERIAL `PRIMARY` KEY,
+  emp_name VARCHAR(50) NOT NULL,
+  emp_ssn VARCHAR (30) NOT NULL `UNIQUE`,
   emp_salary NUMERIC(9,2) NOT NULL
 );
 $$
@@ -468,7 +527,7 @@ $$
 ```bash
 insert into orders(ord_no, ord_date, ord_qty, ord_amount) values (1, '2019-08-29', 1, 10);
 INSERT 0 1
- 
+
 insert into orders(ord_no, ord_date, ord_qty, ord_amount) values (2, '2019-08-29', 1, 0);
 ERROR:  new row for relation "orders" violates check constraint "orders_ord_amount_check"
 DETAIL:  Failing row contains (2, 2019-08-29, 1, 0).
@@ -476,7 +535,7 @@ DETAIL:  Failing row contains (2, 2019-08-29, 1, 0).
 
 // Insert records in table with check constraints specified (SQL)
 
-Check constraint (Keyword “check”) is specified on order amount (ord_amount > 0) on table so any records with ord_amount <=0 will fail to insert
+Check constraint (Keyword “check”) is specified on order amount (ord_amount > 0) on table so any records with ord_amount \<=0 will fail to insert
 
 ---
 
@@ -485,17 +544,17 @@ Check constraint (Keyword “check”) is specified on order amount (ord_amount 
 ```bash
 $$
 CREATE TABLE IF NOT EXISTS department (
-  dept_id SERIAL PRIMARY KEY,        
-  dept_name VARCHAR(50) NOT NULL   
+  dept_id SERIAL PRIMARY KEY,
+  dept_name VARCHAR(50) NOT NULL
 );
 $$
 CREATE TABLE
- 
+
 $$
 CREATE TABLE IF NOT EXISTS employee (
-  emp_id SERIAL PRIMARY KEY,        
-  emp_name VARCHAR(50) NOT NULL,    
-  emp_ssn VARCHAR (30) NOT NULL UNIQUE, 
+  emp_id SERIAL PRIMARY KEY,
+  emp_name VARCHAR(50) NOT NULL,
+  emp_ssn VARCHAR (30) NOT NULL UNIQUE,
   emp_salary NUMERIC(9,2) NOT NULL,
   emp_dept_id INTEGER `REFERENCES` department (dept_id)    -- Foreign Key
 );
@@ -512,7 +571,7 @@ CREATE TABLE
 ```bash
 \d employee;
                                      Table "public.employee"
-   Column    |         Type          |                         Modifiers                         
+   Column    |         Type          |                         Modifiers
 -------------+-----------------------+-----------------------------------------------------------
  emp_id      | integer               | not null default nextval('employee_emp_id_seq'::regclass)
 . . .
@@ -525,15 +584,13 @@ Foreign-key constraints:
 
 // Display constraints on a table (using \d option) (psql)
 
-
-
-
 # String functions, Operators & Identifiers
+
 ## String concatenate Operator [ String || String ]
 
 ```bash
 select 'Gordon' || ' ' || 'Moore' As fullName;
-   fullname   
+   fullname
 --------------
  Gordon Moore
 (1 row)
@@ -549,7 +606,7 @@ This operator can be applied on table columns as well. e.g. “select first_name
 
 ```bash
 select |/25 As sqrt;
- sqrt 
+ sqrt
 ------
     5
 (1 row)
@@ -559,7 +616,7 @@ select |/25 As sqrt;
 
 ```bash
 select ||/125 As cubert;
- cubert 
+ cubert
 ------
     5
 (1 row)
@@ -573,7 +630,7 @@ select ||/125 As cubert;
 
 ```bash
 select 5! As factorial;
- factorial 
+ factorial
 -----------
        120
 (1 row)
@@ -587,7 +644,7 @@ select 5! As factorial;
 
 ```bash
 select ~60 As compl;
- compl 
+ compl
 ----------
       -61
 (1 row)
@@ -600,15 +657,16 @@ Assume if A = 60, now in binary format they will be as follows − A = 0011 1100
 ---
 
 ## String lower & upper function [ lower(string), upper(string) ]
+
 ```bash
 select lower('Rohit Kumawat') As lowerCase, upper('Rohit Kumawat') As upperCase;
-   lowercase   |   uppercase   
+   lowercase   |   uppercase
 ---------------+---------------
  rohit kumawat | ROHIT KUMAWAT
 (1 row)
 ```
- 
- // Postgres lower & upper function (SQL)
+
+// Postgres lower & upper function (SQL)
 
 ---
 
@@ -616,7 +674,7 @@ select lower('Rohit Kumawat') As lowerCase, upper('Rohit Kumawat') As upperCase;
 
 ```bash
 select char_length('Arizona') as num_chars;
- num_chars 
+ num_chars
 -----------
          7
 (1 row)
@@ -627,9 +685,10 @@ select char_length('Arizona') as num_chars;
 ---
 
 ## Location of specified substring [ position(substring in string) ]
+
 ```bash
 select position('pan' in 'japan') As pos;
- pos 
+ pos
 -----
    3
 (1 row)
@@ -643,7 +702,7 @@ select position('pan' in 'japan') As pos;
 
 ```bash
 select substring('postgres' from 3 for 3) As sub_string;
- sub_string 
+ sub_string
 ------------
  stg
 (1 row)
@@ -657,7 +716,7 @@ select substring('postgres' from 3 for 3) As sub_string;
 
 ```bash
 postgres=# select 'line 1'||E'\n'||'line 2' As newline;
- newline 
+ newline
 ---------
  line 1 +
  line 2
@@ -686,7 +745,7 @@ This allows constructing table or column names that would otherwise not be possi
 
 ```bash
 select $$Maria’s dogs$$ As col;
- col 
+ col
 --------------------
  Maria’s dogs
 (1 row)
@@ -696,14 +755,14 @@ select $$Maria’s dogs$$ As col;
 
 If a string contains many single quotes or backslashes then Postgres has an alternative called “dollar quoting”.
 
-
 # Queries
+
 ## [Create a new table](https://postgrescheatsheet.com/#/queries?id=create-a-new-table)
 
 ```bash
 CREATE TABLE IF NOT EXISTS employee (
   emp_id SERIAL PRIMARY KEY,        -- AUTO_INCREMENT integer, as primary key
-  emp_name VARCHAR(50) NOT NULL,    
+  emp_name VARCHAR(50) NOT NULL,
   emp_salary NUMERIC(9,2) NOT NULL
 );
 ```
@@ -717,7 +776,7 @@ CREATE TABLE IF NOT EXISTS employee (
 ```bash
 \d employee
                                     Table "public.employee"
-   Column   |         Type          |                         Modifiers                         
+   Column   |         Type          |                         Modifiers
 ------------+-----------------------+-----------------------------------------------------------
  emp_id     | integer               | not null default nextval('employee_emp_id_seq'::regclass)
  emp_name   | character varying(50) | not null
@@ -747,7 +806,7 @@ INSERT INTO employee (emp_name, emp_salary) VALUES
 
 ```bash
 select * from employee where emp_salary >= 5000;
- emp_id | emp_name | emp_salary 
+ emp_id | emp_name | emp_salary
 --------+----------+------------
     1   | John     |    5000.00
     3   | Robert   |    7500.50
@@ -762,7 +821,7 @@ select * from employee where emp_salary >= 5000;
 
 ```bash
 BEGIN;
-  update employee set emp_salary = 6000 where emp_name = 'John'; 
+  update employee set emp_salary = 6000 where emp_name = 'John';
 COMMIT;
 ```
 
@@ -815,16 +874,16 @@ TRUNCATE TABLE
 ## [Conditional delete query (Rollback)](https://postgrescheatsheet.com/#/queries?id=conditional-delete-query-rollback)
 
 ```bash
-BEGIN; 
+BEGIN;
   delete from employee where emp_id = 2;
   select * from employee where emp_id = 2;
-  emp_id | emp_name | emp_ssn | emp_salary | emp_dept_id 
+  emp_id | emp_name | emp_ssn | emp_salary | emp_dept_id
   --------+----------+---------+------------+-------------
   (0 rows)
 ROLLBACK;
 
 select * from employee where emp_id = 2;
- emp_id | emp_name | emp_ssn | emp_salary | emp_dept_id 
+ emp_id | emp_name | emp_ssn | emp_salary | emp_dept_id
 --------+----------+---------+------------+-------------
       2 | Rohit    | 1234    |    5000.00 |           1
 (1 row)
@@ -844,7 +903,7 @@ PREPARE myplan (int) AS SELECT * FROM employee where emp_id = $1;
 
 ```bash
 EXECUTE myplan(2);
- emp_id | emp_name | emp_ssn | emp_salary | emp_dept_id 
+ emp_id | emp_name | emp_ssn | emp_salary | emp_dept_id
 --------+----------+---------+------------+-------------
       2 | Rohit    | 1234    |    5000.00 |           1
 (1 row)
@@ -862,4 +921,3 @@ PreparedStatement pstmt = con.prepareStatement("select * from employee where emp
 pstmt.setInt(1, emp_id); // provide runtime value
 pstmt.execute();  // execute query
 ```
-

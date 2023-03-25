@@ -1,3 +1,5 @@
+// pages/components/Footer.js [Server Side]
+
 import React from "react";
 import Image from "next/image";
 import git_image from "./../../public/github-mark-white.png";
