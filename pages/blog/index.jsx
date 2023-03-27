@@ -28,7 +28,7 @@ export default function BlogPage({ blog }) {
         <div key={post}>
           <Link
             href={`/blog/${post}`}
-            className="border-primary border-b border-dotted"
+            className="border-primary-contrast border-b border-dotted"
           >
             {post}
           </Link>

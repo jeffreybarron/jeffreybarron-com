@@ -19,9 +19,9 @@ const fancyText = Dancing_Script({
 export default function HomePage() {
   return (
     <div className="">
-      {/* <div className="from-primaryBg to-secondaryBg bg-gradient-to-r box-decoration-clone"> */}
+      {/* <div className="from-primary to-secondary bg-gradient-to-r box-decoration-clone"> */}
       {/* <!-- Hero of the Show --> */}
-      <div className="from-primaryBg to-secondaryBg flex h-screen snap-start items-center justify-center bg-gradient-to-r box-decoration-clone p-4 align-middle">
+      <div className="from-primary to-secondary flex h-screen snap-start items-center justify-center bg-gradient-to-r box-decoration-clone p-4 align-middle">
         <HeroPage />
       </div>
       <Quote
@@ -29,11 +29,11 @@ export default function HomePage() {
           latin]."
         author="William of Ockham"
       />
-      <div className="from-primaryBg to-secondaryBg flex h-[10vh] snap-start items-center justify-center bg-gradient-to-r box-decoration-clone align-middle">
+      <div className="from-primary to-secondary flex h-[10vh] snap-start items-center justify-center bg-gradient-to-r box-decoration-clone align-middle">
         <Navigation />
       </div>
       {/* <!-- About Me Copy --> */}
-      <div className="flew-col text-primary font-bodyText min-h-[65vh] snap-start items-center justify-center align-middle">
+      <div className="flew-col text-primary-contrast font-bodyText min-h-[65vh] snap-start items-center justify-center align-middle">
         <About />
       </div>
       <Quote

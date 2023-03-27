@@ -11,7 +11,7 @@ export default function About() {
       <div className="md:px-24 md:pb-12">
         <p className="p-2 ">
           Hi there! I&apos;m{" "}
-          {/* <span className="font-fancyText text-callout px-2 text-3xl">
+          {/* <span className="font-fancyText text-tertiary px-2 text-3xl">
             Jeff
           </span> */}
           Jeff , a software engineer with a passion for exploring the why and
@@ -45,7 +45,7 @@ export default function About() {
         <div>
           Your&apos;s Sincerely,
           <br />
-          <p className="font-fancyText text-callout py-4 text-2xl md:pl-4">
+          <p className="font-fancyText text-tertiary py-4 text-2xl md:pl-4">
             Jeffrey Barron
           </p>
           <p className="italic md:text-left">
