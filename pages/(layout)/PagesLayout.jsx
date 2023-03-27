@@ -1,7 +1,7 @@
 // layout/PageLayout.js
 import Head from "next/head";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import Navigation from "../(components)/Navigation";
+import Footer from "../(components)/Footer";
 import { Montserrat, Dancing_Script } from "next/font/google";
 const bodyText = Montserrat({
   variable: "--font-bodytext",

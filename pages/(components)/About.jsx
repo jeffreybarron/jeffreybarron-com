@@ -10,7 +10,7 @@ export default function About() {
       </div>
       <div className="md:px-24 md:pb-12">
         <p className="p-2 ">
-          Hi there! I'm{" "}
+          Hi there! I&apos;m{" "}
           {/* <span className="font-fancyText text-callout px-2 text-3xl">
             Jeff
           </span> */}
@@ -20,30 +20,30 @@ export default function About() {
           science, and technology.
         </p>
         <p className="p-2 ">
-          My interests are broad, and I'm deeply invested in solving business
-          challenges around people, process, and technology, developing the
-          people within my sphere of influence, and studying neuroscience and
-          cognitive psychology.
+          My interests are broad, and I&apos;m deeply invested in solving
+          business challenges around people, process, and technology, developing
+          the people within my sphere of influence, and studying neuroscience
+          and cognitive psychology.
         </p>
         <p className="p-2 ">
           I enjoy thinking deeply about complex problems and finding creative
-          solutions that bring structure and order to ambiguous issues. When I'm
-          not coding, I'm spending time with my wife, children, and family.
-          They're my world, and I'm constantly amazed by how much they teach me
-          about life.
+          solutions that bring structure and order to ambiguous issues. When
+          I&apos;m not coding, I&apos;m spending time with my wife, children,
+          and family. They&apos;re my world, and I&apos;m constantly amazed by
+          how much they teach me about life.
         </p>
         <p className="p-2 ">
-          Overall, I'm a highly motivated individual with a passion for using
-          technology to solve real-world problems. Whether it's building
-          user-friendly websites or designing systems that make people's lives
-          easier, I'm always up for a challenge. I believe that by combining my
-          technical skills with a deep understanding of human psychology, I can
-          make a positive impact on the world and help create a better future
-          for all of us.
+          Overall, I&apos;m a highly motivated individual with a passion for
+          using technology to solve real-world problems. Whether it&apos;s
+          building user-friendly websites or designing systems that make
+          people&apos;s lives easier, I&apos;m always up for a challenge. I
+          believe that by combining my technical skills with a deep
+          understanding of human psychology, I can make a positive impact on the
+          world and help create a better future for all of us.
         </p>
         <br />
         <div>
-          Your's Sincerely,
+          Your&apos;s Sincerely,
           <br />
           <p className="font-fancyText text-callout py-4 text-2xl md:pl-4">
             Jeffrey Barron

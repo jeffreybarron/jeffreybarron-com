@@ -3,7 +3,7 @@
 import path from "path";
 import Link from "next/link";
 import PagesLayout from "../(layout)/PagesLayout";
-import { truncateFileExtensions } from "./../lib/helper";
+import { truncateFileExtensions } from "../../lib/helper";
 
 import { Montserrat, Dancing_Script } from "next/font/google";
 const bodyText = Montserrat({

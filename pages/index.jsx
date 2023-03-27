@@ -1,10 +1,10 @@
 // pages/index.js [Server Side]
 
 import RootLayout from "./(layout)/RootLayout";
-import About from "./components/About";
-import HeroPage from "./components/HeroPage";
-import Navigation from "./components/Navigation";
-import Quote from "./components/Quote";
+import About from "./(components)/About";
+import HeroPage from "./(components)/HeroPage";
+import Navigation from "./(components)/Navigation";
+import Quote from "./(components)/Quote";
 
 import { Montserrat, Dancing_Script } from "next/font/google";
 const bodyText = Montserrat({

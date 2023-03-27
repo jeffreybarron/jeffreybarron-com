@@ -10,6 +10,10 @@ TODO: figure out workflow import obsidian library
 TODO: Add page images
 TODO: fix blog/index.js so one bad file doesnt crash site.
 
+### MDX Implementation
+
+- add `mdxRs` to nex.config.js
+
 ## Release 0.1.x
 
 Build basic system npx create-next-app@latest
