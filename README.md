@@ -1,3 +1,8 @@
+# Portfolio website of Jeffrey Barron.
+
+initial build
+
+```shell
 npx create-next-app@latest
 src false
 app false
@@ -6,6 +11,9 @@ eslint true
 
 npm install --save-dev @tailwindcss/typography autoprefixer postcss prettier prettier-plugin-tailwindcss tailwindcss
 npm install --save @next/font
+```
+
+some babel config I dont want to chuck yet
 
 ```.babelrcc
 {
@@ -32,27 +40,9 @@ npm install --save @next/font
 }
 ```
 
-TODO: Checkout https://rehype-pretty-code.netlify.app/
-
-Primary
-Secondary
-Tertiary
-
-Light
-Dark
-
-Success
-Info
-Warning
-Danger
+some Css I dont want to delete
 
 ```css
---Base: #f1f3f0;
---Accent: #bb7f4c;
---Secondary: #f77316;
---Primary: #7b8bac;
---Default: #0a192f;
-
 pre {
   inline-size: 100%;
   white-space: pre-wrap; /* css-3 */
