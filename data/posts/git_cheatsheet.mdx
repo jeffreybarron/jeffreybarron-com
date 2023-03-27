@@ -1,11 +1,13 @@
 # Git Cheat Sheet
 
-git push remote `requires` ssh setup on the local server.
-
-## Definitions
+#### Definitions
 
 **_head:_** When working with Git, only *one* branch can be checked out at a time - and this is what's called the "HEAD" branch. Often, this is also referred to as the "active" or "current" branch.  
 **_detached head:_** In rare cases, the HEAD file does NOT contain a branch reference, but a SHA-1 value of a specific revision. This happens when you checkout a specific commit, tag, or remote branch. Your repository is then in a state called [Detached HEAD](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit).
+
+#### Helpful links
+
+- [Scott Hanselmann talks about git](https://youtu.be/Mfz8NQncwiQ?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr)
 
 ## Configure Git
 
@@ -113,6 +115,8 @@ git branch -delete <branch>
 
 ### Remote Repositories
 
+`git push remote` requires ssh setup on the local server.
+
 ```shell
 # Show remotes
 git remote show
@@ -141,13 +145,13 @@ git push -u origin main
 ## Git Pull Request
 
 ```shell
-
+placeholder
 ```
 
 ## Git Merge Request
 
 ```shell
-
+placeholder
 ```
 
 ## Git merge pull request
@@ -161,10 +165,6 @@ git push -u origin main
 7. PERSON1: make a branch by the same name as PERSON2 branch
 8. pull PERSON2 branch into PERSON1 Branch
 9. review, change, merge commit as normal
-10.
-
-https://youtu.be/Mfz8NQncwiQ?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr
-![[Pasted image 20230119182734.png]]
 
 ```shell
 --no-ff means ??
