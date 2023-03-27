@@ -28,7 +28,7 @@ export const Heading = {
 
 export const Pre = {
   pre: ({ children }) => (
-    <pre className="border-primary-contrast language-jsx line-numbers bg-primary-800 my-4 border border-dotted p-4">
+    <pre className="border-primary-contrast language-jsx line-numbers bg-primary-800 my-4 border border-dotted p-4 text-sm">
       {children}
     </pre>
   ),

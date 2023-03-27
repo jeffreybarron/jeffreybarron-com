@@ -7,7 +7,7 @@ https://www.postgresql.org/docs/devel/app-psql.html
 
 *`command`* must be either a command string that is completely parsable by the server (i.e., it contains no psql-specific features), or a single backslash command. Thus you cannot mix SQL and psql meta-commands within a `-c` option. To achieve that, you could use repeated `-c` options or pipe the string into psql, for example:
 
-```sh
+```shell
 psql -c 'SELECT * FROM foo;'
 ```
 
@@ -67,7 +67,7 @@ $ psql -V
 
 (psql)
 
-```sh
+```shell
 psql (PostgreSQL) 9.6.12
 ```
 
@@ -184,7 +184,7 @@ Type "help" for help.
 
 ## Connect to Database (psql)
 
-```sh
+```shell
 \c [database-name]
 ```
 
