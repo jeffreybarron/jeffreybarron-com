@@ -1,15 +1,15 @@
 # Git Cheat Sheet
 
-git push remote requires ssh setup on the local server.
+git push remote `requires` ssh setup on the local server.
 
-## Definitions:
+## Definitions
 
-- **_HEAD:_** When working with Git, only *one* branch can be checked out at a time - and this is what's called the "HEAD" branch. Often, this is also referred to as the "active" or "current" branch.
-- **_Detached HEAD:_** In rare cases, the HEAD file does NOT contain a branch reference, but a SHA-1 value of a specific revision. This happens when you checkout a specific commit, tag, or remote branch. Your repository is then in a state called [Detached HEAD](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit).
+**_head:_** When working with Git, only *one* branch can be checked out at a time - and this is what's called the "HEAD" branch. Often, this is also referred to as the "active" or "current" branch.  
+**_detached head:_** In rare cases, the HEAD file does NOT contain a branch reference, but a SHA-1 value of a specific revision. This happens when you checkout a specific commit, tag, or remote branch. Your repository is then in a state called [Detached HEAD](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit).
 
 ## Configure Git
 
-```bash showLineNumbers
+```shell
 # Config
 git config user.name <name>
 git config --global user.name <name>
@@ -25,7 +25,7 @@ git clone <repo>
 
 ## Managing Code versions
 
-```bash
+```shell
 # addd files to git for tracking
 git add .
 
@@ -73,7 +73,7 @@ git stash apply <index>
 
 ### Analysis
 
-```bash
+```shell
 git satus
 
 git log
@@ -87,7 +87,7 @@ git diff
 
 ### looking for last known good code
 
-```bash
+```shell
 git bisect start
 git bisect bad
 git bisect good <commit id>
@@ -95,7 +95,7 @@ git bisect good <commit id>
 
 ### Git Branches
 
-```bash
+```shell
 # List all of the branches in your repo. Add a <branch> argument to create a new branch with the name <branch>.
 git branch
 # show all branches
@@ -113,7 +113,7 @@ git branch -delete <branch>
 
 ### Remote Repositories
 
-```bash
+```shell
 # Show remotes
 git remote show
 git remote show <remote repository name>
@@ -140,13 +140,13 @@ git push -u origin main
 
 ## Git Pull Request
 
-```bash
+```shell
 
 ```
 
 ## Git Merge Request
 
-```bash
+```shell
 
 ```
 
@@ -166,48 +166,45 @@ git push -u origin main
 https://youtu.be/Mfz8NQncwiQ?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr
 ![[Pasted image 20230119182734.png]]
 
-```bash
+```shell
 --no-ff means ??
 ```
 
 ## Rebase and Merge
 
-```bash
-
-
+```shell
+placeholder
 ```
 
 ### Rebase, squash
 
-```bash
+```shell
 # git rebase squash
-
-fixup
-
+placeholder
 ```
 
 ## Git Cherrypick
 
-```bash
-
+```shell
+placeholder
 ```
 
-# GitLab
+## GitLab
 
-## Command line instructions from GitLab
+### Command line instructions from GitLab
 
 You can also upload existing files from your computer using the instructions below.
 
-##### Git global setup
+### Git global setup
 
-```
+```shell
 git config --global user.name "John Doe"
 git config --global user.email "john.doe@gmail.com"
 ```
 
-##### Create a new repository
+### Create a new repository
 
-```
+```shell
 git clone git@gitlab.com:uow-itms/greenfields-nextjs.git
 cd greenfields-nextjs
 git switch -c main
@@ -217,11 +214,11 @@ git commit -m "add README"
 git push -u origin main
 ```
 
-##### Push an existing folder
+### Push an existing folder
 
 first create a gitlab repo on the server with no readme.md
 
-```
+```shell
 cd existing_folder
 git init --initial-branch=main
 git remote add origin git@gitlab.com:uow-itms/greenfields-nextjs.git
@@ -230,16 +227,12 @@ git commit -m "Initial commit"
 git push -u origin main
 ```
 
-##### Push an existing Git repository
+### Push an existing Git repository
 
-```
+```shell
 cd existing_repo
 git remote rename origin old-origin
 git remote add origin git@gitlab.com:uow-itms/greenfields-nextjs.git
 git push -u origin --all
 git push -u origin --tags
-```
-
-```
-
 ```

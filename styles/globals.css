@@ -41,18 +41,8 @@
   li {
     @apply marker:text-secondary list-inside marker:content-['▹_'];
   }
-  pre {
-    inline-size: 100%;
-    white-space: pre-wrap; /* css-3 */
-    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-    white-space: -pre-wrap; /* Opera 4-6 */
-    white-space: -o-pre-wrap; /* Opera 7 */
-    word-wrap: break-word; /* Internet Explorer 5.5+ */
-    /* @apply bg-primary-contrast my-2 p-4 font-mono text-black; */
-    /* align pre in middle of container */
-  }
   code {
-    @apply text-sm;
+    @apply text-primary-contrast text-sm;
   }
 }
 
@@ -338,4 +328,34 @@ pre[class*="language-"] > code[class*="language-"] {
   background: #f7ebc6;
   box-shadow: inset 5px 0 0 #f7d87c;
   z-index: 0;
+}
+
+/*********************************************************
+**********************************************************
+*
+*   Custom Line Numbers
+*
+**********************************************************
+*********************************************************/
+
+pre > code {
+  counter-reset: line;
+  /* display: grid; */
+}
+code .line::before {
+  counter-increment: line;
+  content: counter(line);
+
+  /* Other styling */
+  display: inline-block;
+  width: 1.5rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: gray;
+}
+code[data-line-numbers-max-digits="2"] .line::before {
+  width: 1.5rem;
+}
+code[data-line-numbers-max-digits="3"] .line::before {
+  width: 2rem;
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      code {
+        counter-reset: line;
+      }
+      code .line::before {
+        counter-increment: line;
+        content: counter(line);
+
+        /* Other styling */
+        display: inline-block;
+        width: 1rem;
+        margin-right: 2rem;
+        text-align: right;
+        color: black;
+      }
+      code[data-line-numbers-max-digits="2"] .line::before {
+        width: 2rem;
+      }
+      code[data-line-numbers-max-digits="3"] .line::before {
+        width: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Line Numbers</h1>
+    <pre>
+      <code>
+        <span class="line">a line of text</span>
+        <span class="line">a line of text</span>
+        <span class="line">a line of text</span>
+        <span class="line">a line of text</span>
+      </code>
+    </pre>
+  </body>
+</html>

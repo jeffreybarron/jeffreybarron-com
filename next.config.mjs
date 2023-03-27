@@ -9,6 +9,10 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
+const prettyCodeOptions = {
+  keepBackground: false,
+};
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Configure pageExtensions to include md and mdx
@@ -31,7 +35,7 @@ export default nextMDX({
     rehypePlugins: [
       rehypeSlug,
       [rehypeAutolinkHeadings, { properties: { className: ["anchor"] } }],
-      rehypePrettyCode,
+      [rehypePrettyCode, prettyCodeOptions],
       rehypeAccessibleEmojis,
       [
         rehypePrism,

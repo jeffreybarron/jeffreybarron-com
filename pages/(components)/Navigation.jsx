@@ -37,6 +37,14 @@ export default function Navigation() {
           </div>
         </Link>
         <Link
+          href="/release"
+          className="border-primary-contrast border-b border-dotted"
+        >
+          <div className="hover:text-tertiary flex items-center justify-center p-1 hover:-rotate-6">
+            release
+          </div>
+        </Link>
+        <Link
           href="/contact"
           className="border-primary-contrast border-b border-dotted"
         >

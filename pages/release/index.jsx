@@ -1,4 +1,4 @@
-// pages/blog/index.js [??? Side]
+// pages/release/index.js [??? Side]
 
 import path from "path";
 import Link from "next/link";
@@ -15,18 +15,18 @@ const fancyText = Dancing_Script({
   subsets: ["latin"],
 });
 
-BlogPage.getLayout = function getLayout(page) {
+ReleasePage.getLayout = function getLayout(page) {
   return <PagesLayout>{page}</PagesLayout>;
 };
 
-export default function BlogPage({ blog }) {
+export default function ReleasePage({ release }) {
   return (
     <div>
-      <h1>blog roll</h1>
+      <h1>Release History</h1>
       <ul>
-        {blog.map((post) => (
+        {release.map((post) => (
           <li key={post}>
-            <Link href={`/blog/${post}`}>{post}</Link>
+            <Link href={`/release/${post}`}>{post}</Link>
           </li>
         ))}
       </ul>
@@ -36,16 +36,16 @@ export default function BlogPage({ blog }) {
 
 export async function getStaticProps() {
   const fs = require("fs");
-  const directoryPath = path.join(process.cwd(), "data/posts");
+  const directoryPath = path.join(process.cwd(), "data/release");
   const allFiles = fs.readdirSync(directoryPath, "utf-8");
-  const blogFiles = allFiles.filter((file) => {
+  const releaseFiles = allFiles.filter((file) => {
     return file.endsWith(".md") || file.endsWith(".mdx");
   });
-  const data = truncateFileExtensions(blogFiles);
+  const data = truncateFileExtensions(releaseFiles);
   return {
     // Passed to the page component as props
     props: {
-      blog: data,
+      release: data,
     },
   };
 }

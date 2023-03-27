@@ -46,8 +46,21 @@ Info
 Warning
 Danger
 
---Base: #F1F3F0;
---Accent: #BB7F4C;
---Secondary: #F77316;
---Primary: #7B8BAC;
---Default: #0A192F;
+```css
+--Base: #f1f3f0;
+--Accent: #bb7f4c;
+--Secondary: #f77316;
+--Primary: #7b8bac;
+--Default: #0a192f;
+
+pre {
+  inline-size: 100%;
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  /* @apply bg-primary-contrast my-2 p-4 font-mono text-black; */
+  /* align pre in middle of container */
+}
+```

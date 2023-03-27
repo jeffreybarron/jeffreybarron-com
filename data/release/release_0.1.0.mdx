@@ -1,23 +1,14 @@
+[`jeffreybarron.com`](https://jeffreybarron.com)
+
 # Change Log
-
-## Release 0.2.x TODO
-
-TODO: add meta data and customise pages
-TODO: Add line numbers:
-TODO: sort and catagorise on meta tags
-TODO: turn index into tiled cards
-TODO: remove meta-data from [slug] page
-TODO: figure out workflow import obsidian library
-TODO: Add page images
-TODO: fix blog/index.js so one bad file doesnt crash site.
-TODO: Add better code highlighting https://rehype-pretty-code.netlify.app/
-
-### MDX Implementation
-
-- add `mdxRs` to nex.config.js
 
 ## Release 0.1.x
 
+### Completed
+
+Build initiation
+
+```shell
 Build basic system npx create-next-app@latest
 src false
 app false
@@ -26,9 +17,11 @@ eslint true
 
 npm install --save-dev @tailwindcss/typography autoprefixer postcss prettier prettier-plugin-tailwindcss tailwindcss
 npm install --save @next/font
+```
 
-### from package.json for 0.1.x
+`./package.json`
 
+```yaml
 "dependencies": {
 "@mdx-js/loader": "^2.3.0",
 "@mdx-js/react": "^2.3.0",
@@ -47,3 +40,4 @@ npm install --save @next/font
 "prettier-plugin-tailwindcss": "^0.2.5",
 "tailwindcss": "^3.2.7"
 }
+```
