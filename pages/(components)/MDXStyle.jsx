@@ -2,12 +2,12 @@ import Link from "next/link";
 // pages/components/mdx/Headings.js;
 
 export const Para = {
-  P: ({ children }) => <p className="">{children}</p>,
+  P: ({ children }) => <p className="py-1">{children}</p>,
 };
 
 export const Heading = {
   H1: ({ children }) => (
-    <h1 className="pb-2 text-2xl font-extrabold uppercase text-green-400 underline hover:after:content-['_#']">
+    <h1 className="pb-2 text-2xl font-extrabold uppercase underline hover:after:content-['_#']">
       {children}
     </h1>
   ),
@@ -28,11 +28,9 @@ export const Heading = {
 
 export const Pre = {
   pre: ({ children }) => (
-    <pre className="border-primary-contrast line-numbers border border-dotted bg-black p-4">
+    <pre className="border-primary-contrast language-jsx line-numbers bg-primary-800 my-4 border border-dotted p-4">
       {children}
     </pre>
   ),
-  code: ({ children }) => (
-    <code className="bg-black text-white">{children}</code>
-  ),
+  code: ({ children }) => <code className="">{children}</code>,
 };

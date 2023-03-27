@@ -20,7 +20,7 @@ const components = {
   h2: Heading.H2,
   h3: Heading.H3,
   h4: Heading.H4,
-  // p: Para,
+  p: Para.P,
   pre: Pre.pre,
   code: Pre.code,
 };

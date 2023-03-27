@@ -3,12 +3,14 @@
 ## Release 0.2.x TODO
 
 TODO: add meta data and customise pages
+TODO: Add line numbers:
 TODO: sort and catagorise on meta tags
 TODO: turn index into tiled cards
 TODO: remove meta-data from [slug] page
 TODO: figure out workflow import obsidian library
 TODO: Add page images
 TODO: fix blog/index.js so one bad file doesnt crash site.
+TODO: Add better code highlighting https://rehype-pretty-code.netlify.app/
 
 ### MDX Implementation
 

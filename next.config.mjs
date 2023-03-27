@@ -33,13 +33,13 @@ export default nextMDX({
       [rehypeAutolinkHeadings, { properties: { className: ["anchor"] } }],
       rehypePrettyCode,
       rehypeAccessibleEmojis,
-      // [
-      //   rehypePrism,
-      //   {
-      //     theme: "twilight",
-      //     plugins: ["line-numbers", "autolinker", "show-language"],
-      //   },
-      // ],
+      [
+        rehypePrism,
+        {
+          theme: "twilight",
+          plugins: ["line-numbers", "autolinker", "show-language"],
+        },
+      ],
     ],
     // If you use `MDXProvider`, uncomment the following line.
     // providerImportSource: "@mdx-js/react",

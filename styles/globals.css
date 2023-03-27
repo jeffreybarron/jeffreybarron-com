@@ -51,9 +51,6 @@
     /* @apply bg-primary-contrast my-2 p-4 font-mono text-black; */
     /* align pre in middle of container */
   }
-  pre code {
-    display: grid;
-  }
 }
 
 /*********************************************************
