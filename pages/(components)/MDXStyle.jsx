@@ -6,20 +6,13 @@ export const Para = {
 };
 
 export const Heading = {
-  H1: ({ id, children }) => {
-    let style =
-      "pb-2 text-2xl font-extrabold uppercase text-green-400 underline hover:after:content-['_#']";
-    if (id) {
-      return (
-        <Link href={`#${id}`} id={`${id}`} className="anchor">
-          <h1 className={style}>{children}</h1>
-        </Link>
-      );
-    }
-    return <h1 className={style}>{children}</h1>;
-  },
+  H1: ({ children }) => (
+    <h1 className="pb-2 text-2xl font-extrabold uppercase text-green-400 underline hover:after:content-['_#']">
+      {children}
+    </h1>
+  ),
   H2: ({ children }) => (
-    <h2 className="text-secondaryBg py-2 pt-4 text-2xl font-semibold capitalize">
+    <h2 className="text-secondaryBg py-2 pt-4 text-2xl font-semibold capitalize hover:after:content-['_#']">
       {children}
     </h2>
   ),

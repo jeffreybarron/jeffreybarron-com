@@ -33,3 +33,21 @@ npm install --save @next/font
 ```
 
 TODO: Checkout https://rehype-pretty-code.netlify.app/
+
+Primary
+Secondary
+Tertiary
+
+Light
+Dark
+
+Success
+Info
+Warning
+Danger
+
+--Base: #F1F3F0;
+--Accent: #BB7F4C;
+--Secondary: #F77316;
+--Primary: #7B8BAC;
+--Default: #0A192F;

@@ -23,6 +23,26 @@ module.exports = {
         warning: "#f8d7da",
         info: "#cce5ff",
         disabled: "#e2e3e5",
+
+        // primary: {
+        //   light: "#7b8bac",
+        //   default: "#0a192f", // dark blue
+        //   dark: "#d1d5db", // text-slate-100
+        //   contrast: "#d1d5db", // text-slate-100
+        // },
+        // secondary: {
+        //   light: "#ff7961",
+        //   default: "#f87316", // orange
+        //   dark: "#ba000d",
+        //   contrast: "#d1d5db", // text-slate-100
+        // },
+        // tertiary: {
+        //   // accent
+        //   light: "#7b8bac",
+        //   default: "#0a192f", // dark blue
+        //   dark: "#d1d5db", // text-slate-100
+        //   contrast: "#d1d5db", // text-slate-100
+        // },
       },
       fontFamily: {
         // bodyText: ["var(--font-bodytext)", ...fontFamily.sans],
