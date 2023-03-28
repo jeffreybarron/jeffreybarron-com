@@ -14,18 +14,23 @@ const fancyText = Dancing_Script({
 
 import Navigation from "../(components)/Navigation";
 import Footer from "../(components)/Footer";
-import { Heading, Para, Pre } from "../(components)/MDXStyle";
+import { Heading, Pre, Lists } from "../(components)/MDXStyle";
+import Para from "../(components)/MDXStyle";
 const components = {
   h1: Heading.H1,
   h2: Heading.H2,
   h3: Heading.H3,
   h4: Heading.H4,
-  p: Para.P,
-  pre: Pre.pre,
-  code: Pre.code,
+  p: Para,
+  pre: Pre.PRE,
+  code: Pre.CODE,
+  li: Lists.LI,
+  ul: Lists.UL,
+  ol: Lists.OL,  
 };
 
 export default function PagesLayout({ children, ...props }) {
+
   return (
     <MDXProvider components={components}>
       <div className={`${bodyText.variable} ${fancyText.variable}`}>

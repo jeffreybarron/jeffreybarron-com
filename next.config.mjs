@@ -1,9 +1,12 @@
 import nextMDX from "@next/mdx";
 import { serialize } from "next-mdx-remote/serialize";
 import readingTime from "reading-time";
-import rehypePrism from "rehype-prism";
 
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdx from "remark-mdx";
 import remarkGfm from "remark-gfm";
+
+import rehypePrism from "rehype-prism";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -31,7 +34,7 @@ export default nextMDX({
   extension: /\.mdx?$/,
   options: {
     // https://github.com/remarkjs/remark-gfm#install
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkMdx, [remarkFrontmatter, 'yaml'], remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       [rehypeAutolinkHeadings, { properties: { className: ["anchor"] } }],

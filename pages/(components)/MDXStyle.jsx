@@ -1,9 +1,24 @@
+// import { data } from "autoprefixer";
 import Link from "next/link";
 // pages/components/mdx/Headings.js;
 
-export const Para = {
-  P: ({ children }) => <p className="py-1">{children}</p>,
-};
+export default function Para({ children }) {
+  // const data = <p className="inline-block py-2">{children}</p>;
+  // return output;
+  if (children.hasOwnProperty("type")) {
+    switch(children.type){
+      case "a":
+        return (
+          <Link href={children.props.href} className="inline-block py-2" passHref>
+            <>{children}</>
+          </Link>
+        );
+      case "li":
+        return <li>{children}</li>;
+    }
+  }
+  return <p className="inline-block py-2">{children}</p>;
+}
 
 export const Heading = {
   H1: ({ children }) => (
@@ -27,12 +42,22 @@ export const Heading = {
 };
 
 export const Pre = {
-  pre: ({ children }) => (
+  PRE: ({ children }) => (
     <pre className="language-jsx my-4 grid border border-dotted p-4">
       {children}
     </pre>
   ),
-  code: ({ children }) => (
+  CODE: ({ children }) => (
     <code className="line-numbers text-tertiary">{children}</code>
   ),
+};
+
+export const Lists = {
+  OL: ({ children }) => (<ol>{children}</ol>),
+  UL: ({ children }) => (
+  <ul>
+    {children}
+  </ul>
+  ),
+  LI: ({ children }) => (<li>{children}</li>),
 };
