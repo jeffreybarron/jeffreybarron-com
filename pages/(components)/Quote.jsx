@@ -1,7 +1,7 @@
 // pages/components/Quote.js [Server Side]
 
 import Image from "next/image";
-import harbourBridge from "/public/IMG_2996.jpg";
+import harbourBridge from "/public/20230319_194239_dusk.jpg";
 
 function Quote(props) {
   return (

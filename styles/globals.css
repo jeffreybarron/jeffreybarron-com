@@ -1,28 +1,6 @@
-/**
- * This injects Tailwind's base styles and any base styles registered by
- * plugins.
- */
 @tailwind base;
-
-/**
-   * This injects Tailwind's component classes and any component classes
-   * registered by plugins.
-   */
 @tailwind components;
-
-/**
-   * This injects Tailwind's utility classes and any utility classes registered
-   * by plugins.
-   */
 @tailwind utilities;
-
-/**
-   * Use this directive to control where Tailwind injects the hover, focus,
-   * responsive, dark mode, and other variants of each class.
-   *
-   * If omitted, Tailwind will append these classes to the very end of
-   * your stylesheet by default.
-   */
 @tailwind variants;
 
 @layer base {
@@ -38,13 +16,44 @@
   h4 {
     @apply text-tertiary py-2 pt-2 text-lg italic;
   }
+  ul {
+    @apply marker:content-['▹_'] ml-3
+  }
+  /* This is necessary because @tailwindcss base wipes out nested formattting */
+  ul ul{
+    @apply pl-3
+  }
+  ul ul ul {
+    @apply pl-3
+  }
+  ul ul ul ul {
+    @apply pl-3
+  }
+  ul ul ul ul ul{
+    @apply pl-3
+  }
+  ol {
+    @apply list-decimal marker:text-sm ml-4
+  }
+  ol ol{
+    @apply pl-3
+  }
+  ol ol ol {
+    @apply pl-3
+  }
+  ol ol ol ol {
+    @apply pl-3
+  }
+  ol ol ol ol ol{
+    @apply pl-3
+  }
   li {
-    @apply marker:text-secondary list-inside marker:content-['▹_'];
+    @apply marker:text-secondary   
   }
   code {
     @apply text-primary-contrast text-sm;
   }
-}
+}  
 
 /*********************************************************
 **********************************************************

@@ -16,6 +16,8 @@ const prettyCodeOptions = {
   keepBackground: false,
 };
 
+const rehypeAutoLinkOptions = ['wrap' ]
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Configure pageExtensions to include md and mdx
@@ -37,7 +39,7 @@ export default nextMDX({
     remarkPlugins: [remarkMdx, [remarkFrontmatter, 'yaml'], remarkGfm],
     rehypePlugins: [
       rehypeSlug,
-      [rehypeAutolinkHeadings, { properties: { className: ["anchor"] } }],
+      [rehypeAutolinkHeadings, { properties: { className: ["anchor"] }, behaviour:'wrap'} ],
       [rehypePrettyCode, prettyCodeOptions],
       rehypeAccessibleEmojis,
       [

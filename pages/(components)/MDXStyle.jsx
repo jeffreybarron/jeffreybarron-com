@@ -3,27 +3,14 @@ import Link from "next/link";
 // pages/components/mdx/Headings.js;
 
 export default function Para({ children }) {
-  // const data = <p className="inline-block py-2">{children}</p>;
-  // return output;
-  if (children.hasOwnProperty("type")) {
-    switch(children.type){
-      case "a":
-        return (
-          <Link href={children.props.href} className="inline-block py-2" passHref>
-            <>{children}</>
-          </Link>
-        );
-      case "li":
-        return <li>{children}</li>;
-    }
-  }
-  return <p className="inline-block py-2">{children}</p>;
+    return <p className="inline-block py-2">{children}</p>;
 }
 
 export const Heading = {
-  H1: ({ children }) => (
+  //http://localhost:3002/release/[slug]
+  H1: ({ children  }) => (
     <h1 className="pb-2 text-2xl font-extrabold uppercase underline hover:after:content-['_#']">
-      {children}
+        <>{children}</>
     </h1>
   ),
   H2: ({ children }) => (
@@ -59,5 +46,5 @@ export const Lists = {
     {children}
   </ul>
   ),
-  LI: ({ children }) => (<li>{children}</li>),
+  LI: ({ children }) => (<li >{children}</li>),
 };

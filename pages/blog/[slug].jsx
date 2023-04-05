@@ -14,7 +14,8 @@ export default function Page() {
 
   return (
     <MDXLayout>
-      <Post />
+      {/* TODO: how to pass through the slug for the headings */}
+      <Post slug={slug}/>
     </MDXLayout>
   );
 }

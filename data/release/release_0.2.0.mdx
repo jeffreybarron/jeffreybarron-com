@@ -4,6 +4,23 @@
 
 ## Release 0.2.x
 
+### WIP
+
+- `BUG:` right-click heading "Copy Link to Highlight" yeilds nonsense. use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
+- `BUG:` fix blog/index.js so one bad file doesnt crash site.
+- `TODO:` add meta data tags tp customise pages and create panels
+  [`See Link`](https://mikebifulco.com/posts/mdx-auto-link-headings-with-rehype-slug#step-2-use-mdxprovider-to-customize-the-way-heading-tags-render)
+    - `TODO:` remove meta-data from [slug] page
+    - `TODO:` sort and catagorise on meta tag info meta tags
+    - `TODO:` use tag metatag for catorising (https://mdxjs.com/guides/frontmatter/)
+    - `TODO:` turn index into tiled cards
+- `TODO:` Add page images
+- `TODO:` figure out workflow import obsidian library
+- `TODO:` Get rid of @apply directives 
+- `TODO:` Add better code highlighting https://rehype-pretty-code.netlify.app/
+- `TODO:` Add better navigation for larger site with more pages, put `/release` route in logged in menu (requires db and Auth)
+
+
 ### Completed
 
 - [x] Basic site layout using NextJs pages routing
@@ -18,21 +35,6 @@
 - [x] Build fails due to no export default function in `MDXStyle.jsx` and `helper.js`
     * changed Para to export default function
     * moved lib folder out of pages
+- [x] MDX numbered list is formatting like an unordered list. - css styling issue
+- [x] sub-levels not working on lists. - css styling issues
 
-### WIP
-
-- `BUG:` right-click heading "Copy Link to Highlight" yeilds nonsense. use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
-- `BUG:` fix blog/index.js so one bad file doesnt crash site.
-- `BUG:` MDX numbered list is formatting like an unordered list.
-- `BUG:` sub-levels not working on lists.
-- `TODO:` add meta data and customise pages
-- `TODO:` sort and catagorise on meta tags
-    - `TODO:` use tag metatag for catorising (https://mdxjs.com/guides/frontmatter/)
-- `TODO:` turn index into tiled cards
-- `TODO:` remove meta-data from [slug] page
-- `TODO:` figure out workflow import obsidian library
-- `TODO:` Add page images
-- `TODO:` Get rid of @apply directives 
-- `TODO:` Add better code highlighting https://rehype-pretty-code.netlify.app/
-- `TODO:` Add better navigation for larger site with more pages, put `/release` route in logged in menu (requires db and Auth)
-  [`See Link`](https://mikebifulco.com/posts/mdx-auto-link-headings-with-rehype-slug#step-2-use-mdxprovider-to-customize-the-way-heading-tags-render)
