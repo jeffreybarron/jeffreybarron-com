@@ -26,7 +26,7 @@ export default function ReleasePage({ release }) {
       <ul>
         {release.map((post) => (
           <li key={post}>
-            <Link href={`/release/${post}?collection=blog`}>{post}</Link>
+            <Link href={`/release/${post}?collection=release`}>{post}</Link>
           </li>
         ))}
       </ul>

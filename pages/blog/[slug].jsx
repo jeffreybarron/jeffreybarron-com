@@ -10,7 +10,6 @@ export default function Page(props) {
   const currentPage = props.blogs.filter((file) => {
       return file.slug.includes(slug);
   });
-  console.log(`/data/blog/${currentPage[0].fileName}`)
   const Post = dynamic(() => import(`/data/blog/${currentPage[0].fileName}`));
 
   return (
@@ -23,7 +22,7 @@ export default function Page(props) {
 
 // Called First
 export async function getStaticPaths() {
-  const apiPath = `http://localhost:3000/api/get_slugs`;
+  const apiPath = `http://localhost:3000/api/get_collection_slugs?collection=blog`;
   const res = await fetch(apiPath) 
   const paths = await res.json();
   return {
@@ -35,7 +34,7 @@ export async function getStaticPaths() {
 
 // Called Second
 export async function getStaticProps() {
-  const apiPath = `http://localhost:3000/api/get_blog_info`;
+  const apiPath = `http://localhost:3000/api/get_collection_info?collection=blog`;
   const res = await fetch(apiPath);
   const data = await res.json();
   return {

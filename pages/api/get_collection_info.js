@@ -5,8 +5,8 @@ import { promises as fs } from "fs";
 const ROOT_FOLDER_DATA = "/data"
 
 export default async function handler(req, res) {
-  // TODO: for some reason req.query is empty
-  const files = await getSlugData("blog");
+  // return a json collection of file information
+  const files = await getSlugData(req.query.collection);
   res.status(200).json( files );
 }
 

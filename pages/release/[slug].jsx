@@ -1,55 +1,48 @@
-// pages/release/[slug]/index.js [??? Side]
-
+// pages/blog/[slug]/index.js [??? Side]
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import path from "path";
+import MDXLayout from "./../(layout)/MDXLayout";
 
-import MDXLayout from "../(layout)/MDXLayout";
-import { truncateFileExtensions } from "../../lib/helper";
-
-export default function Page() {
+export default function Page(props) {
+  // props from getStaticProps()
   const router = useRouter();
   const { slug } = router.query;
-  const Post = dynamic(() => import(`/data/release/${slug}.mdx`));
+  const currentPage = props.blogs.filter((file) => {
+      return file.slug.includes(slug);
+  });
+  
+  const Post = dynamic(() => import(`/data/release/${currentPage[0].fileName}`));
 
   return (
     <MDXLayout>
-      <Post />
+      {/* TODO: how to pass through the slug for the headings */}
+      <Post slug={slug}/>
     </MDXLayout>
   );
 }
 
 // Called First
-export function getStaticPaths() {
-  const fs = require("fs");
-  const directoryPath = path.join(process.cwd(), "data/release");
-  const allFiles = fs.readdirSync(directoryPath, "utf-8");
-  const releaseFiles = allFiles.filter((file) => {
-    return file.endsWith(".md") || file.endsWith(".mdx");
-  });
-  const data = truncateFileExtensions(releaseFiles);
-
-  const paths = data.map((slug) => `/release/${slug}`);
-
+export async function getStaticPaths() {
+  const apiPath = `http://localhost:3000/api/get_collection_slugs?collection=release`;
+  const res = await fetch(apiPath) 
+  const paths = await res.json();
   return {
     paths,
     fallback: false,
   };
 }
 
+
 // Called Second
 export async function getStaticProps() {
-  const fs = require("fs");
-  const directoryPath = path.join(process.cwd(), "data/release");
-  const allFiles = fs.readdirSync(directoryPath, "utf-8");
-  const releaseFiles = allFiles.filter((file) => {
-    return file.endsWith(".md") || file.endsWith(".mdx");
-  });
-  const data = truncateFileExtensions(releaseFiles);
+  const apiPath = `http://localhost:3000/api/get_collection_info?collection=release`;
+  const res = await fetch(apiPath);
+  const data = await res.json();
   return {
     // Passed to the page component as props
     props: {
-      release: data,
+      blogs: data,
     },
   };
 }
+

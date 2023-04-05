@@ -5,7 +5,8 @@ import { promises as fs } from "fs";
 const ROOT_FOLDER_DATA = "/data"
 
 export default async function handler(req, res) {
-  const files = await getBlogRoll('blog');
+  // return an array of file path strings
+  const files = await getBlogRoll(req.query.collection);
   res.status(200).json( files );
 }
 
