@@ -1,5 +1,8 @@
 // layout/PageLayout.js
 import Head from "next/head";
+import Navigation from "../(components)/Navigation";
+import Footer from "../(components)/Footer";
+import Link from "next/link";
 import { MDXProvider } from "@mdx-js/react";
 
 import { Montserrat, Dancing_Script } from "next/font/google";
@@ -12,30 +15,35 @@ const fancyText = Dancing_Script({
   subsets: ["latin"],
 });
 
-import Navigation from "../(components)/Navigation";
-import Footer from "../(components)/Footer";
-import { Heading, Pre, Lists } from "../(components)/MDXStyle";
-import Para from "../(components)/MDXStyle";
-import Link from "next/link";
 
-const components = {
-  h1: Heading.H1,
-  h2: Heading.H2,
-  h3: Heading.H3,
-  h4: Heading.H4,
-  p: Para,
-  pre: Pre.PRE,
-  code: Pre.CODE,
-  li: Lists.LI,
-  ul: Lists.UL,
-  ol: Lists.OL,  
-};
-
-export default function PagesLayout({ children, ...props }) {
-
+export default function PagesLayout({ children }) {
+// 
+// note https://github.com/vercel/next.js/issues/44295 URL# not handled @ 2023-04-05
+//   
   return (
     // <MDXProvider>
-    <MDXProvider components={components}> 
+    <MDXProvider components={{
+      // Typography
+      h1: props => <h1 className="pb-2 text-2xl font-extrabold uppercase underline hover:after:content-['_#']" {...props}/>,
+      h2: props => <h2 className="text-secondary py-2 pt-4 text-2xl font-semibold capitalize hover:after:content-['_#']" {...props}/>,
+      h3: props => <h3 className="text-tertiary py-2 pt-2 text-xl font-bold capitalize hover:after:content-['_#']" {...props}/>,
+      h4: props => <h4 className="text-tertiary py-2 pt-2 text-lg italic hover:after:content-['_#']" {...props}/>,
+      h5: props => <h5 className="text-tertiary py-2 pt-2 text-lg italic hover:after:content-['_#']" {...props} {...props}/>,
+      h6: props => <h6 className="text-tertiary py-2 pt-2 text-lg italic hover:after:content-['_#']" {...props}/>,
+      a: props => <Link {...props} className="hover:text-secondary text-primary-contrast" />,
+      p: props => <p {...props} className="inline-block py-2 max-w-none"/>,
+  
+      // Code
+      pre: props => <pre className="language-jsx my-4 grid border border-dotted p-4" {...props}/>,
+      code: props => <code className="line-numbers text-tertiary" {...props}/>,
+
+      // Lists
+      OL: props => <ol {...props}/>,
+      UL: props => <ul {...props}/>,
+      LI: props => <li {...props}/>,
+
+
+    }}> 
       <div className={`${bodyText.variable} ${fancyText.variable}`}>
         <Head>
           <title>Jeffrey Barron</title>
@@ -50,7 +58,6 @@ export default function PagesLayout({ children, ...props }) {
           <section className="flex flex-1 grid-flow-col grid-cols-12 sm:grid">
             <div className="col-span-2 p-2"></div>
             <div className="bg-primary col-span-8 flex min-h-[calc(100vh-135px)] flex-1 flex-col break-words p-6">
-              {/* <div className="bg-primary col-span-8 flex flex-col items-center break-words p-6 pt-8 "> */}
               {children}
             </div>
             <div className="col-span-2 p-2 "></div>

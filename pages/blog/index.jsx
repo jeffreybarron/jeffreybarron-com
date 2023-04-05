@@ -26,7 +26,7 @@ export default function BlogPage({ blog }) {
       <ul>
         {blog.map((post) => (
           <li key={post}>
-            <Link href={`/blog/${post}`}>{post}</Link>
+            <Link href={`/blog/${post}?collection=blog`}>{post}</Link>
           </li>
         ))}
       </ul>
@@ -36,7 +36,7 @@ export default function BlogPage({ blog }) {
 
 export async function getStaticProps() {
   const fs = require("fs");
-  const directoryPath = path.join(process.cwd(), "data/posts");
+  const directoryPath = path.join(process.cwd(), "data/blog");
   const allFiles = fs.readdirSync(directoryPath, "utf-8");
   const blogFiles = allFiles.filter((file) => {
     return file.endsWith(".md") || file.endsWith(".mdx");

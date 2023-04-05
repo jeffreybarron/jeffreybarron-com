@@ -54,3 +54,7 @@ pre {
   /* align pre in middle of container */
 }
 ```
+
+Useful links
+https://www.programcreek.com/typescript/?code=juliencrn%2Fusehooks-ts%2Fusehooks-ts-master%2Fsite%2Fsrc%2Fcomponents%2FmdxRenderer.tsx
+

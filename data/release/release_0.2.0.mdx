@@ -5,9 +5,7 @@
 ## Release 0.2.x
 
 ### WIP
-
-- `BUG:` right-click heading "Copy Link to Highlight" yeilds nonsense. use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
-- `BUG:` fix blog/index.js so one bad file doesnt crash site.
+- `TODO:` Update releases to use same code as blog
 - `TODO:` add meta data tags tp customise pages and create panels
   [`See Link`](https://mikebifulco.com/posts/mdx-auto-link-headings-with-rehype-slug#step-2-use-mdxprovider-to-customize-the-way-heading-tags-render)
     - `TODO:` remove meta-data from [slug] page
@@ -17,12 +15,16 @@
 - `TODO:` Add page images
 - `TODO:` figure out workflow import obsidian library
 - `TODO:` Get rid of @apply directives 
-- `TODO:` Add better code highlighting https://rehype-pretty-code.netlify.app/
-- `TODO:` Add better navigation for larger site with more pages, put `/release` route in logged in menu (requires db and Auth)
 
+### Framework issues
+- `BUG:` right-click heading "Copy Link to Highlight" yeilds nonsense. use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
+    - [URL# not handled](https://github.com/vercel/next.js/issues/44295) 
+    - [disable-scrolling-to-the-top-of-the-page](https://nextjs.org/docs/api-reference/next/link#disable-scrolling-to-the-top-of-the-page)
+    - [App Router Roadmap @ 2023-04-05](https://beta.nextjs.org/docs/app-directory-roadmap) 
 
 ### Completed
-
+- [x] Add better code highlighting https://rehype-pretty-code.netlify.app/
+- [x] Add better navigation for larger site with more pages, put `/release` route in logged in menu (requires db and Auth)
 - [x] Basic site layout using NextJs pages routing
 - [x] Added MDX functionality
 - [x] Basic styling

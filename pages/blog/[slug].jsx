@@ -1,16 +1,17 @@
 // pages/blog/[slug]/index.js [??? Side]
-
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import path from "path";
-
 import MDXLayout from "./../(layout)/MDXLayout";
-import { truncateFileExtensions } from "../../lib/helper";
 
-export default function Page() {
+export default function Page(props) {
+  // props from getStaticProps()
   const router = useRouter();
   const { slug } = router.query;
-  const Post = dynamic(() => import(`/data/posts/${slug}.mdx`));
+  const currentPage = props.blogs.filter((file) => {
+      return file.slug.includes(slug);
+  });
+  console.log(`/data/blog/${currentPage[0].fileName}`)
+  const Post = dynamic(() => import(`/data/blog/${currentPage[0].fileName}`));
 
   return (
     <MDXLayout>
@@ -21,36 +22,27 @@ export default function Page() {
 }
 
 // Called First
-export function getStaticPaths() {
-  const fs = require("fs");
-  const directoryPath = path.join(process.cwd(), "data/posts");
-  const allFiles = fs.readdirSync(directoryPath, "utf-8");
-  const blogFiles = allFiles.filter((file) => {
-    return file.endsWith(".md") || file.endsWith(".mdx");
-  });
-  const data = truncateFileExtensions(blogFiles);
-
-  const paths = data.map((slug) => `/blog/${slug}`);
-
+export async function getStaticPaths() {
+  const apiPath = `http://localhost:3000/api/get_slugs`;
+  const res = await fetch(apiPath) 
+  const paths = await res.json();
   return {
     paths,
     fallback: false,
   };
 }
 
+
 // Called Second
 export async function getStaticProps() {
-  const fs = require("fs");
-  const directoryPath = path.join(process.cwd(), "data/posts");
-  const allFiles = fs.readdirSync(directoryPath, "utf-8");
-  const blogFiles = allFiles.filter((file) => {
-    return file.endsWith(".md") || file.endsWith(".mdx");
-  });
-  const data = truncateFileExtensions(blogFiles);
+  const apiPath = `http://localhost:3000/api/get_blog_info`;
+  const res = await fetch(apiPath);
+  const data = await res.json();
   return {
     // Passed to the page component as props
     props: {
-      blog: data,
+      blogs: data,
     },
   };
 }
+
