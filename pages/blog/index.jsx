@@ -26,7 +26,7 @@ export default function BlogPage({ blog }) {
       <ul>
         {blog.map((post) => (
           <li key={post}>
-            <Link href={`/blog/${post}?collection=blog`}>{post}</Link>
+            <Link href={`/blog/${post}`}>{post}</Link>
           </li>
         ))}
       </ul>
@@ -35,28 +35,30 @@ export default function BlogPage({ blog }) {
 }
 
 // export async function getStaticProps() {
-//   const fs = require("fs");
-//   const directoryPath = path.join(process.cwd(), "data/blog");
-//   const allFiles = fs.readdirSync(directoryPath, "utf-8");
-//   const blogFiles = allFiles.filter((file) => {
-//     return file.endsWith(".md") || file.endsWith(".mdx");
-//   });
-//   const data = truncateFileExtensions(blogFiles);
+//   const apiPath = `http://localhost:3000/api/get_collection_info?collection=blog`;
+//   const res = await fetch(apiPath);
+//   const data = await res.json();
 //   return {
 //     // Passed to the page component as props
 //     props: {
-//       blog: data,
+//       blogs: data,
 //     },
 //   };
 // }
+
 export async function getStaticProps() {
-  const apiPath = `http://localhost:3000/api/get_collection_info?collection=blog`;
-  const res = await fetch(apiPath);
-  const data = await res.json();
+  const fs = require("fs");
+  const directoryPath = path.join(process.cwd(), "data/blog");
+  const allFiles = fs.readdirSync(directoryPath, "utf-8");
+  const blogFiles = allFiles.filter((file) => {
+    return file.endsWith(".md") || file.endsWith(".mdx");
+  });
+  const data = truncateFileExtensions(blogFiles);
   return {
     // Passed to the page component as props
     props: {
-      blogs: data,
+      blog: data,
     },
   };
 }
+

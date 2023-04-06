@@ -1,5 +1,6 @@
 {
-  "extends": ["next/babel", "next/core-web-vitals", "plugin:mdx/recommended"],
+  "extends": ["next", "prettier", "plugin:mdx/recommended"],
+  // "extends": ["next/core-web-vitals", "plugin:mdx/recommended"],
   "settings": {
     "mdx/code-blocks": true,
     // optional, if you want to disable language mapper, set it to `false`

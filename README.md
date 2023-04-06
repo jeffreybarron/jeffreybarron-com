@@ -58,3 +58,13 @@ pre {
 Useful links
 https://www.programcreek.com/typescript/?code=juliencrn%2Fusehooks-ts%2Fusehooks-ts-master%2Fsite%2Fsrc%2Fcomponents%2FmdxRenderer.tsx
 
+
+
+/Users/jeffbarron/.CFUserTextEncoding   /Users/jeffbarron/.lesshst              /Users/jeffbarron/.xonshrc
+/Users/jeffbarron/.DS_Store             /Users/jeffbarron/.mysql_history        /Users/jeffbarron/.zcompdump
+/Users/jeffbarron/.RData                /Users/jeffbarron/.node_repl_history    /Users/jeffbarron/.zprofile
+/Users/jeffbarron/.Rhistory             /Users/jeffbarron/.python_history       /Users/jeffbarron/.zsh_history
+/Users/jeffbarron/.bash_history         /Users/jeffbarron/.swp                  /Users/jeffbarron/.zshrc
+/Users/jeffbarron/.bash_profile         /Users/jeffbarron/.tcshrc               /Users/jeffbarron/.zshrc.backup
+/Users/jeffbarron/.boto                 /Users/jeffbarron/.viminfo
+/Users/jeffbarron/.gitconfig            /Users/jeffbarron/.wget-hsts
