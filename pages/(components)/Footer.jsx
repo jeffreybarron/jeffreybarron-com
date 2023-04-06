@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import git_image from "./../../public/github-mark-white.png";
+import git_image from "/public/images/pages/github-mark-white.png";
 import Link from "next/link";
 
 export default function Footer() {

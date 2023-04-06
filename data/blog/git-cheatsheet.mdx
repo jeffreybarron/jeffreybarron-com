@@ -1,27 +1,25 @@
 ---
-title: "Git Cheat Sheet"
-date: "2023-01-12"
-lastmod: "2021-01-18"
-tags: ["git"]
-draft: false
-summary: "Looking for a performant, out of the box template, with all the best in web technology to support your blogging needs? Checkout the Tailwind Nextjs Starter Blog template."
-images:
-  ["/static/images/canada/mountains.jpg", "/static/images/canada/toronto.jpg"]
+title: "Git Cheatsheet"
+slug: "git_cheatsheet"
+canonicalUrl: "https://jeffreybarron.com/blog/git_cheatsheet"
+summary: "A Cheatsheet of gists and oneliners for github and gitlab version control software."
+tags: ["git", "cheatsheet", ]
+layout: "MDXLayout"
+images: ["opera_house.jpg", "harbour_bridge.jpg"]
 authors: ["jeffbarron"]
-layout: PostLayout
-canonicalUrl: https://tailwind-nextjs-starter-blog.vercel.app/blog/introducing-tailwind-nextjs-starter-blog
+dateCreated: "2023-04-06T23:27:35Z+1000"
+createdTimeStamp: "1680787655441"
+dateModified: "2023-04-06T23:27:35Z+1000"
 ---
-
-# Git Cheat Sheet
 
 #### Definitions
 
 **_head:_** When working with Git, only *one* branch can be checked out at a time - and this is what's called the "HEAD" branch. Often, this is also referred to as the "active" or "current" branch.  
-**_detached head:_** In rare cases, the HEAD file does NOT contain a branch reference, but a SHA-1 value of a specific revision. This happens when you checkout a specific commit, tag, or remote branch. Your repository is then in a state called [Detached HEAD](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit).
+**_detached head:_** In rare cases, the HEAD file does NOT contain a branch reference, but an SHA-1 value of a specific revision. This happens when you check out a specific commit, tag, or remote branch. Your repository is then in a state called [Detached HEAD](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit).
 
 #### Helpful links
 
-[Scott 'the legend' Hanselman talks about git](https://youtu.be/Mfz8NQncwiQ?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr)
+- [Scott 'the legend' Hanselman talks about git](https://youtu.be/Mfz8NQncwiQ?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr)
 
 ## Configure Git
 
@@ -172,7 +170,7 @@ placeholder
 
 1. PERSON2: fork repo
 2. PERSON2: make a branch
-3. PERSON2: make change in branc
+3. PERSON2: make change in branch
 4. PERSON2:add the change to the branch
 5. PERSON2:commit the changes to the branch
 6. PERSON2:issue pull request to origin
@@ -197,7 +195,7 @@ placeholder
 placeholder
 ```
 
-## Git Cherrypick
+## Git Cherry-pick
 
 ```shell
 placeholder
@@ -230,7 +228,7 @@ git push -u origin main
 
 ### Push an existing folder
 
-first create a gitlab repo on the server with no readme.md
+first create a GitLab repo on the server with no readme.md
 
 ```shell
 cd existing_folder
