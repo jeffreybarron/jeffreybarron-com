@@ -5,8 +5,7 @@
 ## Release 0.2.x
 
 ### WIP
-- `TODO:` npm run build errors collecting page data
-- `TODO:` Update releases to use same code as blog
+
 - `TODO:` add meta data tags tp customise pages and create panels
   [`See Link`](https://mikebifulco.com/posts/mdx-auto-link-headings-with-rehype-slug#step-2-use-mdxprovider-to-customize-the-way-heading-tags-render)
     - `TODO:` remove meta-data from [slug] page
@@ -24,6 +23,9 @@
     - [App Router Roadmap @ 2023-04-05](https://beta.nextjs.org/docs/app-directory-roadmap) 
 
 ### Completed
+- [x] npm run build errors collecting page data
+    - resolved by running getStaticPaths and getServerSideProps inside the [slug].js rather than reaching out this applications API
+    - [x] Update releases to use same code as blog
 - [x] Add better code highlighting https://rehype-pretty-code.netlify.app/
 - [x] Add better navigation for larger site with more pages, put `/release` route in logged in menu (requires db and Auth)
 - [x] Basic site layout using NextJs pages routing
