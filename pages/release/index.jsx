@@ -34,19 +34,30 @@ export default function ReleasePage({ release }) {
   );
 }
 
+// export async function getStaticProps() {
+//   const fs = require("fs");
+//   const directoryPath = path.join(process.cwd(), "data/release");
+//   const allFiles = fs.readdirSync(directoryPath, "utf-8");
+//   const releaseFiles = allFiles.filter((file) => {
+//     return file.endsWith(".md") || file.endsWith(".mdx");
+//   });
+//   const data = truncateFileExtensions(releaseFiles);
+//   return {
+//     // Passed to the page component as props
+//     props: {
+//       release: data,
+//     },
+//   };
+// }
+
 export async function getStaticProps() {
-  const fs = require("fs");
-  const directoryPath = path.join(process.cwd(), "data/release");
-  const allFiles = fs.readdirSync(directoryPath, "utf-8");
-  const releaseFiles = allFiles.filter((file) => {
-    return file.endsWith(".md") || file.endsWith(".mdx");
-  });
-  const data = truncateFileExtensions(releaseFiles);
+  const apiPath = `http://localhost:3000/api/get_collection_info?collection=release`;
+  const res = await fetch(apiPath);
+  const data = await res.json();
   return {
     // Passed to the page component as props
     props: {
-      release: data,
+      blogs: data,
     },
   };
 }
-
