@@ -1,58 +1,17 @@
 ---
-title: "GitHub Flavored Markdown"
-slug: "github-flavored-markdown"
-canonicalUrl: "https://jeffreybarron.com/blog/github-flavored-markdown"
-summary: "Github supports Markdown, with some handy additions, this document describes some of these for normal people."
-tags: ["markdown","gfm"]
-layout: "MDXLayout"
-images: ["opera_house.jpg", "harbour_bridge.jpg"]
-authors: ["jeffbarron"]
-dateCreated: "2023-04-07T00:44:00Z+1000"
-createdTimeStamp: "1680792240571"
-dateModified: "2023-04-07T00:44:00Z+1000"
+dateModified: 2023-04-08T12:14:44Z+1000  
+dateCreated: 2023-04-08T12:14:44Z+1000  
+layout: MDXLayout  
+images: [opera_house.jpg, harbour_bridge.jpg]  
+title: GitHub Flavoured Markdown
+slug: github-flavored-markdown
+canonicalUrl: https://jeffreybarron.com/blog/github-flavored-markdown 
+summary: This article lists a selection of handy tips for using git version control
+authors: [jeffbarron]  
+tags: [published, git, github]
 ---
 
-## Attribution
-1.[Markdown Cheatsheet by Adam Pritchard](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
-## Footnotes
-
-Footnotes aren't part of the core Markdown spec, but they supported by GFM.
-
-```markdown
-Here is a simple footnote[^1].
-
-A footnote can also have multiple lines[^2].
-
-You can also use words, to fit your writing style more closely[^note].
-
-[^1]: My reference.
-[^2]:
-    Every new line should be prefixed with 2 spaces.  
-    This allows you to have a footnote with multiple lines.
-
-[^note]:
-    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
-    This footnote also has been made with a different syntax using 4 spaces for new lines.
-```
-
-### Renders to:
-
-Here is a simple footnote[^1].
-
-A footnote can also have multiple lines[^2].
-
-You can also use words, to fit your writing style more closely[^note].
-
-[^1]: My reference.
-[^2]:
-    Every new line should be prefixed with 2 spaces.  
-    This allows you to have a footnote with multiple lines.
-
-[^note]:
-    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
-    This footnote also has been made with a different syntax, using 4 spaces for new lines.
-
+---
 ## Tables
 
 Tables aren't part of the core Markdown spec, but they are part of GFM and Markdown Here supports them. They are an easy way of adding tables to your email -- a task that would otherwise require copy-pasting from another application.
@@ -130,7 +89,7 @@ Alt-H2
 
 ###### H6 Heading
 
-==Alternatively, for H1 and H2, an underline style:==
+Alternatively, for H1 and H2, an underline 
 
 Alt-H1
 ==========
@@ -138,11 +97,47 @@ Alt-H1
 Alt-H2
 ----------
 
-### Git push remote, requires ssh setup on the local server.[^1]
+## Footnotes
 
-| Tables        |      Are      |  Cool |
-| ------------- | :-----------: | ----: |
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      |   centered    |   $12 |
-| zebra stripes |   are neat    |    $1 |
-````
+Footnotes aren't part of the core Markdown spec, but they supported by GFM.
+
+```text
+Here is a simple footnote[^1].
+
+A footnote can also have multiple lines[^2].
+
+You can also use words, to fit your writing style more closely[^note].
+
+[^1]: My reference.
+[^2]:
+    Every new line should be prefixed with 2 spaces.  
+    This allows you to have a footnote with multiple lines.
+
+[^note]:
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
+    This footnote also has been made with a different syntax using 4 spaces for new lines.
+```
+
+### Renders to:
+
+Here is a simple footnote [^1]  
+
+A footnote can also have multiple lines[^2]  
+
+You can also use words, to fit your writing style more closely[^note]   
+
+[^1]: My reference.
+[^2]:
+    Every new line should be prefixed with 2 spaces.  
+    This allows you to have a footnote with multiple lines.
+
+[^note]:
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
+    This footnote also has been made with a different syntax, using 4 spaces for new lines.
+
+
+---
+## Useful Links
+- [Markdown Cheatsheet by Adam Pritchard](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+# Footnotes

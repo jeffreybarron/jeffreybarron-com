@@ -1,20 +1,20 @@
 ---
-title: "NextJS ECONNREFUSED during build"
-slug: "nextjs-econnrefuse-during-build"
-canonicalUrl: "https://jeffreybarron.com/blog/nextjs-econnrefuse-during-build"
-summary: "Nextjs documentation is slightly misleading for examples on getStaticPaths, showing the use of fetch from an API. However, the not so obvious gotcha happens if you fetch from your app's own API. While working in `npm run dev` everything works fine, but it all breaks when you build your app. The solution, however, is quite obvious."
-tags: ["nextjs","build", "tip"]
-layout: "MDXLayout"
-images: ["opera_house.jpg", "harbour_bridge.jpg"]
-authors: ["jeffbarron"]
-dateCreated: "2023-04-07T01:13:21Z+1000"
-createdTimeStamp: "1680794001177"
-dateModified: "2023-04-07T01:13:21Z+1000"
+dateModified: 2023-04-08T12:59:08Z+1000  
+dateCreated: 2023-04-08T12:59:08Z+1000  
+layout: MDXLayout  
+images: [opera_house.jpg, harbour_bridge.jpg]  
+title: NextJS ECONNREFUSED during build   
+slug: nextjs-econnrefuse-during-build
+canonicalUrl: https://jeffreybarron.com/blog/nextjs-econnrefuse-during-build  
+summary: Explainer for getStaticPaths noob mistake
+authors: [jeffbarron]  
+tags: [published, nextj]
 ---
 
+---
 `TL;DR` don't call your own API for getStaticPaths()
 
-[^Attribution] ==I straight up copied this from Stack Overflow because it is so well written and it will be easier for me to find it in the future, if I copy it here.==
+Nextjs documentation is slightly misleading for examples on getStaticPaths, showing the use of fetch from an API. However, the not so obvious gotcha happens if you fetch from your app's own API. While working in `npm run dev` everything works fine, but it all breaks when you build your app. The solution, however, is quite obvious.
 
 Reducing client calls as much as possible and pre-rendering on server greatly reduces application complexity. Therefore, we ought to use Static Site Generation (SSG) where ever practical. When you run `npm next build`, NextJS iterates all the pages that it can build statically. i.e. those without getServerSideProps, but which possibly define getStaticProps and getStaticPaths.
 
@@ -30,6 +30,8 @@ The correct approach is, instead of going through the REST API, you should just 
 
 You should then only do client API calls from the React components on the browser after the initial pages load (i.e. from useEffect et al.), not from getStaticPaths or getStaticProps. 
 
-[^Attribution]: [Stack Contributor](https://stackoverflow.com/a/67676463/18296218)  
-  [Next Manuals](https://nextjs.org/docs/basic-features/data-fetching/get-static-props#write-server-side-code-directly)  
+---
+# References
+- [Stack Contributor](https://stackoverflow.com/a/67676463/18296218)  
+- [Next Manuals](https://nextjs.org/docs/basic-features/data-fetching/get-static-props#write-server-side-code-directly)  
 

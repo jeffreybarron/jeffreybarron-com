@@ -1,26 +1,17 @@
 ---
-title: "Git Cheatsheet"
-slug: "git_cheatsheet"
-canonicalUrl: "https://jeffreybarron.com/blog/git_cheatsheet"
-summary: "A Cheatsheet of gists and oneliners for github and gitlab version control software."
-tags: ["git", "cheatsheet", ]
-layout: "MDXLayout"
-images: ["opera_house.jpg", "harbour_bridge.jpg"]
-authors: ["jeffbarron"]
-dateCreated: "2023-04-06T23:27:35Z+1000"
-createdTimeStamp: "1680787655441"
-dateModified: "2023-04-06T23:27:35Z+1000"
+dateModified: 2023-04-08T12:03:35Z+1000  
+dateCreated: 2023-04-08T12:03:35Z+1000  
+layout: MDXLayout  
+images: [opera_house.jpg, harbour_bridge.jpg]  
+title: Git Cheatsheet  
+slug: git_cheatsheet
+canonicalUrl: https://jeffreybarron.com/blog/git_cheatsheet  
+summary: A Cheatsheet of gists and oneliners for github and gitlab version control software.
+authors: [jeffbarron]  
+tags: [published, git, cheatsheet]
 ---
 
-#### Definitions
-
-**_head:_** When working with Git, only *one* branch can be checked out at a time - and this is what's called the "HEAD" branch. Often, this is also referred to as the "active" or "current" branch.  
-**_detached head:_** In rare cases, the HEAD file does NOT contain a branch reference, but an SHA-1 value of a specific revision. This happens when you check out a specific commit, tag, or remote branch. Your repository is then in a state called [Detached HEAD](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit).
-
-#### Helpful links
-
-- [Scott 'the legend' Hanselman talks about git](https://youtu.be/Mfz8NQncwiQ?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr)
-
+---
 ## Configure Git
 
 ```shell
@@ -108,6 +99,9 @@ git bisect good <commit id>
 ```
 
 ### Git Branches
+#### Definitions
+**_head:_** When working with Git, only *one* branch can be checked out at a time - and this is what's called the "HEAD" branch. Often, this is also referred to as the "active" or "current" branch.  
+**_detached head:_** In rare cases, the HEAD file does NOT contain a branch reference, but an SHA-1 value of a specific revision. This happens when you check out a specific commit, tag, or remote branch. Your repository is then in a state called Detached Head [^1]  
 
 ```shell
 # List all of the branches in your repo. Add a <branch> argument to create a new branch with the name <branch>.
@@ -168,19 +162,21 @@ placeholder
 
 ## Git merge pull request
 
-1. PERSON2: fork repo
-2. PERSON2: make a branch
-3. PERSON2: make change in branch
-4. PERSON2:add the change to the branch
-5. PERSON2:commit the changes to the branch
-6. PERSON2:issue pull request to origin
-7. PERSON1: make a branch by the same name as PERSON2 branch
-8. pull PERSON2 branch into PERSON1 Branch
+1. PERSON 2: fork repo
+2. PERSON 2: make a branch
+3. PERSON 2: make change in branch
+4. PERSON 2:add the change to the branch
+5. PERSON 2:commit the changes to the branch
+6. PERSON 2:issue pull request to origin
+7. PERSON 1: make a branch by the same name as PERSON2 branch
+8. pull PERSON 2 branch into PERSON1 Branch
 9. review, change, merge commit as normal
 
 ```shell
 --no-ff means ??
 ```
+
+![[Pasted image 20230119182734.png]]
 
 ## Rebase and Merge
 
@@ -248,3 +244,10 @@ git remote add origin git@gitlab.com:uow-itms/greenfields-nextjs.git
 git push -u origin --all
 git push -u origin --tags
 ```
+
+
+---
+### Related Links
+- [Scott 'the legend' Hanselman talks about git](https://youtu.be/Mfz8NQncwiQ?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr)    
+
+[^1]: [Detached HEAD](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit)  

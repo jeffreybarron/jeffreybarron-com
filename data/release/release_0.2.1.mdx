@@ -1,38 +1,46 @@
 ---
-title: "Release v0.2.1"
-slug: "release_0.2.1"
-canonicalUrl: "https://jeffreybarron.com/blog/release_0.2.1"
-summary: "Release v0.2.1 details"
-tags: ["release"]
-layout: "MDXLayout"
-images: ["opera_house.jpg", "harbour_bridge.jpg"]
-authors: ["jeffbarron"]
-dateCreated: "2023-04-07T01:52:21Z+1000"
-createdTimeStamp: "1680796341316"
-dateModified: "2023-04-07T01:52:21Z+1000"
+dateModified: 2023-04-08T13:27:33Z+1000  
+dateCreated: 2023-04-08T13:27:33Z+1000  
+layout: MDXLayout  
+images: [opera_house.jpg, harbour_bridge.jpg]  
+title: Release v0.2.1   
+slug: release_0.2.1
+canonicalUrl: https://jeffreybarron.com/release/release_0.2.1  
+summary: summary: Release Notes for v0.2.1
+authors: [jeffbarron]  
+tags: published, release
+---
+
 ---
 [`jeffreybarron.com`](https://jeffreybarron.com)
 
-# Change Log
+# Release Notes
 
-## Release 0.2.1
+## Release v0.2.1
 
 ### WIP
-
-- `TODO:` add meta data tags tp customise pages and create panels
-  [`See Link`](https://mikebifulco.com/posts/mdx-auto-link-headings-with-rehype-slug#step-2-use-mdxprovider-to-customize-the-way-heading-tags-render)
-    - `TODO:` remove meta-data from [slug] page
-    - `TODO:` sort and catagorise on meta tag info meta tags
-    - `TODO:` use tag metatag for catorising (https://mdxjs.com/guides/frontmatter/)
-    - `TODO:` turn index into tiled cards
-- `TODO:` Add page images
+- - `TODO:` Add metadata to customise pages and create panels
+	- `TODO:` Add Titles from metadata to blog/release pages 
+	- `TODO:` add metadata `#tags` pages
+	 - `TODO:` use metadata to create index list with both title and slug for the href
+		- default to slug for title if no metadata
+	- `TODO:` turn index into tiled cards
+`TODO:` Add page images- 
+`TODO:` add navigation bread crumbs for UX
 - `TODO:` figure out workflow import obsidian library
-- `TODO:` Get rid of @apply directives 
+- `TODO:` Get rid of @apply directives in global.css 
 
 ### Framework issues
-- `BUG:` right-click heading "Copy Link to Highlight" yeilds nonsense. use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
+- `BUG:` right-click heading "Copy Link to Highlight" yields nonsense. Instead, use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
     - [URL# not handled](https://github.com/vercel/next.js/issues/44295) 
     - [disable-scrolling-to-the-top-of-the-page](https://nextjs.org/docs/api-reference/next/link#disable-scrolling-to-the-top-of-the-page)
     - [App Router Roadmap @ 2023-04-05](https://beta.nextjs.org/docs/app-directory-roadmap) 
 
 ### Completed
+- [x]  Update the publish markdown shell script, use 4 scripts to synchronise the folders to their published location.
+	- blog. 
+	- blog/attachments. 
+	- release. 
+	- release/attachments. 
+- [x] Cleanup root readme.md page for GitHub repo
+- [x] remove meta-data from [slug] page

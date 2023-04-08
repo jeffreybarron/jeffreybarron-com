@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="from-primary to-secondary flex h-10 w-full justify-evenly bg-gradient-to-r box-decoration-clone">
       <div className="flex w-full items-center justify-end p-2 text-sm">
         <span className="text-tertiary">
-          © 2023 Jeffrey Barron. All Rights Reserved
+        All Rights Reserved, Jeffrey Barron © 2023. 
         </span>
         <span className="ml-2">
           <Link href="https://github.com/jeffreybarron">

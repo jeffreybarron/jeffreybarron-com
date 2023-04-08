@@ -59,6 +59,8 @@ export default function PagesLayout({ children }) {
             <div className="col-span-2 p-2"></div>
             <div className="bg-primary col-span-8 flex min-h-[calc(100vh-135px)] flex-1 flex-col break-words p-6">
               {children}
+              <br /><hr/>
+              <p className="text-xs text-slate-400"><span className="italic">Disclaimer</span>: On occasions some parts of this blog may be collected from other sources to create a collection of information useful to me, in one place. Furthermore, while some find it sufficient to merely link to source documents, I have found that many publishers move or remove their content eventually. The content collected here is deemed to be evergreen and useful to me, so I have collated it chiefly for my personal use. However, If you have lawful rights to some content here, and you wish it taken down or attribution added, please contact me and I will gladly comply.</p>
             </div>
             <div className="col-span-2 p-2 "></div>
           </section>
