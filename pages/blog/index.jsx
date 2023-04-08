@@ -34,18 +34,6 @@ export default function BlogPage({ blog }) {
   );
 }
 
-// export async function getStaticProps() {
-//   const apiPath = `http://localhost:3000/api/get_collection_info?collection=blog`;
-//   const res = await fetch(apiPath);
-//   const data = await res.json();
-//   return {
-//     // Passed to the page component as props
-//     props: {
-//       blogs: data,
-//     },
-//   };
-// }
-
 export async function getStaticProps() {
   const fs = require("fs");
   const directoryPath = path.join(process.cwd(), "data/blog");
@@ -61,4 +49,3 @@ export async function getStaticProps() {
     },
   };
 }
-

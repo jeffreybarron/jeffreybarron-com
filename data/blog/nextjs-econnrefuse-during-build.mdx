@@ -1,14 +1,17 @@
 ---
-dateModified: 2023-04-08T12:59:08Z+1000  
-dateCreated: 2023-04-08T12:59:08Z+1000  
+modified: 2023-04-09 00:46  
+modifiedTs: 1680965182842  
+created: 2023-04-09 00:46  
+createdTs: 1680965182842  
 layout: MDXLayout  
-images: [opera_house.jpg, harbour_bridge.jpg]  
-title: NextJS ECONNREFUSED during build   
-slug: nextjs-econnrefuse-during-build
-canonicalUrl: https://jeffreybarron.com/blog/nextjs-econnrefuse-during-build  
-summary: Explainer for getStaticPaths noob mistake
-authors: [jeffbarron]  
-tags: [published, nextj]
+route: /blog  
+slug: nextjs-econnrefuse-during-build  
+ext: .mdx  
+images: [opera-house.jpg, harbour-bridge.jpg]  
+title: NextJS ECONNREFUSED during build  
+summary: Explainer for getStaticPaths noob mistake  
+authors: [Jeffrey Barron]
+tags: [nextj]  
 ---
 
 ---
@@ -30,7 +33,8 @@ The correct approach is, instead of going through the REST API, you should just 
 
 You should then only do client API calls from the React components on the browser after the initial pages load (i.e. from useEffect et al.), not from getStaticPaths or getStaticProps. 
 
----
+<br /><hr />
+
 # References
 - [Stack Contributor](https://stackoverflow.com/a/67676463/18296218)  
 - [Next Manuals](https://nextjs.org/docs/basic-features/data-fetching/get-static-props#write-server-side-code-directly)  

@@ -1,13 +1,16 @@
 ---
-dateModified: 2023-04-08T13:21:59Z+1000  
-dateCreated: 2023-04-08T13:21:59Z+1000  
+modified: 2023-04-09 01:59  
+modifiedTs: 1680969552048  
+created: 2023-04-09 01:59  
+createdTs: 1680969552048  
 layout: MDXLayout  
-images: [opera_house.jpg, harbour_bridge.jpg]  
-title: Portfolio website of Jeffrey Barron  
+route: /release
 slug: readme
-canonicalUrl: https://jeffreybarron.com/release/readme
-authors: [jeffbarron]  
-tags: [jeffreybarron.com, published, readme]
+ext: .mdx  
+images: [opera-house.jpg, harbour-bridge.jpg]    
+title: Portfolio website of Jeffrey Barron  
+authors: [Jeffrey Barron] 
+tags: [readme]
 ---
 
 ---

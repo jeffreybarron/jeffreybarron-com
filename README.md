@@ -17,31 +17,23 @@ tags: [jeffreybarron.com, published, readme]
 ### Development Deployment
 #### Environment Variables
 ``` shell
-placeholder
+npm install
+make dev
 ```
 
-#### Build and Run 
+#### Staging Local
 Address: `http:localhost:3000`
 ``` shell 
-npm run dev
+npm install
+make start
 ```
-### Production Deployment
+### Deploy Production 
 Address: `https://jeffreybarron.com`
-#### Environment Variables
-
-#### Build
-``` shell
-make build
-```
-
-#### Local host: Docker, Node
-``` shell
-npm start
-```
 
 #### PAAS (Cloud) Hosted
 ``` shell
-placeholder
+npm install
+make start
 ```
 
 ## Useful links

@@ -1,14 +1,17 @@
 ---
-dateModified: 2023-04-08T13:27:33Z+1000  
-dateCreated: 2023-04-08T13:27:33Z+1000  
+modified: 2023-04-09 01:59  
+modifiedTs: 1680969575480  
+created: 2023-04-09 01:59  
+createdTs: 1680969575480   
 layout: MDXLayout  
-images: [opera_house.jpg, harbour_bridge.jpg]  
+route: /release
+slug: release-0.2.1
+ext: .mdx
+images: [opera-house.jpg, harbour-bridge.jpg]    
 title: Release v0.2.1   
-slug: release_0.2.1
-canonicalUrl: https://jeffreybarron.com/release/release_0.2.1  
-summary: summary: Release Notes for v0.2.1
-authors: [jeffbarron]  
-tags: published, release
+summary: Release Notes for v0.2.1
+authors: [Jeffrey Barron]
+tags: [release]
 ---
 
 ---
@@ -20,9 +23,14 @@ tags: published, release
 
 ### WIP
 - - `TODO:` Add metadata to customise pages and create panels
-	- `TODO:` Add Titles from metadata to blog/release pages 
-	- `TODO:` add metadata `#tags` pages
-	 - `TODO:` use metadata to create index list with both title and slug for the href
+	- [x] Add Titles from metadata to blog/release pages 
+	- [x] add metadata `#tags` pages
+	 - `TODO:` this works, but it breaks when markdown author doesnt use arrays for tags, authors, and images, make this more robust to poorly formed frontmatter.
+		- [ ] handle single items, instead of arrays in square braces
+		- [ ] handle arrays without square braces
+		- [ ] handle missing meta-data without square braces
+		- [ ] handle missing front-matter 
+		 - `TODO:` use metadata to create index list with both title and slug for the href
 		- default to slug for title if no metadata
 	- `TODO:` turn index into tiled cards
 `TODO:` Add page images- 

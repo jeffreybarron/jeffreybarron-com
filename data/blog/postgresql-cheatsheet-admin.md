@@ -1,16 +1,17 @@
 ---
-dateModified: 2023-04-08T11:00:23Z+1000  
-modifiedTimeStamp: 1680915623978  
-dateCreated: 2023-04-08T11:00:23Z+1000  
-createdTimeStamp: 1680915623978  
+modified: 2023-04-09 00:47  
+modifiedTs: 1680965256641  
+created: 2023-04-09 00:47  
+createdTs: 1680965256641  
 layout: MDXLayout  
-images: [opera_house.jpg, harbour_bridge.jpg]  
-title: PostgreSQL Cheatsheet Admin  
-authors: [jeffbarron]  
+route: /blog   
 slug: postgresql-cheatsheet-admin
-canonicalUrl: https://jeffreybarron.com/blog/postgresql-cheatsheet-admin  
+ext: .md
+images: [opera-house.jpg, harbour-bridge.jpg]   
+title: PostgreSQL Cheatsheet Admin  
 summary: Administration shell commands for PostgreSQL  
-tags: [published, postgresql, cheatsheet]
+authors: [Jeffrey Barron]
+tags: [postgresql, cheatsheet]
 ---
 
 ---
@@ -361,8 +362,8 @@ Drop an existing index from a table (SQL)
 drop index idx_employee_emp_name;
 ```
 
+<br /><hr />
 
----
 # References  
 [^1]: [postgrescheatsheet.com](https://postgrescheatsheet.com)    
 [^2]: [Postgresql Docs, SQL Vacuum](https://www.postgresql.org/docs/current/sql-vacuum.html)

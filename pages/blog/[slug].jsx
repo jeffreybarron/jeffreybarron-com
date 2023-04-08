@@ -17,13 +17,11 @@ export default function Page(props) {
   const currentPage = props.article.filter((file) => {
     return file.fileSlug.includes(slug);
   });
-  // console.log("Blog Post:", `/data/${COLLECTION}/${currentPage[0].fileName.toString()}`)
   const Post = dynamic(() => import(`/data/${COLLECTION}/${currentPage[0].fileName}`));
-  
   return (
     <MDXLayout>
       {/* TODO: how to pass through the slug for the headings */}
-      <Post slug={slug}/>
+      <Post props={currentPage[0]} />
     </MDXLayout>
   );
 }
@@ -47,7 +45,7 @@ export async function getStaticProps() {
   };
 }
 
-/// Helper Functions
+// Helper Functions
 function _getMarkdownSlugs(folder){
   const markdownFiles = __getMarkdownFiles(folder);
   return truncateFileExtensions(markdownFiles);
@@ -65,16 +63,23 @@ function _getMarkdownFileInfo(folder){
     }
     slug = file.substring(0, lastDotIndex);
     ext = file.substring(lastDotIndex, file.length);
-    return ({
+
+    let fileObject = {
       fileName: file,
       filePath: `/data/${folder}/${file}`,
       fileRoute: `/${folder}/${slug}`,
       fileSlug: slug,
       ext: ext 
-    })
+    }
+    //use gray-matter to add file frontmatter to fileObject
+    const frontMatter = __getFrontMatter(fileObject.filePath);
+    fileObject.frontMatter = frontMatter.data;
+
+    return (fileObject)
   });
   return paths;
 };
+
 
 function __getMarkdownFiles(folder){
   const fs = require("fs");
@@ -84,4 +89,13 @@ function __getMarkdownFiles(folder){
     return file.endsWith(".md") || file.endsWith(".mdx");
   });
   return markdownFiles;
+}
+
+function __getFrontMatter(file){
+  const fs = require("fs");
+  const matter = require("gray-matter");
+  const filePath = path.join(process.cwd(), file);
+  const str = fs.readFileSync(filePath, "utf-8");
+  const frontMatter = matter(str) 
+  return frontMatter;
 }
