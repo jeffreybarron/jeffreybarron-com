@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import ErrorPage from "next/error";
 import path from "path";
 import MDXLayout from "./../(layout)/MDXLayout";
-import { truncateFileExtensions } from "../../lib/helper";
+import { truncateFileExtensions, splitIntoArray } from "../../lib/helper";
 const COLLECTION = "blog"
 
 export default function Page(props) {
@@ -14,14 +14,13 @@ export default function Page(props) {
       return <ErrorPage statusCode={404} />
   }
   const { slug } = router.query;
-  const currentPage = props.article.filter((file) => {
-    return file.fileSlug.includes(slug);
+  const currentPage = props.posts.filter((file) => {
+      return file.fileSlug.includes(slug);
   });
   const Post = dynamic(() => import(`/data/${COLLECTION}/${currentPage[0].fileName}`));
   return (
     <MDXLayout>
-      {/* TODO: how to pass through the slug for the headings */}
-      <Post props={currentPage[0]} />
+      <Post currentPage={currentPage[0]} /> 
     </MDXLayout>
   );
 }
@@ -36,12 +35,9 @@ export function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  const data = _getMarkdownFileInfo(COLLECTION);
+  const posts = _getMarkdownFileInfo(COLLECTION);
   return {
-    // Passed to the page component as props
-    props: {
-      article: data,
-    },
+    props: {posts}
   };
 }
 
@@ -97,5 +93,12 @@ function __getFrontMatter(file){
   const filePath = path.join(process.cwd(), file);
   const str = fs.readFileSync(filePath, "utf-8");
   const frontMatter = matter(str) 
+  
+  // handle frontmatter arrays
+  frontMatter.data.authors = splitIntoArray(frontMatter.data.authors);
+  frontMatter.data.tags = splitIntoArray(frontMatter.data.tags);
+  frontMatter.data.images = splitIntoArray(frontMatter.data.images);
+  // console.log(`${frontMatter.data.authors}\n${frontMatter.data.tags}\n${frontMatter.data.images}\n`);
+  
   return frontMatter;
 }

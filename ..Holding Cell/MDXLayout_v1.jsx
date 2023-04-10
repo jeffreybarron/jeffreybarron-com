@@ -17,40 +17,40 @@ const fancyText = Dancing_Script({
 });
 
 
-const components = {
-  // Typography
-    // 
-    // note Nextjs 13 Link not scrolling to anchor element
-    // https://github.com/vercel/next.js/issues/44295 URL# not handled @ 2023-04-05
-    //   
-    h1: props => <h1 className="pb-2 text-2xl font-extrabold uppercase underline hover:after:content-['_#']" {...props}/>,
-    h2: props => <h2 className="text-secondary py-2 pt-4 text-2xl font-semibold capitalize hover:after:content-['_#']" {...props}/>,
-    h3: props => <h3 className="text-tertiary py-2 pt-2 text-xl font-bold capitalize hover:after:content-['_#']" {...props}/>,
-    h4: props => <h4 className="text-tertiary py-2 pt-2 text-lg italic hover:after:content-['_#']" {...props}/>,
-    h5: props => <h5 className="text-tertiary py-2 pt-2 text-lg italic hover:after:content-['_#']" {...props} {...props}/>,
-    h6: props => <h6 className="text-tertiary py-2 pt-2 text-lg italic hover:after:content-['_#']" {...props}/>,
-    a: props => <Link {...props} className="hover:text-secondary text-primary-contrast" />,
-    p: props => <p {...props} className="inline-block py-2 max-w-[100vw]"/>,
-
-  // Code
-    pre: props => <pre className="language-jsx my-4 grid border border-dotted p-4" {...props}/>,
-    code: props => <code className="line-numbers text-tertiary" {...props}/>,
-
-  // Data
-    table: props => <table {...props} className="text-primary m-4 shadow-md shadow-primary-contrast bg-primary-300"/>,
-    th: props => <th {...props} className="border-b-2 border-b-primary px-2"/>,
-    td: props => <td {...props} className="px-2"/>,
-    ul: props => <ol {...props}/>,
-    ol: props => <ul {...props}/>,
-    li: props => <li {...props}/>,
-
-};
-
-export default function PagesLayout( {children, ...props} ) {
-
+export default function PagesLayout({ children }) {
+// 
+// note Nextjs 13 Link not scrolling to anchor element
+// https://github.com/vercel/next.js/issues/44295 URL# not handled @ 2023-04-05
+//   
+ 
   return (
     // <MDXProvider>
-    <MDXProvider components={ components }> 
+    <MDXProvider components={{
+      // Typography
+      h1: props => <h1 className="pb-2 text-2xl font-extrabold uppercase underline hover:after:content-['_#']" {...props}/>,
+      h2: props => <h2 className="text-secondary py-2 pt-4 text-2xl font-semibold capitalize hover:after:content-['_#']" {...props}/>,
+      h3: props => <h3 className="text-tertiary py-2 pt-2 text-xl font-bold capitalize hover:after:content-['_#']" {...props}/>,
+      h4: props => <h4 className="text-tertiary py-2 pt-2 text-lg italic hover:after:content-['_#']" {...props}/>,
+      h5: props => <h5 className="text-tertiary py-2 pt-2 text-lg italic hover:after:content-['_#']" {...props} {...props}/>,
+      h6: props => <h6 className="text-tertiary py-2 pt-2 text-lg italic hover:after:content-['_#']" {...props}/>,
+      a: props => <Link {...props} className="hover:text-secondary text-primary-contrast" />,
+      p: props => <p {...props} className="inline-block py-2 max-w-[100vw]"/>,
+      // hr: props => <hr {...props} className="inline-block py-2 max-w-[100vw]"/>,
+      // hr: props => <></>,
+
+      // Code
+      pre: props => <pre className="language-jsx my-4 grid border border-dotted p-4" {...props}/>,
+      code: props => <code className="line-numbers text-tertiary" {...props}/>,
+
+      // Data
+      table: props => <table {...props} className="text-primary m-4 shadow-md shadow-primary-contrast bg-primary-300"/>,
+      th: props => <th {...props} className="border-b-2 border-b-primary px-2"/>,
+      td: props => <td {...props} className="px-2"/>,
+      OL: props => <ol {...props}/>,
+      UL: props => <ul {...props}/>,
+      LI: props => <li {...props}/>,
+
+    }}> 
       <div className={`${bodyText.variable} ${fancyText.variable}`}>
         <Head>
           <title>Jeffrey Barron</title>
@@ -64,29 +64,30 @@ export default function PagesLayout( {children, ...props} ) {
             <div className="lg:col-span-8 px-1 sm:col-span-10 flex min-h-[calc(100vh-135px)] flex-1 flex-col break-words sm:p-3 md:p-6">
               {/* <!-- Metadata --> */}
               <div className="bg-opacity-10 border-l-2 bg-white object-contain flex flex-col max-w-[100vw] p-1 sm:p-2 lg:p-4 text-sm border-b rounded-tr-lg shadow-secondary shadow-lg">
-                <h1 className="pb-4" >{children.props ? children.props.currentPage.frontMatter.title : ""}</h1>
-                              {/* <!-- Tags --> */}
-                              <div className="">
+              {/* <div className="bg-opacity-10 border-l-2 bg-white object-contain flex flex-col flex-1 max-w-[100vw] p-1 sm:p-2 lg:p-4 text-sm border-b rounded-tr-lg shadow-secondary shadow-lg"> */}
+                <h1 className="pb-4">{children.props.props.frontMatter.title}</h1>
+                {/* <!-- Tags --> */}
+                <div className="">
                   <span className="pr-1 font-semibold">Tags:</span>
-                  {children.props.currentPage.frontMatter.tags.map((tag, index) => (
+                  {children.props.props.frontMatter.tags.map((tag, index) => (
                     <span key={index} className="pr-1"> 
-                      {tag}{index < children.props.currentPage.frontMatter.tags.length - 1 ? ',' : ''}
+                      {tag}{index < children.props.props.frontMatter.tags.length - 1 ? ',' : ''}
                     </span>
                   ))}
                 </div>
                 {/* <!-- Authors --> */}
                 <div className="">
                   <span className="pr-1 font-semibold">Author(s):</span>
-                  {children.props.currentPage.frontMatter.authors.map((author, index) => (
+                  {children.props.props.frontMatter.authors.map((author, index) => (
                     <span key={index} className="pr-1"> 
-                      {author}{index < children.props.currentPage.frontMatter.authors.length - 1 ? ',' : ''}
+                      {author}{index < children.props.props.frontMatter.authors.length - 1 ? ',' : ''}
                     </span>
                   ))}
                 </div>
                 {/* <!-- Dates --> */}
                 <div className="flex w-full justify-between">
-                  <div className="sm:flex"><div className="font-semibold pr-1">Created:</div><div className="flex-1">{children.props.currentPage.frontMatter.created}</div></div>
-                  <div className="sm:flex"><div className="font-semibold pr-1">Updated:</div><div className="flex-1">{children.props.currentPage.frontMatter.modified}</div></div>
+                  <div className="sm:flex"><div className="font-semibold pr-1">Created:</div><div className="flex-1">{children.props.props.frontMatter.created}</div></div>
+                  <div className="sm:flex"><div className="font-semibold pr-1">Updated:</div><div className="flex-1">{children.props.props.frontMatter.modified}</div></div>
                 </div>
               </div>
               {/* <!-- Content --> */}

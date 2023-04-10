@@ -1,20 +1,21 @@
 ---
-modified: 2023-04-09 00:46  
+modified: 2023-04-09 13:26
 modifiedTs: 1680965182842  
-created: 2023-04-09 00:46  
+created: 2023-04-09 00:46
 createdTs: 1680965182842  
 layout: MDXLayout  
 route: /blog  
 slug: nextjs-econnrefuse-during-build  
 ext: .mdx  
-images: [opera-house.jpg, harbour-bridge.jpg]  
 title: NextJS ECONNREFUSED during build  
 summary: Explainer for getStaticPaths noob mistake  
+images: [opera-house.jpg, harbour-bridge.jpg]  
 authors: [Jeffrey Barron]
-tags: [nextj]  
+tags: [nextjs]  
 ---
 
 ---
+
 `TL;DR` don't call your own API for getStaticPaths()
 
 Nextjs documentation is slightly misleading for examples on getStaticPaths, showing the use of fetch from an API. However, the not so obvious gotcha happens if you fetch from your app's own API. While working in `npm run dev` everything works fine, but it all breaks when you build your app. The solution, however, is quite obvious.
@@ -31,11 +32,11 @@ So in that case, the build will try to access your server, and it won't be runni
 
 The correct approach is, instead of going through the REST API, you should just do database queries directly from getStaticPaths or getStaticProps. That code never gets run on the client anyway, and it will also be slightly more efficient than doing a useless trip to the API, which then calls the database indirectly
 
-You should then only do client API calls from the React components on the browser after the initial pages load (i.e. from useEffect et al.), not from getStaticPaths or getStaticProps. 
+You should then only do client API calls from the React components on the browser after the initial pages load (i.e. from useEffect et al.), not from getStaticPaths or getStaticProps.
 
 <br /><hr />
 
-# References
+## References
+
 - [Stack Contributor](https://stackoverflow.com/a/67676463/18296218)  
 - [Next Manuals](https://nextjs.org/docs/basic-features/data-fetching/get-static-props#write-server-side-code-directly)  
-

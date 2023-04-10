@@ -19,6 +19,7 @@ export default function Footer() {
               alt="Link to https://github.com/jeffreybarron"
               width={20}
               height={20}
+              // height="h-auto"
               aria-label="github Logo"
             />
           </Link>

@@ -31,6 +31,8 @@ const components = {
     h6: props => <h6 className="text-tertiary py-2 pt-2 text-lg italic hover:after:content-['_#']" {...props}/>,
     a: props => <Link {...props} className="hover:text-secondary text-primary-contrast" />,
     p: props => <p {...props} className="inline-block py-2 max-w-[100vw]"/>,
+    // hr: props => <hr {...props} className="inline-block py-2 max-w-[100vw]"/>,
+    // hr: props => <></>,
 
   // Code
     pre: props => <pre className="language-jsx my-4 grid border border-dotted p-4" {...props}/>,
@@ -41,12 +43,17 @@ const components = {
     th: props => <th {...props} className="border-b-2 border-b-primary px-2"/>,
     td: props => <td {...props} className="px-2"/>,
     ul: props => <ol {...props}/>,
-    ol: props => <ul {...props}/>,
+    ul: props => <ul {...props}/>,
     li: props => <li {...props}/>,
 
+  //Metadata
+  title:props => <title {...props}/>,
 };
 
-export default function PagesLayout( {children, ...props} ) {
+
+export default function PagesLayout({ children }) {
+
+  console.log("outer:", props);
 
   return (
     // <MDXProvider>
@@ -64,29 +71,30 @@ export default function PagesLayout( {children, ...props} ) {
             <div className="lg:col-span-8 px-1 sm:col-span-10 flex min-h-[calc(100vh-135px)] flex-1 flex-col break-words sm:p-3 md:p-6">
               {/* <!-- Metadata --> */}
               <div className="bg-opacity-10 border-l-2 bg-white object-contain flex flex-col max-w-[100vw] p-1 sm:p-2 lg:p-4 text-sm border-b rounded-tr-lg shadow-secondary shadow-lg">
-                <h1 className="pb-4" >{children.props ? children.props.currentPage.frontMatter.title : ""}</h1>
-                              {/* <!-- Tags --> */}
-                              <div className="">
+                <h1 className="pb-4">{children.props.frontMatter.title}</h1>
+                
+                {/* <!-- Tags --> */}
+                <div className="">
                   <span className="pr-1 font-semibold">Tags:</span>
-                  {children.props.currentPage.frontMatter.tags.map((tag, index) => (
+                  {children.props.frontMatter.tags.map((tag, index) => (
                     <span key={index} className="pr-1"> 
-                      {tag}{index < children.props.currentPage.frontMatter.tags.length - 1 ? ',' : ''}
+                      {tag}{index < children.props.frontMatter.tags.length - 1 ? ',' : ''}
                     </span>
                   ))}
                 </div>
                 {/* <!-- Authors --> */}
                 <div className="">
                   <span className="pr-1 font-semibold">Author(s):</span>
-                  {children.props.currentPage.frontMatter.authors.map((author, index) => (
+                  {children.props.frontMatter.authors.map((author, index) => (
                     <span key={index} className="pr-1"> 
-                      {author}{index < children.props.currentPage.frontMatter.authors.length - 1 ? ',' : ''}
+                      {author}{index < children.props.frontMatter.authors.length - 1 ? ',' : ''}
                     </span>
                   ))}
                 </div>
                 {/* <!-- Dates --> */}
                 <div className="flex w-full justify-between">
-                  <div className="sm:flex"><div className="font-semibold pr-1">Created:</div><div className="flex-1">{children.props.currentPage.frontMatter.created}</div></div>
-                  <div className="sm:flex"><div className="font-semibold pr-1">Updated:</div><div className="flex-1">{children.props.currentPage.frontMatter.modified}</div></div>
+                  <div className="sm:flex"><div className="font-semibold pr-1">Created:</div><div className="flex-1">{children.props.frontMatter.created}</div></div>
+                  <div className="sm:flex"><div className="font-semibold pr-1">Updated:</div><div className="flex-1">{children.props.frontMatter.modified}</div></div>
                 </div>
               </div>
               {/* <!-- Content --> */}

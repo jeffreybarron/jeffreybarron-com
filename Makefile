@@ -6,6 +6,7 @@ pull:
 .PHONY: start
 start: 
 	sh ./config/scripts/publish_jeffreybarron_markdown.sh
+	npm install
 	npm run build
 	npm start
 

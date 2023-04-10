@@ -19,7 +19,6 @@ const fancyText = Dancing_Script({
 export default function HomePage() {
   return (
     <div className="">
-      {/* <div className="from-primary to-secondary bg-gradient-to-r box-decoration-clone"> */}
       {/* <!-- Hero of the Show --> */}
       <div className="from-primary to-secondary flex h-screen snap-start items-center justify-center bg-gradient-to-r box-decoration-clone p-4 align-middle">
         <HeroPage />
@@ -47,7 +46,6 @@ export default function HomePage() {
 HomePage.getLayout = function getLayout(page) {
   return (
     <RootLayout>
-      {/* <NestedLayout>{page}</NestedLayout> */}
       {page}
     </RootLayout>
   );
