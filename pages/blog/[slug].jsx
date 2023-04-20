@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import ErrorPage from "next/error";
 import path from "path";
-import MDXLayout from "./../(layout)/MDXLayout";
+import MDXLayout from "../../Layout/MDXLayout";
 import { truncateFileExtensions, splitIntoArray } from "../../lib/helper";
 const COLLECTION = "blog"
 
@@ -30,9 +30,11 @@ export function getStaticPaths() {
   const paths = markdownFileSlugs.map((slug) => `/${COLLECTION}/${slug}`);
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
+    // fallback: false,
   };
 }
+
 
 export async function getStaticProps() {
   const posts = _getMarkdownFileInfo(COLLECTION);
@@ -40,6 +42,7 @@ export async function getStaticProps() {
     props: {posts}
   };
 }
+
 
 // Helper Functions
 function _getMarkdownSlugs(folder){
@@ -69,7 +72,15 @@ function _getMarkdownFileInfo(folder){
     }
     //use gray-matter to add file frontmatter to fileObject
     const frontMatter = __getFrontMatter(fileObject.filePath);
-    fileObject.frontMatter = frontMatter.data;
+    // fileObject.frontMatter = frontMatter.data;
+    fileObject.authors = frontMatter.data.authors;
+    fileObject.tags = frontMatter.data.tags;
+    fileObject.images = frontMatter.data.images;
+    fileObject.title = frontMatter.data.title;
+    fileObject.summary = frontMatter.data.summary;
+    fileObject.modified = frontMatter.data.modified;
+    fileObject.created = frontMatter.data.created;
+    
 
     return (fileObject)
   });

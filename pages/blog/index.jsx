@@ -2,7 +2,7 @@
 
 import path from "path";
 import Link from "next/link";
-import PagesLayout from "../(layout)/PagesLayout";
+import PagesLayout from "../../Layout/PagesLayout";
 import { truncateFileExtensions } from "../../lib/helper";
 
 import { Montserrat, Dancing_Script } from "next/font/google";

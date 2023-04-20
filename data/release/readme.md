@@ -9,6 +9,7 @@ slug: readme
 ext: .mdx  
 images: [opera-house.jpg, harbour-bridge.jpg]    
 title: Portfolio website of Jeffrey Barron  
+summary: github readme.md
 authors: [Jeffrey Barron] 
 tags: [readme]
 ---

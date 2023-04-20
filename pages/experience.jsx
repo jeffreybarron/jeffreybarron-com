@@ -1,6 +1,6 @@
 // pages/experience.js [Server Side]
 
-import PagesLayout from "./(layout)/PagesLayout";
+import PagesLayout from "../Layout/PagesLayout";
 
 import { Montserrat, Dancing_Script } from "next/font/google";
 const bodyText = Montserrat({
@@ -14,6 +14,7 @@ const fancyText = Dancing_Script({
 
 export default function ExperiencePage() {
   return (
+    <PagesLayout>
     <div>
       <h1>Skills and Experience</h1>
       <h2>Soft Skills</h2>
@@ -62,9 +63,6 @@ export default function ExperiencePage() {
       <h2>Network and Server Administration</h2>
       <h2>Domain Knowledge</h2>
     </div>
+    </PagesLayout>
   );
 }
-
-ExperiencePage.getLayout = function getLayout(page) {
-  return <PagesLayout>{page}</PagesLayout>;
-};

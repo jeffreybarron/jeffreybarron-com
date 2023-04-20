@@ -9,7 +9,7 @@ slug: writing-conventions-for-web-targeted-markdown
 title: writing-conventions-for-web-targeted-markdown
 summary: Guidelines for writing Web targeted markdown documents.  
 images: [opera-house.jpg, harbour-bridge.jpg]  
-authors: [Jeffrey Barron, Andrea Davey]
+authors: [Jeffrey Barron]
 tags: [seo, slugs, "markdown", convention]  
 ---
 

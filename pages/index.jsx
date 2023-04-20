@@ -1,10 +1,10 @@
 // pages/index.js [Server Side]
 
-import RootLayout from "./(layout)/RootLayout";
-import About from "./(components)/About";
-import HeroPage from "./(components)/HeroPage";
-import Navigation from "./(components)/Navigation";
-import Quote from "./(components)/Quote";
+import RootLayout from "../Layout/RootLayout";
+import About from "../Components/About";
+import HeroPage from "../Components/HeroPage";
+import Navigation from "../Components/Navigation";
+import Quote from "../Components/Quote";
 
 import { Montserrat, Dancing_Script } from "next/font/google";
 const bodyText = Montserrat({
@@ -18,6 +18,7 @@ const fancyText = Dancing_Script({
 
 export default function HomePage() {
   return (
+    <RootLayout>
     <div className="">
       {/* <!-- Hero of the Show --> */}
       <div className="from-primary to-secondary flex h-screen snap-start items-center justify-center bg-gradient-to-r box-decoration-clone p-4 align-middle">
@@ -40,13 +41,7 @@ export default function HomePage() {
         author="Frank Lloyd Wright"
       />
     </div>
+    </RootLayout>
   );
 }
 
-HomePage.getLayout = function getLayout(page) {
-  return (
-    <RootLayout>
-      {page}
-    </RootLayout>
-  );
-};
