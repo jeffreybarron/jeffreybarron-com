@@ -24,6 +24,11 @@ export default function Footer() {
             />
           </Link>
         </span>
+        <Link href="/release" className="border-primary-contrast border-b border-dotted">
+          <div className="hover:text-tertiary flex items-center justify-start sm:justify-center p-1">
+            release history
+          </div>
+        </Link>
       </div>
     </footer>
   );

@@ -23,7 +23,7 @@ export default function PagesLayout({ children }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main className="font-bodyText bg-primary text-primary-contrast h-[calc(100vh-40px)] w-screen flex-1 snap-y snap-mandatory scroll-pt-0 overflow-y-scroll">
+      <main className="font-bodyText bg-primary text-primary-contrast min-h-[calc(100vh-40px)] w-screen flex-1 snap-y snap-mandatory scroll-pt-0 overflow-y-scroll">
         <Navigation />
         <section className="flex flex-1 grid-flow-col grid-cols-12 sm:grid">
           <div className="col-span-2 p-2"></div>

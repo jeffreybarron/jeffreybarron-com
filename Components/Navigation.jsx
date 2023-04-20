@@ -12,19 +12,14 @@ export default function Navigation() {
             home
           </div>
         </Link>
+        <Link href="/curriculum-vitae" className="border-primary-contrast border-b border-dotted">
+          <div className="hover:text-tertiary flex items-center justify-start sm:justify-center p-1 sm:hover:-rotate-6">
+            curriculum vitae
+          </div>
+        </Link>
         <Link href="/blog" className="border-primary-contrast border-b border-dotted">
           <div className="hover:text-tertiary flex items-center justify-start sm:justify-center p-1 sm:hover:-rotate-6">
             blog
-          </div>
-        </Link>
-        <Link href="/experience" className="border-primary-contrast border-b border-dotted">
-          <div className="hover:text-tertiary flex items-center justify-start sm:justify-center p-1 sm:hover:-rotate-6">
-            experience
-          </div>
-        </Link>
-        <Link href="/release" className="border-primary-contrast border-b border-dotted">
-          <div className="hover:text-tertiary flex items-center justify-start sm:justify-center p-1 sm:hover:-rotate-6">
-            release
           </div>
         </Link>
         <Link href="/contact" className="border-primary-contrast border-b border-dotted">

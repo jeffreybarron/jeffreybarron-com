@@ -22,21 +22,29 @@ tags: [release]
 ## Release v0.2.1
 
 ### WIP
-- `TODO:` Add metadata to customise pages and create panels
+- `TODO:` use metadata to create index list with both title and slug for the href
+	- default to slug for title if no metadata
+	- turn index into tiled cards
+- `TODO:`  add contact form and mail service integration
+	- https://www.youtube.com/watch?v=tPPctY9POIA
+	- https://www.freecodecamp.org/news/how-to-build-a-working-contact-form-with-sendgrid-and-next-js/
+	 - mailing yt https://www.youtube.com/watch?v=FUCoXg2sAg0&t=266s
+	- https://mailchimp.com/developer/
+	- https://sendgrid.com/pricing/
+- `TODO:` add navigation bread crumbs for UX
+- `TODO:` Get rid of @apply directives in global.css 
+- `TODO:`  Homepage Scroll is awful on Firefox.
+- `TODO:` Add page images- 
+ - `TODO:` Add metadata to customise pages and create panels
 	- [x] Add Titles from metadata to blog/release pages 
 	- [x] add metadata `#tags` pages
-	 - `TODO:` this works, but it breaks when markdown author doesnt use arrays for tags, authors, and images, make this more robust to poorly formed frontmatter.
+	 - `TODO:` this works, but it breaks when markdown author doesnt use arrays for tags, authors, and images, 
+		- [ ] make this more robust to poorly formed frontmatter.
 		- [ ] handle arrays without square braces
 		- [ ] handle single items, instead of arrays in square braces
 		- [ ] handle missing meta-data without square braces
 		- [ ] handle missing front-matter 
-	- `TODO:` use metadata to create index list with both title and slug for the href
-		- default to slug for title if no metadata
-	- `TODO:` turn index into tiled cards
-`TODO:` Add page images- 
-`TODO:` add navigation bread crumbs for UX
-- `TODO:` figure out workflow import obsidian library
-- `TODO:` Get rid of @apply directives in global.css 
+
 
 ### Framework issues
 - `BUG:` right-click heading "Copy Link to Highlight" yields nonsense. Instead, use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
@@ -45,6 +53,8 @@ tags: [release]
     - [App Router Roadmap @ 2023-04-05](https://beta.nextjs.org/docs/app-directory-roadmap) 
 
 ### Completed
+ - [x]  Finish adding CV
+	 - format CV
 - [x]  Update the publish markdown shell script, use 4 scripts to synchronise the folders to their published location.
 	- blog. 
 	- blog/attachments. 
@@ -52,3 +62,5 @@ tags: [release]
 	- release/attachments. 
 - [x] Cleanup root readme.md page for GitHub repo
 - [x] remove meta-data from [slug] page
+- [x] figure out workflow import obsidian library
+	- use makefile to bash copy files into repo then build and redeploy
