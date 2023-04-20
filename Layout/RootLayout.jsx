@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main className="font-bodyText bg-primary flex h-screen w-screen flex-1 snap-y snap-mandatory scroll-pt-0 overflow-y-scroll">
+      <main className="font-bodyText bg-primary flex h-screen w-screen flex-1 scroll-pt-0 overflow-y-scroll scroll-m-0 scroll-smooth">
         {children}
       </main>
       <Footer />

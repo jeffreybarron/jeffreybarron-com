@@ -23,6 +23,7 @@ export default function BlogPage({ blog }) {
   return (
     <div>
       <h1>blog roll</h1>
+      
       <ul>
         {blog.map((post) => (
           <li key={post}>

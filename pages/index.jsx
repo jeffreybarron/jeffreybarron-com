@@ -21,7 +21,7 @@ export default function HomePage() {
     <RootLayout>
     <div className="">
       {/* <!-- Hero of the Show --> */}
-      <div className="from-primary to-secondary flex h-screen snap-start items-center justify-center bg-gradient-to-r box-decoration-clone p-4 align-middle">
+      <div className="from-primary to-secondary flex h-screen items-center justify-center bg-gradient-to-r box-decoration-clone p-4 align-middle">
         <HeroPage />
       </div>
       <Quote
@@ -29,11 +29,11 @@ export default function HomePage() {
           latin]."
         author="William of Ockham"
       />
-      <div className="from-primary to-secondary flex h-[10vh] snap-start items-center justify-center bg-gradient-to-r box-decoration-clone align-middle">
+      <div className="from-primary to-secondary flex h-[10vh] items-center justify-center bg-gradient-to-r box-decoration-clone align-middle">
         <Navigation />
       </div>
       {/* <!-- About Me Copy --> */}
-      <div className="flew-col text-primary-contrast font-bodyText min-h-[65vh] snap-start items-center justify-center align-middle">
+      <div className="flew-col text-primary-contrast font-bodyText min-h-[62vh] items-center justify-center align-middle">
         <About />
       </div>
       <Quote
