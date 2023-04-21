@@ -1,4 +1,4 @@
-// pages/blog/index.js [??? Side]
+// pages/blog/index.js 
 
 import fs from 'fs';
 import path from "path";
@@ -30,7 +30,7 @@ export default function BlogPage( {blog} ) {
     <PagesLayout>
       <div className="items-center grid sm:grid-cols-2 gap-y-4 place-items-center">
         { blog.map((post, index) => (
-          <PostCard key={index} post={post} />
+          <PostCard key={index} collection={ COLLECTION }post={post} />
         ))} 
       </div>
     </PagesLayout>

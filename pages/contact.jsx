@@ -41,7 +41,7 @@ export default function ContactPage() {
         console.log(error);
         return;
       }
-    console.log(fullname, email, subject, message);
+    // console.log(fullname, email, subject, message);
   };
 
 

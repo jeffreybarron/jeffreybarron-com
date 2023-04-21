@@ -7,7 +7,7 @@ import MDXLayout from "../../Layout/MDXLayout";
 import { truncateFileExtensions, splitIntoArray } from "../../lib/helper";
 const COLLECTION = "release"
 
-export default function Page(props) {
+export default function ReleasePage(props) {
   // props from getStaticProps()
   const router = useRouter();
   if (router.isFallback) {

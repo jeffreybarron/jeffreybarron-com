@@ -47,7 +47,7 @@ const components = {
 
 };
 
-export default function PagesLayout( {children} ) {
+export default function MDXLayout( {children} ) {
 
   return (
     // <MDXProvider>

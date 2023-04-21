@@ -2,10 +2,10 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function PostCard({index, post}) {
+export default function PostCard({index, collection, post}) {
   return (
     <div key={index} className="sm:w-[25vw] min-h-[500px] rounded overflow-hidden shadow-lg bg-primary-contrast text-primary ">
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={`/${collection}/${post.slug}`}>
         <Image className="w-full" width={1024} height={1024} src={`${post.frontMatter.image}`} alt="post image" />
         <div className="px-6 py-2">
           <div className="font-bold text-xl mb-2">{post.frontMatter.title}</div>
@@ -36,7 +36,7 @@ export default function PostCard({index, post}) {
       </Link>
       <div className="min-w-sm flex justify-center p-2">
         <Link href={`/blog/${post.slug}`}>
-          <button class="bg-secondary hover:bg-secondary-700 text-white font-bodyText font-bold py-2 px-4 rounded">
+          <button className="bg-secondary hover:bg-secondary-700 text-white font-bodyText font-bold py-2 px-4 rounded">
             Read More
           </button>
         </Link>
