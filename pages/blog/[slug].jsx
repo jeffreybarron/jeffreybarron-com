@@ -75,7 +75,7 @@ function _getMarkdownFileInfo(folder){
     // fileObject.frontMatter = frontMatter.data;
     fileObject.authors = frontMatter.data.authors;
     fileObject.tags = frontMatter.data.tags;
-    fileObject.images = frontMatter.data.images;
+    fileObject.image = frontMatter.data.image;
     fileObject.title = frontMatter.data.title;
     fileObject.summary = frontMatter.data.summary;
     fileObject.modified = frontMatter.data.modified;
@@ -106,10 +106,18 @@ function __getFrontMatter(file){
   const frontMatter = matter(str) 
   
   // handle frontmatter arrays
-  frontMatter.data.authors = splitIntoArray(frontMatter.data.authors);
-  frontMatter.data.tags = splitIntoArray(frontMatter.data.tags);
-  frontMatter.data.images = splitIntoArray(frontMatter.data.images);
-  // console.log(`${frontMatter.data.authors}\n${frontMatter.data.tags}\n${frontMatter.data.images}\n`);
+  frontMatter.data.authors = _splitIntoArray(frontMatter.data.authors);
+  frontMatter.data.tags = _splitIntoArray(frontMatter.data.tags);
+  // frontMatter.data.images = _splitIntoArray(frontMatter.data.images);
+  
   
   return frontMatter;
+}
+
+
+export function _splitIntoArray(variable) {
+  if (!Array.isArray(variable)) {
+    variable = variable.split(",");
+  }
+  return variable;
 }

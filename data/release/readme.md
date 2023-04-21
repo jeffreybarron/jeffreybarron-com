@@ -7,9 +7,9 @@ layout: MDXLayout
 route: /release
 slug: readme
 ext: .mdx  
-images: [opera-house.jpg, harbour-bridge.jpg]    
 title: Portfolio website of Jeffrey Barron  
-summary: github readme.md
+summary: Portfolio website of Jeffrey Barron
+image: /images/photos/20230411-Three-Sisters.jpg  
 authors: [Jeffrey Barron] 
 tags: [readme]
 ---

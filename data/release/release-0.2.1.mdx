@@ -7,9 +7,9 @@ layout: MDXLayout
 route: /release
 slug: release-0.2.1
 ext: .mdx
-images: [opera-house.jpg, harbour-bridge.jpg]    
-title: Release v0.2.1   
+title: Release v0.2.1  
 summary: Release Notes for v0.2.1
+image: /images/photos/20230411-Three-Sisters.jpg  
 authors: [Jeffrey Barron]
 tags: [release]
 ---
@@ -22,9 +22,6 @@ tags: [release]
 ## Release v0.2.1
 
 ### WIP
-- `TODO:` use metadata to create index list with both title and slug for the href
-	- default to slug for title if no metadata
-	- turn index into tiled cards
 - `TODO:`  add contact form and mail service integration
 	- https://www.youtube.com/watch?v=tPPctY9POIA
 	- https://www.freecodecamp.org/news/how-to-build-a-working-contact-form-with-sendgrid-and-next-js/
@@ -33,18 +30,17 @@ tags: [release]
 	- https://sendgrid.com/pricing/
 - `TODO:` add navigation bread crumbs for UX
 - `TODO:` Get rid of @apply directives in global.css 
-- `TODO:`  Homepage Scroll is awful on Firefox.
-- `TODO:` Add page images- 
  - `TODO:` Add metadata to customise pages and create panels
 	- [x] Add Titles from metadata to blog/release pages 
 	- [x] add metadata `#tags` pages
-	 - `TODO:` this works, but it breaks when markdown author doesnt use arrays for tags, authors, and images, 
-		- [ ] make this more robust to poorly formed frontmatter.
-		- [ ] handle arrays without square braces
-		- [ ] handle single items, instead of arrays in square braces
-		- [ ] handle missing meta-data without square braces
-		- [ ] handle missing front-matter 
-
+- `TODO:` this works, but it breaks when markdown author doesnt use arrays for tags, authors, and images, 
+	- [ ] make this more robust to poorly formed frontmatter.
+	- [ ] handle arrays without square braces
+	- [ ] handle single items, instead of arrays in square braces
+	- [ ] handle missing meta-data without square braces
+	- [ ] handle missing front-matter 
+ - `TODO:` Add sticky navigation bar to pages
+ - `TODO:` Add Scroll snap to HomePage, but make sure it works on all browsers (eg firefox)
 
 ### Framework issues
 - `BUG:` right-click heading "Copy Link to Highlight" yields nonsense. Instead, use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
@@ -64,3 +60,6 @@ tags: [release]
 - [x] remove meta-data from [slug] page
 - [x] figure out workflow import obsidian library
 	- use makefile to bash copy files into repo then build and redeploy
+ - [x] use frontmatter to create blog and release index list with both title and slug for the href
+	- turn index into tiled cards
+	-  Add page images

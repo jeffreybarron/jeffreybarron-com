@@ -1,4 +1,5 @@
-// .vscode/settings.json
+// Path: .vscode/extensions.json
+
 
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -59,4 +60,4 @@
   }
   
 
-}
+
