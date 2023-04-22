@@ -11,27 +11,47 @@
 
 # Use trailing slash on SRC and no trailing slash on DST
 
+echo "# ====================================="
 SRC_ROOT="/Users/jeffbarron/Dropbox/Documents/ObsidianVault/Client Library/jeffreybarron.com"
 DST_ROOT="/Users/jeffbarron/dev-local/clients/jeffreybarron.com/nextjs-blog"
 
-echo "# ====================================="
+echo "# -------------------------------------"
 echo "# Publish Blog"
+echo "# -------------------------------------"
 SRC="$SRC_ROOT/blog/"
 DST="$DST_ROOT/data/blog"
 rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
 
 SRC="$SRC_ROOT/blog/attachments/"
-DST="$DST_ROOT/public/images/blog"
+DST="$DST_ROOT/public/images/blog-attachments/"
 rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
 
-echo "# ====================================="
+echo "# -------------------------------------"
 echo "# Publish Release Notes"
+echo "# -------------------------------------"
 SRC="$SRC_ROOT/release/"
 DST="$DST_ROOT/data/release"
 rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
 
 SRC="$SRC_ROOT/release/attachments/"
+DST="$DST_ROOT/public/images/release-attachments/"
+rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+
+echo "# -------------------------------------"
+echo "# Publish Public Images"
+echo "# -------------------------------------"
+SRC_ROOT="/Users/jeffbarron/dev-local/digital-media/clients/jeffreybarron.com/published/jeffreybarron.com"
+
+SRC="$SRC_ROOT/public/images/blog/"
+DST="$DST_ROOT/public/images/blog/"
+rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+
+SRC="$SRC_ROOT/public/images/release/"
 DST="$DST_ROOT/public/images/release/"
+rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+
+SRC="$SRC_ROOT/public/images/pages/"
+DST="$DST_ROOT/public/images/pages/"
 rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
 
 echo "# Script completed"

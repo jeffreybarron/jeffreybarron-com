@@ -7,11 +7,15 @@ import { MDXProvider } from "@mdx-js/react";
 
 import React from 'react';
 
-import { Montserrat, Dancing_Script } from "next/font/google";
-const bodyText = Montserrat({
+import { Montserrat, Dancing_Script, Karla } from "next/font/google";
+const bodyText = Karla({
   variable: "--font-bodytext",
   subsets: ["latin"],
 });
+// const bodyText = Montserrat({
+//   variable: "--font-bodytext",
+//   subsets: ["latin"],
+// });
 const fancyText = Dancing_Script({
   variable: "--font-fancytext",
   subsets: ["latin"],
@@ -49,6 +53,11 @@ const components = {
 
 export default function MDXLayout( {children} ) {
 
+let frontMatter = children.props.frontMatter;
+// let slug = children.props.slug;
+// let content = children.props.content;
+
+// let frontMatter = children.props.frontMatter;
   return (
     // <MDXProvider>
     <MDXProvider components={ components }> 
@@ -65,28 +74,28 @@ export default function MDXLayout( {children} ) {
             <div className="lg:col-span-8 px-1 sm:col-span-10 flex min-h-[calc(100vh-135px)] flex-1 flex-col break-words sm:p-3 md:p-6">
               {/* <!-- Metadata --> */}
               <div className="bg-opacity-10 border-l-2 bg-white object-contain flex flex-col max-w-[100vw] p-1 sm:p-2 lg:p-4 text-sm border-b rounded-tr-lg shadow-secondary shadow-lg">
-                <h1 className="pb-4" >{children.props ? children.props.currentPage.title : ""}</h1>
+                <h1 className="pb-4" >{frontMatter.title}</h1>
                   <div className="">
                   <span className="pr-1 font-semibold">Tags:</span>
-                  {children.props.currentPage.tags.map((tag, index) => (
+                  {frontMatter.tags.map((tag, index) => (
                     <span key={index} className="pr-1"> 
-                      {tag}{index < children.props.currentPage.tags.length - 1 ? ',' : ''}
+                      {tag}{index < frontMatter.tags.length - 1 ? ',' : ''}
                     </span>
                   ))}
                 </div>
                 {/* <!-- Authors --> */}
                 <div className="">
                   <span className="pr-1 font-semibold">Author(s):</span>
-                  {children.props.currentPage.authors.map((author, index) => (
+                  {frontMatter.authors.map((author, index) => (
                     <span key={index} className="pr-1"> 
-                      {author}{index < children.props.currentPage.authors.length - 1 ? ',' : ''}
+                      {author}{index < frontMatter.authors.length - 1 ? ',' : ''}
                     </span>
                   ))}
                 </div>
                 {/* <!-- Dates --> */}
                 <div className="flex w-full justify-between">
-                  <div className="sm:flex"><div className="font-semibold pr-1">Created:</div><div className="flex-1">{children.props.currentPage.created}</div></div>
-                  <div className="sm:flex"><div className="font-semibold pr-1">Updated:</div><div className="flex-1">{children.props.currentPage.modified}</div></div>
+                  <div className="sm:flex"><div className="font-semibold pr-1">Created:</div><div className="flex-1">{frontMatter.created}</div></div>
+                  <div className="sm:flex"><div className="font-semibold pr-1">Updated:</div><div className="flex-1">{frontMatter.modified}</div></div>
                 </div>
               </div>
               {/* <!-- Content --> */}

@@ -2,11 +2,15 @@
 import Head from "next/head";
 import Footer from "../Components/Footer";
 
-import { Montserrat, Dancing_Script } from "next/font/google";
-const bodyText = Montserrat({
+import { Montserrat, Dancing_Script, Karla } from "next/font/google";
+const bodyText = Karla({
   variable: "--font-bodytext",
   subsets: ["latin"],
 });
+// const bodyText = Montserrat({
+//   variable: "--font-bodytext",
+//   subsets: ["latin"],
+// });
 const fancyText = Dancing_Script({
   variable: "--font-fancytext",
   subsets: ["latin"],

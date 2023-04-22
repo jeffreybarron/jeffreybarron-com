@@ -9,7 +9,7 @@ slug: postgresql-cheatsheet-admin
 ext: .md
 title: PostgreSQL Cheatsheet Admin  
 summary: Administration shell commands for PostgreSQL  
-image: /images/photos/20230411-Three-Sisters.jpg
+image: /images/blog/postgres-betterthan-mysql.png
 authors: [Jeffrey Barron]
 tags: [postgresql, cheatsheet]
 aliases: ["References"]

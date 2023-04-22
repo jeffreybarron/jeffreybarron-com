@@ -1,123 +1,87 @@
-// pages/blog/[slug]/index.js [??? Side]
-import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
-import ErrorPage from "next/error";
 import path from "path";
+import matter from 'gray-matter';
+import dynamic from "next/dynamic";
 import MDXLayout from "../../Layout/MDXLayout";
-import { truncateFileExtensions, splitIntoArray } from "../../lib/helper";
 const COLLECTION = "blog"
 
-export default function BlogPage(props) {
-  // props from getStaticProps()
-  const router = useRouter();
-  if (router.isFallback) {
-      return <ErrorPage statusCode={404} />
-  }
-  const { slug } = router.query;
-  const currentPage = props.posts.filter((file) => {
-      return file.fileSlug.includes(slug);
-  });
-  const Post = dynamic(() => import(`/data/${COLLECTION}/${currentPage[0].fileName}`));
+export default function BlogPage({ slug, frontMatter, content }) {
+  const Post = dynamic(() => import(`/data/${COLLECTION}/${slug}${frontMatter.ext}`));
   return (
     <MDXLayout>
-      <Post currentPage={currentPage[0]} /> 
+      <Post slug={slug} frontMatter={frontMatter} content={content} /> 
     </MDXLayout>
   );
 }
 
 export function getStaticPaths() {
-  const markdownFileSlugs = _getMarkdownSlugs(COLLECTION)
-  const paths = markdownFileSlugs.map((slug) => `/${COLLECTION}/${slug}`);
-  return {
-    paths,
-    fallback: 'blocking',
-    // fallback: false,
-  };
-}
-
-
-export async function getStaticProps() {
-  const posts = _getMarkdownFileInfo(COLLECTION);
-  return {
-    props: {posts}
-  };
-}
-
-
-// Helper Functions
-function _getMarkdownSlugs(folder){
-  const markdownFiles = __getMarkdownFiles(folder);
-  return truncateFileExtensions(markdownFiles);
-}
-
-function _getMarkdownFileInfo(folder){
-  const markdownFiles = __getMarkdownFiles(folder);
-  const paths = markdownFiles.map((file) => { 
-    let slug = "";
-    let ext = "";
-    const lastDotIndex = file.lastIndexOf(".");
-    if (lastDotIndex === -1) {
-      slug = file;
-      ext = "";
-    }
-    slug = file.substring(0, lastDotIndex);
-    ext = file.substring(lastDotIndex, file.length);
-
-    let fileObject = {
-      fileName: file,
-      filePath: `/data/${folder}/${file}`,
-      fileRoute: `/${folder}/${slug}`,
-      fileSlug: slug,
-      ext: ext 
-    }
-    //use gray-matter to add file frontmatter to fileObject
-    const frontMatter = __getFrontMatter(fileObject.filePath);
-    // fileObject.frontMatter = frontMatter.data;
-    fileObject.authors = frontMatter.data.authors;
-    fileObject.tags = frontMatter.data.tags;
-    fileObject.image = frontMatter.data.image;
-    fileObject.title = frontMatter.data.title;
-    fileObject.summary = frontMatter.data.summary;
-    fileObject.modified = frontMatter.data.modified;
-    fileObject.created = frontMatter.data.created;
-    
-
-    return (fileObject)
-  });
-  return paths;
-};
-
-
-function __getMarkdownFiles(folder){
+  // get all markdown files in the posts directoryPath
   const fs = require("fs");
-  const directoryPath = path.join(process.cwd(), `/data/${folder}`);
+  const directoryPath = path.join(process.cwd(), `/data/${COLLECTION}`);
   const allFiles = fs.readdirSync(directoryPath, "utf-8");
   const markdownFiles = allFiles.filter((file) => {
     return file.endsWith(".md") || file.endsWith(".mdx");
   });
-  return markdownFiles;
+  // create slug and extension for each file
+  const paths = markdownFiles.map((file) => {
+    const lastDotIndex = file.lastIndexOf(".");
+    // if no dot, then no extension
+    if (lastDotIndex === -1) {
+      return ({
+        params: {
+          slug: file,
+          fileExtension: "",
+          fileName: file
+        }
+      });
+    } 
+    return ({
+      params: {
+        slug: file.substring(0, lastDotIndex),
+        fileExtension: file.substring(lastDotIndex, file.length),
+        fileName: file
+      }
+    });
+  });
+  
+  return {
+    paths,
+    fallback: false, // returns 404 if no match
+  };
 }
 
-function __getFrontMatter(file){
+export async function getStaticProps({ params : {slug }}) {
+  // read markdown file as string
   const fs = require("fs");
-  const matter = require("gray-matter");
-  const filePath = path.join(process.cwd(), file);
-  const str = fs.readFileSync(filePath, "utf-8");
-  const frontMatter = matter(str) 
-  
-  // handle frontmatter arrays
-  frontMatter.data.authors = _splitIntoArray(frontMatter.data.authors);
-  frontMatter.data.tags = _splitIntoArray(frontMatter.data.tags);
-  // frontMatter.data.images = _splitIntoArray(frontMatter.data.images);
-  
-  
-  return frontMatter;
+
+  // handle .md and .mdx markdown file types
+  let directoryPath = path.join(process.cwd(), `/data/${COLLECTION}/${slug}`);
+  if (fs.existsSync(`${directoryPath}.md`)) {
+    directoryPath = `${directoryPath}.md`;
+  } else if (fs.existsSync(`${directoryPath}.mdx`)){
+    directoryPath = `${directoryPath}.mdx`;
+  }
+  // read markdown file as string
+  const markdownWithMeta = fs.readFileSync(directoryPath, "utf-8");
+
+  // parse markdown string into data and content using gray-matter
+  const {data: frontMatter, content} = matter(markdownWithMeta) 
+   // split comma delimited authors and tags into array objects
+  frontMatter.authors = _splitIntoArray(frontMatter.authors);
+  frontMatter.tags = _splitIntoArray(frontMatter.tags);
+
+  return {
+    props: {
+      slug,
+      frontMatter,
+      content
+    }
+  };
 }
 
-
-export function _splitIntoArray(variable) {
+function _splitIntoArray(variable) {
   if (!Array.isArray(variable)) {
     variable = variable.split(",");
   }
   return variable;
 }
+

@@ -6,15 +6,6 @@ import HeroPage from "../Components/HeroPage";
 import Navigation from "../Components/Navigation";
 import Quote from "../Components/Quote";
 
-import { Montserrat, Dancing_Script } from "next/font/google";
-const bodyText = Montserrat({
-  variable: "--font-bodytext",
-  subsets: ["latin"],
-});
-const fancyText = Dancing_Script({
-  variable: "--font-fancytext",
-  subsets: ["latin"],
-});
 
 export default function HomePage() {
   return (

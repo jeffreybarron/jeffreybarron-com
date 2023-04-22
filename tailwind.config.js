@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        harbourBridge: `url('/IMG_2996.jpeg')`,
+        harbourBridge: `url('/images/20230319_syd-harbour-bridge-2.jpg')`,
       },
       colors: {
         success: "#d4edda",

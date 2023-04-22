@@ -9,7 +9,7 @@ slug: release-0.2.1
 ext: .mdx
 title: Release v0.2.1  
 summary: Release Notes for v0.2.1
-image: /images/photos/20230411-Three-Sisters.jpg  
+image: /images/release/release-notes.webp   
 authors: [Jeffrey Barron]
 tags: [release]
 ---
@@ -22,6 +22,14 @@ tags: [release]
 ## Release v0.2.1
 
 ### WIP
+- `TODO:` Handle markdown attachments
+- `TODO:` Create terms and conditions page.
+- `TODO:` update blog images and store copyright with originals. need a work flow for this/
+- `TODO:` make this  more robust to poorly formed Frontmatter.
+	- [v] handle arrays without square braces
+	- [v] handle single items, instead of arrays in square braces
+	- [v] handle missing meta-data without square braces
+	- [ ] handle missing front-matter 
 - `TODO:`  add contact form and mail service integration
 	- https://www.youtube.com/watch?v=tPPctY9POIA
 	- https://www.freecodecamp.org/news/how-to-build-a-working-contact-form-with-sendgrid-and-next-js/
@@ -30,17 +38,9 @@ tags: [release]
 	- https://sendgrid.com/pricing/
 - `TODO:` add navigation bread crumbs for UX
 - `TODO:` Get rid of @apply directives in global.css 
- - `TODO:` Add metadata to customise pages and create panels
-	- [x] Add Titles from metadata to blog/release pages 
-	- [x] add metadata `#tags` pages
-- `TODO:` this works, but it breaks when markdown author doesnt use arrays for tags, authors, and images, 
-	- [ ] make this more robust to poorly formed frontmatter.
-	- [ ] handle arrays without square braces
-	- [ ] handle single items, instead of arrays in square braces
-	- [ ] handle missing meta-data without square braces
-	- [ ] handle missing front-matter 
- - `TODO:` Add sticky navigation bar to pages
- - `TODO:` Add Scroll snap to HomePage, but make sure it works on all browsers (eg firefox)
+- `TODO:` Add sticky navigation bar to pages
+- `TODO:` Add Scroll snap to HomePage, but make sure it works on all browsers (i.e. Firefox)
+- `TODO:` modify [blog].js to show blog index of all posts matching a hashtag when route begins with # e.g. /blog/#markdown
 
 ### Framework issues
 - `BUG:` right-click heading "Copy Link to Highlight" yields nonsense. Instead, use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
@@ -49,17 +49,19 @@ tags: [release]
     - [App Router Roadmap @ 2023-04-05](https://beta.nextjs.org/docs/app-directory-roadmap) 
 
 ### Completed
- - [x]  Finish adding CV
+ - [v] Finish adding CV
 	 - format CV
-- [x]  Update the publish markdown shell script, use 4 scripts to synchronise the folders to their published location.
-	- blog. 
-	- blog/attachments. 
-	- release. 
-	- release/attachments. 
-- [x] Cleanup root readme.md page for GitHub repo
-- [x] remove meta-data from [slug] page
-- [x] figure out workflow import obsidian library
-	- use makefile to bash copy files into repo then build and redeploy
- - [x] use frontmatter to create blog and release index list with both title and slug for the href
-	- turn index into tiled cards
-	-  Add page images
+- [v] figure out workflow import obsidian library
+	- [v] use Makefile to bash copy files into repo then build and redeploy
+	- [v] Update the publish markdown shell script, use 4 scripts to synchronise the folders to their published location.
+		- blog. 
+		- blog/attachments. 
+		- release. 
+		- release/attachments. 
+- [v] Cleanup GitHub readme.md page for GitHub repo
+- [v] use frontmatter to create index.js and [slug].js for both 'blog' and 'release' collections
+	- [v] turn index into tiled cards
+	- [v] Add images to cards
+	- [v] Add metadata to customise pages
+		- [x] Add Titles from metadata to blog/release pages 
+		- [x] add metadata `#tags` pages
