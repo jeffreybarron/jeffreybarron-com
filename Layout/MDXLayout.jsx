@@ -79,7 +79,7 @@ export default function MDXLayout( {children} ) {
         <main className="font-bodyText bg-primary text-primary-contrast w-screen flex-1 snap-y snap-mandatory scroll-pt-0 overflow-y-scroll">
           <Navigation />
           <section className="flex flex-1 grid-flow-col grid-cols-12 sm:grid">
-            <div className="sm:bg-primary-800 sm:col-span-1 lg:col-span-2 lg:p-2"></div>
+            <div className="sm:col-span-1 lg:col-span-2 lg:p-2"></div>
             <div className="lg:col-span-8 px-1 sm:col-span-10 flex min-h-[calc(100vh-135px)] flex-1 flex-col break-words sm:p-3 md:p-6">
               {/* <!-- Metadata --> */}
               <div className="bg-primary-800 border-l-2 object-contain flex flex-col max-w-[100vw] p-1 sm:p-2 lg:p-4 text-sm border-b rounded-t-lg shadow-secondary shadow-lg">
@@ -114,7 +114,7 @@ export default function MDXLayout( {children} ) {
               {/* <!-- Footer --> */}
               <p className="text-xs text-slate-400 mt-6 mb-4"><span className="italic">Disclaimer</span>: On occasions some parts of this blog may be collected from other sources to create a collection of information useful to me, in one place. Furthermore, while some find it sufficient to merely link to source documents, I have found that many publishers move or remove their content eventually. The content collected here is deemed to be evergreen and useful to me, so I have collated it chiefly for my personal use. However, If you have lawful rights to some content here, and you wish it taken down or attribution added, please contact me and I will gladly comply.</p>
             </div>
-            <div className="sm:bg-primary-800 sm:col-span-1 lg:col-span-2 lg:p-2"></div>
+            <div className="sm:col-span-1 lg:col-span-2 lg:p-2"></div>
           </section>
         </main>
         <QuickLinks />

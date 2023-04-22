@@ -21,8 +21,10 @@ for [`jeffreybarron.com`](https://jeffreybarron.com)
 ## Release v0.2.1
 
 ### Work in Progress 
-- `TODO:` Create terms and conditions page.
+
 - `TODO:`  add contact form and mail service integration
+	- [ ] Choose vendor [sendgrid, mailchip, private]
+	- [ ] Sign-up with vendor
 	- [ ] https://www.youtube.com/watch?v=tPPctY9POIA
 	- [ ] https://www.freecodecamp.org/news/how-to-build-a-working-contact-form-with-sendgrid-and-next-js/
 	- [ ] mailing yt https://www.youtube.com/watch?v=FUCoXg2sAg0&t=266s
@@ -33,7 +35,6 @@ for [`jeffreybarron.com`](https://jeffreybarron.com)
 	- [v] handle single items, instead of arrays in square braces
 	- [v] handle missing meta-data without square braces
 	- [ ] handle missing front-matter 
-- `TODO:` add navigation bread crumbs for UX
 - `TODO:` Get rid of @apply directives in global.css 
 - `TODO:` Add sticky navigation bar to pages
 - `TODO:` Add Scroll snap to HomePage, but make sure it works on all browsers (i.e. Firefox)
@@ -46,7 +47,7 @@ for [`jeffreybarron.com`](https://jeffreybarron.com)
 	- image processing not supported
 	 - [or this](https://blog.mrcatdev.com/turns-your-mdx-files-include-yaml-into-data-with-contentlayer-in-nextjs-100daysofcode)
 
-### Known Framework issues
+### Known issues
 - `BUG:` right-click heading "Copy Link to Highlight" yields nonsense. Instead, use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
     - [URL# not handled](https://github.com/vercel/next.js/issues/44295) 
     - [disable-scrolling-to-the-top-of-the-page](https://nextjs.org/docs/api-reference/next/link#disable-scrolling-to-the-top-of-the-page)
@@ -70,4 +71,6 @@ for [`jeffreybarron.com`](https://jeffreybarron.com)
 		- [v] Add Titles from metadata to blog/release pages 
 		- [v] add metadata `#tags` pages
 - [v] Handle markdown attachments
-- [v] update blog images and store copyright with originals. need a work flow for this/
+- [v] update blog images and store copyright with originals. need a work flow for this
+- [v] Create privacy-policy and terms and conditions pages.
+- [v] add navigation bread crumbs for UX, add <QuickLinks /> component.
