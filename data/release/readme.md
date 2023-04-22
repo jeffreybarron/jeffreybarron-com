@@ -9,7 +9,7 @@ slug: readme
 ext: .md  
 title: github readme.md  
 summary: Portfolio website of Jeffrey Barron
-image: /images/pages/20230319_syd-harbour-bridge-2.jpg  
+image: /release/images/read-me.webp  
 authors: [Jeffrey Barron] 
 tags: [readme]
 ---

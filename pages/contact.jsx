@@ -1,8 +1,6 @@
 // pages/contact.js [Server Side]
-
 import PagesLayout from "../Layout/PagesLayout";
 import React, { useState } from "react";
-
 
 export default function ContactPage() {
   const [fullname, setFullname] = useState("");

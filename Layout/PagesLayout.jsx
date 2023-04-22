@@ -2,6 +2,7 @@
 import Head from "next/head";
 import Navigation from "../Components/Navigation";
 import Footer from "../Components/Footer";
+import QuickLinks from "@/Components/QuickLinks";
 
 import { Montserrat, Dancing_Script, Karla } from "next/font/google";
 const bodyText = Karla({
@@ -36,6 +37,7 @@ export default function PagesLayout({ children }) {
           <div className=" col-span-2 p-2 "></div>
         </section>
       </main>
+      <QuickLinks />
       <Footer />
     </div>
   );

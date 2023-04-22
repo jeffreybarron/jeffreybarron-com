@@ -3,7 +3,7 @@
 # Use Rsync to Publish Obsidian Markdown to jeffreybarron.com/blog
 # r recursive = THIS SCRIPT DOES NOT USE Recursion.
 # t preserve time
-# a archive
+# a archive  -a, --archive same as -rlptgoD (no -H)
 # v verbose
 # u update 
 # h human readable output
@@ -20,39 +20,39 @@ echo "# Publish Blog"
 echo "# -------------------------------------"
 SRC="$SRC_ROOT/blog/"
 DST="$DST_ROOT/data/blog"
-rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
 
 SRC="$SRC_ROOT/blog/attachments/"
-DST="$DST_ROOT/public/images/blog-attachments/"
-rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+DST="$DST_ROOT/public/blog/attachments/"
+rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
 
 echo "# -------------------------------------"
 echo "# Publish Release Notes"
 echo "# -------------------------------------"
 SRC="$SRC_ROOT/release/"
 DST="$DST_ROOT/data/release"
-rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
 
 SRC="$SRC_ROOT/release/attachments/"
-DST="$DST_ROOT/public/images/release-attachments/"
-rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+DST="$DST_ROOT/public/release/attachments/"
+rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
 
 echo "# -------------------------------------"
 echo "# Publish Public Images"
 echo "# -------------------------------------"
 SRC_ROOT="/Users/jeffbarron/dev-local/digital-media/clients/jeffreybarron.com/published/jeffreybarron.com"
 
-SRC="$SRC_ROOT/public/images/blog/"
-DST="$DST_ROOT/public/images/blog/"
-rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+SRC="$SRC_ROOT/public/blog/images/"
+DST="$DST_ROOT/public/blog/images"
+rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
 
-SRC="$SRC_ROOT/public/images/release/"
-DST="$DST_ROOT/public/images/release/"
-rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+SRC="$SRC_ROOT/public/release/images/"
+DST="$DST_ROOT/public/release/images"
+rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
 
-SRC="$SRC_ROOT/public/images/pages/"
-DST="$DST_ROOT/public/images/pages/"
-rsync -tavuh --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+SRC="$SRC_ROOT/public/pages/images/"
+DST="$DST_ROOT/public/pages/images"
+rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
 
 echo "# Script completed"
 echo "# ====================================="

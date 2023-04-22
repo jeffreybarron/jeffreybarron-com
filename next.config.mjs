@@ -1,7 +1,6 @@
 import nextMDX from "@next/mdx";
 import { serialize } from "next-mdx-remote/serialize";
 import readingTime from "reading-time";
-
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdx from "remark-mdx";
 import remarkGfm from "remark-gfm";

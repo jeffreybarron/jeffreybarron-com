@@ -9,49 +9,53 @@ slug: release-0.2.1
 ext: .mdx
 title: Release v0.2.1  
 summary: Release Notes for v0.2.1
-image: /images/release/release-notes.webp   
+image: /release/images/release-notes.webp   
 authors: [Jeffrey Barron]
 tags: [release]
 ---
 
 ---
-[`jeffreybarron.com`](https://jeffreybarron.com)
-
 # Release Notes
+for [`jeffreybarron.com`](https://jeffreybarron.com)
 
 ## Release v0.2.1
 
-### WIP
-- `TODO:` Handle markdown attachments
+### Work in Progress 
 - `TODO:` Create terms and conditions page.
-- `TODO:` update blog images and store copyright with originals. need a work flow for this/
+- `TODO:`  add contact form and mail service integration
+	- [ ] https://www.youtube.com/watch?v=tPPctY9POIA
+	- [ ] https://www.freecodecamp.org/news/how-to-build-a-working-contact-form-with-sendgrid-and-next-js/
+	- [ ] mailing yt https://www.youtube.com/watch?v=FUCoXg2sAg0&t=266s
+	- [ ] https://mailchimp.com/developer/
+	- [ ] https://sendgrid.com/pricing/
 - `TODO:` make this  more robust to poorly formed Frontmatter.
 	- [v] handle arrays without square braces
 	- [v] handle single items, instead of arrays in square braces
 	- [v] handle missing meta-data without square braces
 	- [ ] handle missing front-matter 
-- `TODO:`  add contact form and mail service integration
-	- https://www.youtube.com/watch?v=tPPctY9POIA
-	- https://www.freecodecamp.org/news/how-to-build-a-working-contact-form-with-sendgrid-and-next-js/
-	 - mailing yt https://www.youtube.com/watch?v=FUCoXg2sAg0&t=266s
-	- https://mailchimp.com/developer/
-	- https://sendgrid.com/pricing/
 - `TODO:` add navigation bread crumbs for UX
 - `TODO:` Get rid of @apply directives in global.css 
 - `TODO:` Add sticky navigation bar to pages
 - `TODO:` Add Scroll snap to HomePage, but make sure it works on all browsers (i.e. Firefox)
 - `TODO:` modify [blog].js to show blog index of all posts matching a hashtag when route begins with # e.g. /blog/#markdown
 
-### Framework issues
+### Future Releases
+
+- [ ] implement with https://www.contentlayer.dev/ 
+	- [see leerob.io githu](https://github.com/leerob/leerob.io/blob/main/app/blog/page.tsx)
+	- image processing not supported
+	 - [or this](https://blog.mrcatdev.com/turns-your-mdx-files-include-yaml-into-data-with-contentlayer-in-nextjs-100daysofcode)
+
+### Known Framework issues
 - `BUG:` right-click heading "Copy Link to Highlight" yields nonsense. Instead, use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
     - [URL# not handled](https://github.com/vercel/next.js/issues/44295) 
     - [disable-scrolling-to-the-top-of-the-page](https://nextjs.org/docs/api-reference/next/link#disable-scrolling-to-the-top-of-the-page)
     - [App Router Roadmap @ 2023-04-05](https://beta.nextjs.org/docs/app-directory-roadmap) 
 
-### Completed
+### Implemented in this Release
  - [v] Finish adding CV
 	 - format CV
-- [v] figure out workflow import obsidian library
+- [v] figure out workflow for import from obsidian library
 	- [v] use Makefile to bash copy files into repo then build and redeploy
 	- [v] Update the publish markdown shell script, use 4 scripts to synchronise the folders to their published location.
 		- blog. 
@@ -59,9 +63,11 @@ tags: [release]
 		- release. 
 		- release/attachments. 
 - [v] Cleanup GitHub readme.md page for GitHub repo
-- [v] use frontmatter to create index.js and [slug].js for both 'blog' and 'release' collections
+- [v] use Frontmatter to create index.js and [slug].js for both 'blog' and 'release' collections
 	- [v] turn index into tiled cards
 	- [v] Add images to cards
 	- [v] Add metadata to customise pages
-		- [x] Add Titles from metadata to blog/release pages 
-		- [x] add metadata `#tags` pages
+		- [v] Add Titles from metadata to blog/release pages 
+		- [v] add metadata `#tags` pages
+- [v] Handle markdown attachments
+- [v] update blog images and store copyright with originals. need a work flow for this/

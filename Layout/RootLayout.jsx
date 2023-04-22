@@ -1,6 +1,7 @@
 // layout/RootLayout.js
 import Head from "next/head";
 import Footer from "../Components/Footer";
+import QuickLinks from "@/Components/QuickLinks";
 
 import { Montserrat, Dancing_Script, Karla } from "next/font/google";
 const bodyText = Karla({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
       <main className="font-bodyText bg-primary flex h-screen w-screen flex-1 scroll-pt-0 overflow-y-scroll scroll-m-0 scroll-smooth">
         {children}
       </main>
+      <QuickLinks />
       <Footer />
     </div>
   );

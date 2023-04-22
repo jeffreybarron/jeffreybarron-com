@@ -6,7 +6,7 @@ export default function About() {
   return (
     <>
       <div className="md:pt-12 md:pl-12">
-        <h1 className="p-2">About Me</h1>
+        <h3 className="p-2">About Me</h3>
       </div>
       <div className="md:px-24 md:pb-12">
         <p className="p-2 ">

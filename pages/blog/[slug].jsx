@@ -4,11 +4,13 @@ import dynamic from "next/dynamic";
 import MDXLayout from "../../Layout/MDXLayout";
 const COLLECTION = "blog"
 
-export default function BlogPage({ slug, frontMatter, content }) {
-  const Post = dynamic(() => import(`/data/${COLLECTION}/${slug}${frontMatter.ext}`));
+export default function BlogPage({ slug, frontMatter }) {
+  const Post = dynamic(() => import(`/data/${COLLECTION}/${slug}${frontMatter.ext}`), {
+    loading: () => <p>Loading...</p>,
+  });
   return (
     <MDXLayout>
-      <Post slug={slug} frontMatter={frontMatter} content={content} /> 
+      <Post slug={slug} frontMatter={frontMatter}/> 
     </MDXLayout>
   );
 }
