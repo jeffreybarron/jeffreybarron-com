@@ -3,64 +3,104 @@ import Link from "next/link";
 
 export default function QuickLinks() {
   return (
-    <div className="flew-col text-primary-contrast font-bodyText min-h-[16vh] items-center justify-center align-middle bg-primary">
-      
-      <div className="md:pt-6 md:pl-12">
-        <h3 className="p-2">Quick Links</h3>
-      </div>
+    <div className=" text-primary-contrast font-bodyText items-center justify-center align-middle bg-primary md:pb-6 sticky">
+      <div className="static z-50 bg-primary">
+        <div className="md:pt-6 md:pl-12">
+          <h3 className="p-2">Quick Links</h3>
+        </div>
 
-      <div className="md:px-24 md:pb-6 flex flex-row">
-        <div className="capitalize text-sm">
-          <h4 className="">Resources</h4>
-            <p>
-              <Link href="/curriculum-vitae" className="border-primary-contrast border-b border-dotted">
-                <div className="hover:text-tertiary text-primary-contrast block p-1">
+        <div className="md:px-24 p-2 sm:flex flex-row">
+          <div className="capitalize max-w-sm">
+            <h4 className="">Resources</h4>
+            <ul className=" text-primary-contrast block p-1">
+              <li>
+                <Link href="/curriculum-vitae" className="hover:text-tertiary">
                   curriculum vitae
-                </div>
-              </Link>
-            </p>
-            <p>
-              <Link href="/blog" className="border-primary-contrast border-b border-dotted">
-                <div className="hover:text-tertiary text-primary-contrast block p-1">
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-tertiary">
                   blog
-                </div>
-              </Link>
-            </p>
-            <p>
-              <Link href="/contact" className="border-primary-contrast border-b border-dotted">
-                <div className="hover:text-tertiary text-primary-contrast block p-1">
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-tertiary">
                   contact
-                </div>
-              </Link>
-            </p>
-            <p>
-              <Link href="/release" className="border-primary-contrast border-b border-dotted">
-                <div className="hover:text-tertiary text-primary-contrast block p-1">
+                </Link>
+              </li>
+              <li>
+                <Link href="/release" className="hover:text-tertiary">
                   release history
-                </div>
-              </Link>
-            </p>
-        </div>
-        <div className="capitalize text-sm sm:ml-32">
-          <h4 className="">Legal</h4>
-            <p>
-              <Link href="/privacy-policy" className="border-primary-contrast border-b border-dotted">
-                <div className="hover:text-tertiary text-primary-contrast block p-1">
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="capitalize sm:ml-4 md:ml-16 max-w-sm">
+            <h4 className=""><sup>*</sup>White-label Services</h4>
+            <ul className=" text-primary-contrast block p-1">
+              <li>
+                <Link href="/contact" className="hover:text-tertiary">
+                  Webflow Site $6k+ (inc GST)
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-tertiary">
+                  Wix Site $6k+ (inc GST)
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-tertiary">
+                  Wordpress Site $6k+ (inc GST)
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="capitalize sm:ml-4 md:ml-16 max-w-sm">
+            <h4 className=""><sup>*</sup>Bespoke Services</h4>
+            <ul className=" text-primary-contrast block p-1">
+              <li>
+                <Link href="/contact" className="hover:text-tertiary">
+                  Full Website $11k+ AUD(inc GST)<p>NextJS Framework based</p>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-tertiary">
+                  1-Hour Consultation $275 p/hour (inc GST)
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="capitalize sm:ml-4 md:ml-16 max-w-sm">
+            <h4 className="">Legal</h4>
+            <ul className=" text-primary-contrast block p-1">
+              <li>
+                <Link href="/privacy-policy" className="hover:text-tertiary">
                   privacy policy
-                </div>
-              </Link>
-            </p>
-            <p>
-              <Link href="/terms-and-conditions" className="border-primary-contrast border-b border-dotted">
-                <div className="hover:text-tertiary text-primary-contrast block p-1">
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-and-conditions" className="hover:text-tertiary">
                   terms and conditions
-                </div>
-              </Link>
-            </p>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
         </div>
 
+        <div className="md:px-24 md:pb-6 p-2 sm:flex flex-row">
+          <p className="text-xs"><sup>*</sup>Terms, Conditions, 3rd-party fees and other charges may apply.</p>
+        </div>
       </div>
     </div>
   )
 }
+
+
+
+
+
 

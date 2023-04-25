@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# vercel
+.vercel
+
 # next.js
 /.next/
 /out/
@@ -25,8 +28,6 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# local env files
+# env files
 .env*.local
-
-# vercel
-.vercel
+sendgrid.env

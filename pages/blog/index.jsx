@@ -5,6 +5,7 @@ import path from "path";
 import matter from "gray-matter";
 import PagesLayout from "../../Layout/PagesLayout";
 import PostCard from '../../Components/PostCard';
+import { sortByDate } from '../../lib';
 const COLLECTION = "blog"
 
 
@@ -62,7 +63,7 @@ export async function getStaticProps() {
   return {
     // Passed to the page component as props
     props: {
-      blog: posts,
+      blog: posts.sort(sortByDate),
     },
   };
 }

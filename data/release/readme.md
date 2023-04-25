@@ -39,32 +39,38 @@ tags: [draft]
 ```
 
 ## Deployment
-### Development Deployment
-#### Environment Variables
-``` shell
-placeholder
+
+##### .env.local
+``` env.devlopment 
+SENDGRID_API_KEY='XXXXX'
 ```
 
-#### Build and Run 
-Address: `http:localhost:3000`
+##### .env.development
+``` env.devlopment 
+ROOT_URI=http://localhost:3000
+```
+
+##### .env.production
+``` env.production 
+ROOT_URI=https://jeffreybarron.com
+```
+
+#### Build and Run Development
 ``` shell 
-npm run dev
+make dev
 ```
-### Production Deployment
-Address: `https://jeffreybarron.com`
-#### Environment Variables
 
-#### Build
-``` shell
+#### Build Production
+``` shell 
 make build
 ```
 
-#### Local host: Docker, Node
-``` shell
-npm start
+#### Build and Local Production
+``` shell 
+make start
 ```
 
-#### PAAS (Cloud) Hosted
+#### Cloud Deployment
 ``` shell
 placeholder
 ```

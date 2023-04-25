@@ -23,13 +23,33 @@ aliases: ["References"]
 
 Change postgresql.conf as follows, or choose an IP address for security.  
 `$ sudo nano /etc/postgresql/14/main/postgresql.conf`  
-![[attachments/Pasted image 20220812100426.png]]
+
+**Figure 1**
+<Image
+ src={`/blog/attachments/Pasted image 20220812100426.png`}
+ alt={`Screenshot of postgresql.conf`}
+ aria-label={`Screenshot of postgresql.conf`}
+/>
 
 Open `/etc/postgresql/14/main/pg_hba.conf` and replace  
-![[attachments/Pasted image 20220812100705.png]]  
-with  
-![[attachments/Pasted image 20220812100836.png]]  
-then run  
+
+**Figure 2 - Before**
+ <Image
+ src={`/blog/attachments/Pasted image 20220812100705.png`}
+ alt={`Before screenshot of PostgreSQL pg_hba.conf`}
+ aria-label={`Before screenshot of PostgreSQL pg_hba.conf`}
+/>
+
+with
+
+**Figure 3 - After**
+ <Image
+ src={`/blog/attachments/Pasted image 20220812100836.png`}
+ alt={`After screenshot of PostgreSQL pg_hba.conf`}
+ aria-label={`After screenshot of PostgreSQL pg_hba.conf`}
+/>
+
+then run  the following commands in the terminal
 
 ``` sh
 sudo service postgresql stop

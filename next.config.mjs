@@ -23,8 +23,6 @@ const nextConfig = {
   // Configure pageExtensions to include md and mdx
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   experimental: {
-    // mdxRs: true, // needed for for fs module in blog/index.js
-    // appDir: true,
     // fontLoaders: [
     //   { loader: "@next/font/google", options: { subsets: ["latin"] } },
     // ],

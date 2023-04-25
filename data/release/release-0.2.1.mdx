@@ -20,16 +20,32 @@ for [`jeffreybarron.com`](https://jeffreybarron.com)
 
 ## Release v0.2.1
 
+### Resources
+[Chouhan, Building a contact form with NextJs, Tailwind, and SendGrid](https://www.youtube.com/watch?v=tPPctY9POIA)  
+https://www.youtube.com/watch?v=MrjeefD8sac  
+https://www.freecodecamp.org/news/how-to-build-a-working-contact-form-with-sendgrid-and-next-js/  
+- [ ] mailing yt https://www.youtube.com/watch?v=FUCoXg2sAg0&t=266s  
+https://www.youtube.com/watch?v=4oCH5WaJHzk  
+https://vercel.com/blog/core-web-vitals  
+https://vercel.com/docs/cli/dev  
+https://tailwindcss.com/docs/hover-focus-and-other-states#form-states  
+https://stackoverflow.com/questions/71791251/in-nextjs-warning-expected-server-html-to-contain-a-matching-div-in-div  
+https://stackoverflow.com/questions/68068186/next-js-error-warning-expected-server-html-to-contain-a-matching-button-in  
+![[attachments/Pasted image 20230424190645.png]]
+
 ### Work in Progress 
 
+- `TODO:`  Add code to make script, to update the modified and modified timestamp based on file information. 
+	- [ ] python should be easy
 - `TODO:`  add contact form and mail service integration
-	- [ ] Choose vendor [sendgrid, mailchip, private]
-	- [ ] Sign-up with vendor
-	- [ ] https://www.youtube.com/watch?v=tPPctY9POIA
-	- [ ] https://www.freecodecamp.org/news/how-to-build-a-working-contact-form-with-sendgrid-and-next-js/
-	- [ ] mailing yt https://www.youtube.com/watch?v=FUCoXg2sAg0&t=266s
-	- [ ] https://mailchimp.com/developer/
-	- [ ] https://sendgrid.com/pricing/
+	- [x] https://mailchimp.com/developer/
+	- [v] https://sendgrid.com/pricing/
+	- [ ] make sure email is sent from the server side to protect the api.
+	- [ ] implement contact form rate limiting (Max 2 emails per day)
+		 - [ ] this will need some kind of data storage?
+	- [ ] Add opt-in check box (on by default) sign up to Jeffrey's newsletter
+- `TODO:`  [add Vercel Dynamic Open Graph Image Generation](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation) 
+	https://vercel.com/docs/frameworks/nextjs
 - `TODO:` make this  more robust to poorly formed Frontmatter.
 	- [v] handle arrays without square braces
 	- [v] handle single items, instead of arrays in square braces
@@ -42,10 +58,10 @@ for [`jeffreybarron.com`](https://jeffreybarron.com)
 
 ### Future Releases
 
-- [ ] implement with https://www.contentlayer.dev/ 
+- [ ] consider implementing with https://www.contentlayer.dev/ 
 	- [see leerob.io githu](https://github.com/leerob/leerob.io/blob/main/app/blog/page.tsx)
 	- image processing not supported
-	 - [or this](https://blog.mrcatdev.com/turns-your-mdx-files-include-yaml-into-data-with-contentlayer-in-nextjs-100daysofcode)
+	 - [Blog process MDX with contentlayer](https://blog.mrcatdev.com/turns-your-mdx-files-include-yaml-into-data-with-contentlayer-in-nextjs-100daysofcode)
 
 ### Known issues
 - `BUG:` right-click heading "Copy Link to Highlight" yields nonsense. Instead, use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
@@ -74,3 +90,4 @@ for [`jeffreybarron.com`](https://jeffreybarron.com)
 - [v] update blog images and store copyright with originals. need a work flow for this
 - [v] Create privacy-policy and terms and conditions pages.
 - [v] add navigation bread crumbs for UX, add <QuickLinks /> component.
+
