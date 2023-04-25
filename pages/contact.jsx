@@ -4,13 +4,18 @@ import React, { useState } from "react";
 
 export default function ContactPage() {
 
-  const [userData, setuserData] = useState({
+  const [userData, setuserData] =   useState({
     fullname: "",
     email: "",
     subject: "",
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [apiResponse, setApiResponse] = useState({
+    status: null,
+    statusText: null,
+    url: null,
+  }); // [error, setErrors
   const { fullname, email, subject, message } = userData;
  
   // update userData on change 
@@ -58,7 +63,6 @@ export default function ContactPage() {
     e.preventDefault();
     // validate form data
     const errors = validate(userData);
-
     const isError = Object.keys(errors).length > 0; // any errors sets to true
     if (isError){
       setErrors(errors);
@@ -75,10 +79,19 @@ export default function ContactPage() {
       }); 
 
       if (res.status === 200) {
-        setuserData({ fullname: "", email: "", subject: "", message: "" });
+        setApiResponse({
+          status: res.status,
+          statusText: "Your message has been sent. Thank you!",
+          url: res.url});
+        // setuserData({ fullname: "", email: "", subject: "", message: "" });
       } else {
-        alert("Message failed to send");
+        setApiResponse({
+          status: res.status || 500,
+          statusText: res.statusText,
+          url: res.url});
+        
       }
+      // console.log(apiResponse.status, apiResponse.statusText, apiResponse.url)
 
     } catch(err) {
       console.error(err);
@@ -90,11 +103,12 @@ export default function ContactPage() {
     <PagesLayout>
 
       <h1 className="text-2xl font-bold">Get in touch</h1>
-      <p>Send me an email if you are interested in me building some software for you, and I will get back to you as soon as possible.</p>
+      <p>Please send me a message if you would like to chat about your next project!</p>
+      <p>I will get back to you as soon as possible (usually by the end of the next business day).</p>
       <div className="shadow-xl m-1">
-        <form onSubmit={handleSubmit} className="rounded-2xl rounded-bl-2xl mt-4 flex flex-col p-4 bg-primary-contrast text-primary">
-          <div className="form-group">
-            <label for="fullname" className="font-light mr-4 mt-4">Full name<span className="text-red-500">*</span></label>
+        <form onSubmit={handleSubmit} className="w-full rounded-2xl rounded-bl-2xl mt-4 flex flex-col p-4 bg-primary-contrast text-primary">
+          <div className="grid grid-cols-12 gap-2 form-group p-1">
+            <label htmlFor="fullname" className="col-span-2 p-1 font-bodyText"><span className="text-red-500"><sup>*</sup></span>Full name</label>
             <input 
               name="fullname" 
               type="text" 
@@ -102,12 +116,14 @@ export default function ContactPage() {
               minLength="3"
               maxLength="50"
               onChange={handleChange}
-              className={`bg-white bg-transparent border-b border-primary py-1 my-1 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light`}/>
-            <div className={`${errors.fullname ? 'visible' : 'invisible'}`}>{errors.fullname?.message}</div>
+              value={fullname}
+              placeholder="Given name followed by your family name"
+              className={`col-span-10 bg-white bg-transparent border-b border-primary p-1 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light`}/>
+            <div className={errors.fullname ? `inline-block` : 'hidden'}>Error:{errors.fullname?.message}</div>
           </div>
 
-          <div className="form-group">
-            <label for="email" className="font-light mr-4 mt-4">E-mail<span className="text-red-500">*</span></label>
+          <div className="grid grid-cols-12 gap-2 form-group p-1">
+            <label htmlFor="email" className="col-span-2 p-1 font-bodyText"><span className="text-red-500"><sup>*</sup></span>E-mail</label>
             <input 
               name="email" 
               type="email" 
@@ -116,12 +132,15 @@ export default function ContactPage() {
               maxLength="50"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               onChange={handleChange}
-              className="bg-white bg-transparent border-b border-primary py-1 my-1 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light " />
-            <div className="invalid-feedback">{errors.email?.message}</div>
+              value={email}
+              placeholder="Your email address"
+              className={`col-span-10 bg-white bg-transparent border-b border-primary p-1 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light`}/>
+            <div className={errors.email ? 'block' : 'hidden'}>{errors.email?.message}</div>
           </div>
 
-          <div className="form-group">
-            <label for="subject" className=" font-light mr-4 mt-4">Subject<span className="text-red-500">*</span></label>
+          
+          <div className="grid grid-cols-12 gap-2 form-group p-1">
+            <label htmlFor="subject" className="col-span-2 p-1 font-bodyText"><span className="text-red-500"><sup>*</sup></span>Subject</label>
             <input 
               name="subject" 
               type="text" 
@@ -129,36 +148,61 @@ export default function ContactPage() {
               minLength="10"
               maxLength="120"
               onChange={handleChange}
-              className="bg-white bg-transparent border-b border-primary py-1 my-1 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light " />
-            <div className="invalid-feedback">{errors.subject?.message}</div>
+              value={subject}
+              placeholder="What is your project about?"
+              className={`col-span-10 bg-white bg-transparent border-b border-primary p-1 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light`}/>
+            <div className={`{errors.subject ? 'block' : 'hidden'}`}>{errors.subject?.message}</div>
           </div>
 
-          <div className="form-group">
-            <label for="message" className=" font-light mr-4 mt-4">Project Description<span className="text-red-500">*</span></label>
+          <div className="grid grid-cols-12 gap-2 form-group p-1">
+            <label htmlFor="message" className="col-span-2 p-1 font-bodyText"><span className="text-red-500"><sup>*</sup></span>Project Description</label>
             <textarea 
               name="message" 
               required
-              minLength="3"
+              minLength="10"
               maxLength="4000"
+              rows="6"
               onChange={handleChange}
-              className="bg-white align-top bg-transparent border-b border-primary py-1 my-1 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light ">
+              value={message}
+              placeholder="Describe your project in as much detail as possible (max 4000 characters)"
+              className={`col-span-10 bg-white bg-transparent border-b border-primary p-1 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light`}>
             </textarea>
-            <div className="invalid-feedback">{errors.message?.message}</div>
+            <div className={`{errors.message ? 'block' : 'hidden'}`}>{errors.message?.message}</div>
           </div>
         
-          <div className="form-group">
-            <div className="flex flex-row items-center justify-start">
-              <button className="px-10 mt-8 py-1 my-1 bg-primary-100 text-primary font-light rounded-md text-lg flex flex-row items-center">
-                Send 
-                <svg width="24" height="24" viewBox="0 0 24 24" className="text-secondary ml-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.00967 5.12761H11.0097C12.1142 5.12761 13.468 5.89682 14.0335 6.8457L16.5089 11H21.0097C21.562 11 22.0097 11.4477 22.0097 12C22.0097 12.5523 21.562 13 21.0097 13H16.4138L13.9383 17.1543C13.3729 18.1032 12.0191 18.8724 10.9145 18.8724H8.91454L12.4138 13H5.42485L3.99036 15.4529H1.99036L4.00967 12L4.00967 11.967L2.00967 8.54712H4.00967L5.44417 11H12.5089L9.00967 5.12761Z" fill="currentColor" />
-                </svg>
+          <div className="grid grid-cols-12 gap-2 form-group p-1">
+            <div className=" col-span-2 p-1 font-bodyText items-center justify-start">
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Send message
+
               </button>
             </div>
+            <div className="col-span-10 col-start-3 p-1 font-bodyText flex-col">
+              {/* 
+                If apiResponse.status is null then dont show anything
+                elseif apiResponse.status is not 200 then apiResponse.statusText
+                else show success message
+              */}
+
+              {apiResponse.status === null ? null : (
+                <>
+                  {apiResponse.status !== 200 ? (
+                    <div className="text-red-500">Error: {apiResponse.statusText}</div>
+                  ) : (
+                    <div className="text-green-500">{apiResponse.statusText}</div>
+                  )}
+                </>
+              )}
+
+
+            </div>
           </div>
-          
+
         </form>
+
       </div>
     </PagesLayout>
   );
+
+
 }

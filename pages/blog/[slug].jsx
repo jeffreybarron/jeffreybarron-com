@@ -6,7 +6,7 @@ const COLLECTION = "blog"
 
 export default function BlogPage({ slug, frontMatter }) {
   const Post = dynamic(() => import(`/data/${COLLECTION}/${slug}${frontMatter.ext}`), {
-    loading: () => <p>Loading...</p>,
+    loading: () => <p className="p-4">You must be the first person to read this article! Please hit refresh on your browser to read your freshly cooked post.</p>,
   });
   return (
     <MDXLayout>
