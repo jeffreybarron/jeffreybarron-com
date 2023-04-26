@@ -109,38 +109,26 @@ export default function ContactPage() {
       <h1 className="text-2xl font-bold">Get in touch</h1>
       <p>Please send me a message if you would like to chat about your next project!</p>
       <p>I will get back to you as soon as possible (usually by the end of the next business day).</p>
-      <div className="shadow-xl m-1 mt-8">
-        <form onSubmit={handleSubmit} className="w-full">
-          {/* Full Name */}
-          <div className="md:flex sm:mb-2">
-            {/* Label */}
-            <div className="md:w-1/5 py-1 sm:py-2">
-              <label className="block text-primary-contrast font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="fullname"><span className="text-red-500"><sup>*</sup></span>Full name</label>
-            </div>
-            {/* Input */}
-            <div className="md:w-4/5">
-              <input 
-                name="fullname" 
-                type="text" 
-                required
-                minLength="3"
-                maxLength="50"
-                onChange={handleChange}
-                value={fullname}
-                placeholder="GivenName FamilyName"
-                className={`bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-50`}/>
-              <div className={errors.fullname ? `inline-block` : 'hidden'}>Error:{errors.fullname?.message}</div>
-            </div>
+      <div className="shadow-xl m-1">
+        <form onSubmit={handleSubmit} className="w-full rounded-2xl rounded-bl-2xl mt-4 flex flex-col p-4 bg-primary-contrast text-primary">
+          <div className="grid grid-cols-12 gap-2 form-group p-1">
+            <label htmlFor="fullname" className="col-span-2 p-1 font-bodyText"><span className="text-red-500"><sup>*</sup></span>Full name</label>
+            <input 
+              name="fullname" 
+              type="text" 
+              required
+              minLength="3"
+              maxLength="50"
+              onChange={handleChange}
+              value={fullname}
+              placeholder="Given name followed by your family name"
+              className={`col-span-10 bg-white bg-transparent border-b border-primary p-1 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light`}/>
+            <div className={errors.fullname ? `inline-block` : 'hidden'}>Error:{errors.fullname?.message}</div>
           </div>
 
-          <div className="md:flex sm:mb-2">
-            {/* Label */}
-            <div className="md:w-1/5 py-1 sm:py-2">
-              <label className="block text-primary-contrast font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="email"><span className="text-red-500"><sup>*</sup></span>E-mail</label>
-            </div>
-            {/* Input */}
-            <div className="md:w-4/5">
-              <input 
+          <div className="grid grid-cols-12 gap-2 form-group p-1">
+            <label htmlFor="email" className="col-span-2 p-1 font-bodyText"><span className="text-red-500"><sup>*</sup></span>E-mail</label>
+            <input 
               name="email" 
               type="email" 
               required
@@ -150,20 +138,14 @@ export default function ContactPage() {
               onChange={handleChange}
               value={email}
               placeholder="Your email address"
-              className={`bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-50`}/>
+              className={`col-span-10 bg-white bg-transparent border-b border-primary p-1 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light`}/>
             <div className={errors.email ? 'block' : 'hidden'}>{errors.email?.message}</div>
-            </div>
           </div>
 
           
-          <div className="md:flex sm:mb-2">
-            {/* Label */}
-            <div className="md:w-1/5 py-1 sm:py-2">
-              <label className="block text-primary-contrast font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="subject"><span className="text-red-500"><sup>*</sup></span>Subject</label>
-            </div>
-            {/* Input */}
-            <div className="md:w-4/5">
-              <input 
+          <div className="grid grid-cols-12 gap-2 form-group p-1">
+            <label htmlFor="subject" className="col-span-2 p-1 font-bodyText"><span className="text-red-500"><sup>*</sup></span>Subject</label>
+            <input 
               name="subject" 
               type="text" 
               required
@@ -172,19 +154,13 @@ export default function ContactPage() {
               onChange={handleChange}
               value={subject}
               placeholder="What is your project about?"
-              className={`bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-50`}/>
+              className={`col-span-10 bg-white bg-transparent border-b border-primary p-1 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light`}/>
             <div className={`{errors.subject ? 'block' : 'hidden'}`}>{errors.subject?.message}</div>
-            </div>
           </div>
 
-          <div className="md:flex sm:mb-2">
-            {/* Label */}
-            <div className="md:w-1/5 py-1 sm:py-2">
-              <label className="block text-primary-contrast font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="message"><span className="text-red-500"><sup>*</sup></span>Project Description</label>
-            </div>
-            {/* Input */}
-            <div className="md:w-4/5">
-              <textarea 
+          <div className="grid grid-cols-12 gap-2 form-group p-1">
+            <label htmlFor="message" className="col-span-2 p-1 font-bodyText"><span className="text-red-500"><sup>*</sup></span>Project Description</label>
+            <textarea 
               name="message" 
               required
               minLength="10"
@@ -193,41 +169,41 @@ export default function ContactPage() {
               onChange={handleChange}
               value={message}
               placeholder="Describe your project in as much detail as possible (max 4000 characters)"
-              className={`bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-50`}>
+              className={`col-span-10 bg-white bg-transparent border-b border-primary p-1 focus:outline-none focus:rounded-md focus:ring-1 ring-primary-600 font-light`}>
             </textarea>
             <div className={`{errors.message ? 'block' : 'hidden'}`}>{errors.message?.message}</div>
-            </div>
           </div>
         
-          <div className="md:flex sm:mb-2">
-            {/* Label */}
-            <div className="md:w-1/5 py-1 sm:py-2">
-              <div className="block text-primary-contrast font-bold md:text-right mb-1 md:mb-0 pr-4">
-                <button className="bg-success hover:bg-success-dark text-white font-bold py-1 px-2 sm:py-2 sm:px-4 rounded">
-                  Send Message
-                </button>
-              </div>
+          <div className="grid grid-cols-12 gap-2 form-group p-1">
+            <div className=" col-span-2 p-1 font-bodyText items-center justify-start">
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Send message
+
+              </button>
             </div>
-            <div className="md:w-4/5">
-              <div className="appearance-none w-full py-1 px-2 sm:py-2 sm:px-4">
-                {/* 
-                  If apiResponse.status is null then dont show anything
-                  elseif apiResponse.status is not 200 then apiResponse.statusText
-                  else show success message
-                */}
-                {apiResponse.status === null ? null : (
-                  <>
-                    {apiResponse.status !== 200 ? (
-                      <div className="text-danger bg-gray-200 appearance-none border-1 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4">Error: {apiResponse.statusText}</div>
-                    ) : (
-                      <div className="text-success bg-gray-200 appearance-none border-1 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4">{apiResponse.statusText}</div>
-                    )}
-                  </>
-                )}
-              </div>
+            <div className="col-span-10 col-start-3 p-1 font-bodyText flex-col">
+              {/* 
+                If apiResponse.status is null then dont show anything
+                elseif apiResponse.status is not 200 then apiResponse.statusText
+                else show success message
+              */}
+
+              {apiResponse.status === null ? null : (
+                <>
+                  {apiResponse.status !== 200 ? (
+                    <div className="text-red-500">Error: {apiResponse.statusText}</div>
+                  ) : (
+                    <div className="text-green-500">{apiResponse.statusText}</div>
+                  )}
+                </>
+              )}
+
+
             </div>
           </div>
+
         </form>
+
       </div>
     </PagesLayout>
   );

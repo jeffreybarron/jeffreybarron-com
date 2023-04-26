@@ -6,6 +6,7 @@ export default async function SendContactFormEmail(req, res) {
   
   const { fullname, email, subject, message } = req.body;
 
+
   return res.status(200).send();
 
 

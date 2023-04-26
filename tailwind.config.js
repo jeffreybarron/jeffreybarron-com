@@ -20,49 +20,86 @@ module.exports = {
         info: "#cce5ff",
         disabled: "#e2e3e5",
         primary: {
-          light: "#606a86", // primary-600
-          DEFAULT: "#0a192f", // blue slate
-          dark: "#000000", // black
           contrast: "#d1d5db", // text-slate-100
-          900: "#0a192f", // default
-          800: "#2d3952",
-          700: "#4c5772",
-          600: "#606a86",
-          500: "#8892b0",
-          400: "#a8b2d1",
-          300: "#ccd6f6",
-          200: "#dce7ff",
-          100: "#e6f1ff",
           50: "#edf8ff",
+          100: "#e6f1ff",
+          200: "#dce7ff",
+          300: "#ccd6f6",
+          400: "#a8b2d1",
+          500: "#8892b0",
+          light: "#606a86", // primary-600
+          600: "#606a86",
+          700: "#4c5772",
+          800: "#2d3952",
+          DEFAULT: "#0a192f", // blue slate
+          900: "#0a192f", // default
+          dark: "#000000", // black
         },
         secondary: {
-          light: "#ff7961",
-          DEFAULT: "#f87316", // orange
-          dark: "#ba000d",
-          contrast: "#d1d5db", // text-slate-100
-          900: "#f87316", // default
-          800: "#f8911a",
-          700: "#f9a21d",
-          600: "#fab420",
-          500: "#fac125",
-          400: "#fbca37",
-          300: "#fbd557",
-          200: "#fce087",
-          100: "#fdecb6",
+          contrast: "#fef8e2", // yellow-50
           50: "#fef8e2",
+          100: "#fdecb6",
+          200: "#fce087",
+          light: "#fbd557",
+          300: "#fbd557",
+          400: "#fbca37",
+          500: "#fac125",
+          DEFAULT: "#f87316", // orange
+          600: "#fab420",
+          700: "#f9a21d",
+          800: "#f8911a",
+          900: "#f87316", // default
+          dark: "#a64900",
         },
         tertiary: {
-          light: "#fef8e2", // secondary-50
-          DEFAULT: "#fdecb6", // secondary-100
-          dark: "#fcd658", // secondary-300
-          contrast: "#0a192f", // dark blue
+          contrast: "#92400e", // amber-800 
+          50: "#fffbeb",
+          light: "#fef3c7", // amber-100
+          100: "#fef3c7",
+          200: "#fde68a", 
+          DEFAULT: "#fcd34d", // amber-300
+          300:"#fcd34d", // amber-300
+          400: "#fbbf24", 
+          dark: "#f59e0b", // amber-500
+          500: "#f59e0b", // amber-500
+          600: "#d97706", // amber-600
+          700: "#b45309", // amber-700
+          800: "#92400e", // amber-800
         },
         accent: {
+          contrast: "#2d3952", // dark blue
           light: "#ffffff", // white
           DEFAULT: "#f1f5f9", // slate-100
-          dark: "#cbd5e1", // slate-300
-          contrast: "#0a192f", // dark blue
+          dark: "#718096", 
+          700: "#718096", // slate-600
+          800: "#4a5568", // slate-700
+          900: "#2d3952", // slate-800
         },
+        success: {
+          contrast: "#004440", 
+          light: "#d4edda",
+          200: "#d4edda",
+          400: "#10b981",
+          DEFAULT: "#38a169",
+          500: "#38a169",
+          600: "#047857",
+          dark: "#047857",
+          800: "#004440",
+        },
+        danger: {
+          contrast: "#7f1d1d", // red-900
+          200: "#fecaca",
+          light: "#fca5a5",
+          300: "#fca5a5",
+          400: "#f87171",
+          500: "#ef4444",
+          DEFAULT: "#dc2626",
+          600: "#dc2626",
+          dark: "#b91c1c",
+          700: "#b91c1c",
+          800: "#991b1b",
+          900: "#7f1d1d",
+        }
       },
       fontFamily: {
         // bodyText: ["var(--font-bodytext)", ...fontFamily.sans],
