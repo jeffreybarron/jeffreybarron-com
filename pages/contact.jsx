@@ -22,6 +22,10 @@ export default function ContactPage() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setuserData((prev) => ({ ...prev, [name]: value }));
+    setApiResponse({
+      status: null,
+      statusText: null,
+      url: null});
   };
 
   // Validate form data
@@ -83,7 +87,7 @@ export default function ContactPage() {
           status: res.status,
           statusText: "Your message has been sent. Thank you!",
           url: res.url});
-        // setuserData({ fullname: "", email: "", subject: "", message: "" });
+        setuserData({ fullname: "", email: "", subject: "", message: "" });
       } else {
         setApiResponse({
           status: res.status || 500,
