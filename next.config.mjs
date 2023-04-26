@@ -19,7 +19,14 @@ const rehypeAutoLinkOptions = ['wrap' ]
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  
+  async rewrites() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap'
+      }
+    ];
+  },
   // Configure pageExtensions to include md and mdx
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   experimental: {

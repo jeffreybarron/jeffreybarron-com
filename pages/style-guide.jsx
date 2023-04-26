@@ -46,11 +46,11 @@ export default function StyleGuidePage() {
           <li className="mt-4 p-2 bg-tertiary text-primary"><p>tertiary text-primary</p></li>
           <ul>
             <li className="w-full p-2 bg-tertiary-contrast text-primary-contrast">CONTRAST: bg-tertiary-contrast text-primary-contrast</li>
-            <li className="w-full p-2 bg-tertiary-50 text-primary">bg-tertiary-50 text-primary</li>
             <li className="w-full p-2 bg-tertiary-light text-primary">LIGHT: bg-tertiary-light text-primary</li>
+            <li className="w-full p-2 bg-tertiary-50 text-primary">bg-tertiary-50 text-primary</li>
+            <li className="w-full p-2 bg-tertiary text-primary">DEFAULT: bg-tertiary text-primary</li>
             <li className="w-full p-2 bg-tertiary-100 text-primary">bg-tertiary-100 text-primary</li>
             <li className="w-full p-2 bg-tertiary-200 text-primary">bg-tertiary-200 text-primary</li>
-            <li className="w-full p-2 bg-tertiary text-primary">DEFAULT: bg-tertiary text-primary</li>
             <li className="w-full p-2 bg-tertiary-300 text-primary">bg-tertiary-300 text-primary</li>
             <li className="w-full p-2 bg-tertiary-400 text-primary">bg-tertiary-400 text-primary</li>
             <li className="w-full p-2 bg-tertiary-dark text-primary">DARK: bg-tertiary-dark text-primary</li>

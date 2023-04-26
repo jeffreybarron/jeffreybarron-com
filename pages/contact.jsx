@@ -3,35 +3,43 @@ import PagesLayout from "../Layout/PagesLayout";
 import React, { useState } from "react";
 
 export default function ContactPage() {
-
+  
   const [userData, setuserData] =   useState({
     fullname: "",
     email: "",
     subject: "",
     message: "",
+    newsletter: "",
   });
-  const [errors, setErrors] = useState({});
   const [apiResponse, setApiResponse] = useState({
     status: null,
     statusText: null,
     url: null,
-  }); // [error, setErrors
-  const { fullname, email, subject, message } = userData;
- 
+  }); 
+  const { fullname, email, subject, message, newsletter } = userData;
+  const [errors, setErrors] = useState({});
+  
   // update userData on change 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setuserData((prev) => ({ ...prev, [name]: value }));
+    const { name, type, value, checked  } = e.target;
+    // if checkbox then else 
+
+    if (type === "checkbox" || type === "radio") {
+      setuserData((prev) => ({ ...prev, [name]: checked }));
+    } else {
+      setuserData((prev) => ({ ...prev, [name]: value }));
+    }
     setApiResponse({
       status: null,
       statusText: null,
       url: null});
+
   };
 
   // Validate form data
   const validate = (userData) => {
     let errors = {};
-    const { fullname, email, subject, message } = userData;
+    const { fullname, email, subject, message, newsletter } = userData;
 
     if (!fullname) {
       errors.fullname = "Name is required";
@@ -93,7 +101,6 @@ export default function ContactPage() {
           status: res.status || 500,
           statusText: res.statusText,
           url: res.url});
-        
       }
       // console.log(apiResponse.status, apiResponse.statusText, apiResponse.url)
 
@@ -128,7 +135,7 @@ export default function ContactPage() {
                 onChange={handleChange}
                 value={fullname}
                 placeholder="GivenName FamilyName"
-                className={`bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-50`}/>
+                className={`bg-primary-contrast appearance-none border-2 border-primary-contrast rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-primary leading-tight focus:outline-none focus:bg-tertiary-light focus:border-secondary-light`}/>
               <div className={errors.fullname ? `inline-block` : 'hidden'}>Error:{errors.fullname?.message}</div>
             </div>
           </div>
@@ -150,12 +157,12 @@ export default function ContactPage() {
               onChange={handleChange}
               value={email}
               placeholder="Your email address"
-              className={`bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-50`}/>
+              className={`bg-primary-contrast appearance-none border-2 border-primary-contrast rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-primary leading-tight focus:outline-none focus:bg-tertiary-light focus:border-secondary-light`}/>
             <div className={errors.email ? 'block' : 'hidden'}>{errors.email?.message}</div>
             </div>
           </div>
 
-          
+          {/* Subject Field */}
           <div className="md:flex sm:mb-2">
             {/* Label */}
             <div className="md:w-1/5 py-1 sm:py-2">
@@ -172,11 +179,12 @@ export default function ContactPage() {
               onChange={handleChange}
               value={subject}
               placeholder="What is your project about?"
-              className={`bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-50`}/>
+              className={`bg-primary-contrast appearance-none border-2 border-primary-contrast rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-primary leading-tight focus:outline-none focus:bg-tertiary-light focus:border-secondary-light`}/>
             <div className={`{errors.subject ? 'block' : 'hidden'}`}>{errors.subject?.message}</div>
             </div>
           </div>
 
+          {/* Message TextArea Field */}
           <div className="md:flex sm:mb-2">
             {/* Label */}
             <div className="md:w-1/5 py-1 sm:py-2">
@@ -193,12 +201,32 @@ export default function ContactPage() {
               onChange={handleChange}
               value={message}
               placeholder="Describe your project in as much detail as possible (max 4000 characters)"
-              className={`bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-50`}>
+              className={`bg-primary-contrast appearance-none border-2 border-primary-contrast rounded w-full py-1 px-2 sm:py-2 sm:px-4 text-primary leading-tight focus:outline-none focus:bg-tertiary-light focus:border-secondary-light`}>
             </textarea>
             <div className={`{errors.message ? 'block' : 'hidden'}`}>{errors.message?.message}</div>
             </div>
           </div>
-        
+
+          {/* Newsletter Field */}
+          <div className="md:flex sm:mb-2">
+            {/* Label */}
+            <div className="md:w-1/5 py-1 sm:py-2">
+              <label className="block text-primary-contrast font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="newsletter">Newsletter</label>
+            </div>
+            {/* Input */}
+            <div className="md:w-4/5 flex items-center">
+              <input 
+              name="newsletter" 
+              type="checkbox" 
+              onClick={handleChange}
+              value={newsletter}
+              className={`w-4 h-4 accent-secondary rounded focus:ring-secondary focus:ring-1`}/>
+              <p className="ml-2">Hey!, can you also subscribe me to your newsletter for FREE!&nbsp;[ Yes, Opt In ]</p>
+            <div className={`{errors.newsletter ? 'block' : 'hidden'}`}>{errors.newsletter?.message}</div>
+            </div>
+          </div>
+
+          {/* Submit Button */}
           <div className="md:flex sm:mb-2">
             {/* Label */}
             <div className="md:w-1/5 py-1 sm:py-2">
@@ -218,9 +246,9 @@ export default function ContactPage() {
                 {apiResponse.status === null ? null : (
                   <>
                     {apiResponse.status !== 200 ? (
-                      <div className="text-danger bg-gray-200 appearance-none border-1 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4">Error: {apiResponse.statusText}</div>
+                      <div className="text-danger bg-primary-contrast appearance-none border-1 border-primary-contrast rounded w-full py-1 px-2 sm:py-2 sm:px-4">Error: {apiResponse.statusText}</div>
                     ) : (
-                      <div className="text-success bg-gray-200 appearance-none border-1 border-gray-200 rounded w-full py-1 px-2 sm:py-2 sm:px-4">{apiResponse.statusText}</div>
+                      <div className="text-success bg-primary-contrast appearance-none border-1 border-primary-contrast rounded w-full py-1 px-2 sm:py-2 sm:px-4">{apiResponse.statusText}</div>
                     )}
                   </>
                 )}

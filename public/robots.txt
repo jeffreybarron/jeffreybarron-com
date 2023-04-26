@@ -1,0 +1,24 @@
+# robots.txt
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Block all crawlers for ...
+User-agent: *
+Disallow: /admin
+Disallow: /api
+Disallow: /auth
+Disallow: /home
+Disallow: /login
+Disallow: /logout
+Disallow: /privacy-policy
+Disallow: /style-guide
+Disallow: /terms-and-conditions
+
+# Block PetalBot
+User-agent: PetalBot
+Disallow: /
+
+Host: https://jeffreybarron.com
+Sitemap: https://jeffreybarron.com/sitemap.xml

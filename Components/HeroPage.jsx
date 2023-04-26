@@ -3,7 +3,7 @@ export default function HeroPage() {
 
     return (
     <div className="from-primary via-secondary to-secondary-700 bg-gradient-to-r box-decoration-clone flex h-screen items-center justify-center p-4 align-middle">
-      <div className="hover:transition-all">
+      <div className="hover:transition-all ">
         <div className="text-accent font-fancyText text-[3.5rem] sm:text-[7rem] md:text-[7.5rem] lg:text-[10rem] xl:text-[13rem] flex">
           <div className="hover:-rotate-45 duration-1000  md:text-tertiary">J</div>
           <div className="hover:-rotate-45 duration-1000  md:text-tertiary">e</div>
@@ -20,7 +20,7 @@ export default function HeroPage() {
           <div className="hover:-rotate-45 duration-1000 ">o</div>
           <div className="hover:-rotate-45 duration-1000 ">n</div>
         </div>
-        <div className="text text-primary-contrast text-xl sm:text-[1.45rem] md:text-[1.6rem] lg:text-[2.1rem] xl:text-[2.75rem] lg:leading-[2.5rem] xl:leading-[3rem] capitalize delay-100 duration-1000 ease-in-out ">
+        <div className="italic text-primary-contrast text-xl sm:text-[1.45rem] md:text-[1.6rem] lg:text-[2.1rem] xl:text-[2.75rem] lg:leading-[2.5rem] xl:leading-[3rem] capitalize delay-100 duration-1000 ease-in-out ">
           website developer, <br className="sm:hidden"/>
           UX designer, <br className="sm:hidden"/> 
           software engineer, <br className=""/>

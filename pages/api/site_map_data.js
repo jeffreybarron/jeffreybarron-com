@@ -6,7 +6,14 @@ const ROOT_FOLDER_DATA = "/data"
 
 export default async function handler(req, res) {
   // return an array of file path strings
-  const files = await getBlogRoll(req.query.collection);
+  let paths = await getBlogRoll("blog");
+  paths = [ ...paths, await getBlogRoll("blog") ];
+  paths.push("/about");
+  paths.push("/contact");
+  paths.push("/curriculum-vitae");
+  paths.push("/privacy-policy");
+  paths.push("/terms-and-conditions");
+  
   res.status(200).json( files );
 }
 

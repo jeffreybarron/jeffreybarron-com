@@ -35,33 +35,28 @@ https://stackoverflow.com/questions/68068186/next-js-error-warning-expected-serv
 
 ### Work in Progress 0.2.1
 
-- `TODO:`  add contact form and mail service integration
-	- [x] https://mailchimp.com/developer/
-	- [v] https://sendgrid.com/pricing/
-	- [ ] make sure email is sent from the server side to protect the api.
-	- [ ] implement contact form rate limiting (Max 2 emails per day)
-		 - [ ] this will need some kind of data storage?
-	- [ ] Add opt-in check box (on by default) sign up to Jeffrey's newsletter
-- `TODO:`  add site map
+- [ ] add site map
+- [ ] add robots.txt
 
 ### Future Releases
-- `TODO:`  Add code to make script, to update the modified and modified timestamp based on file information. 
+- [ ] Add code to make script, to update the modified and modified timestamp based on file information. 
 	- [ ] python should be easy
-- `TODO:`  [add Vercel Dynamic Open Graph Image Generation](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation) 
+- [ ] [add Vercel Dynamic Open Graph Image Generation](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation) 
 	https://vercel.com/docs/frameworks/nextjs
-- `TODO:` make this  more robust to poorly formed Frontmatter.
-	- [v] handle arrays without square braces
-	- [v] handle single items, instead of arrays in square braces
-	- [v] handle missing meta-data without square braces
+- [ ] make this  more robust to poorly formed Frontmatter.
+	- [x] handle arrays without square braces
+	- [x] handle single items, instead of arrays in square braces
+	- [x] handle missing meta-data without square braces
 	- [ ] handle missing front-matter 
-- `TODO:` Get rid of @apply directives in global.css 
-- `TODO:` Add sticky navigation bar to pages
-- `TODO:` Add Scroll snap to HomePage, but make sure it works on all browsers (i.e. Firefox)
-- `TODO:` modify [blog].js to show blog index of all posts matching a hashtag when route begins with # e.g. /blog/#markdown
+- [ ] Get rid of @apply directives in global.css 
+- [ ] Add sticky navigation bar to pages
+- [ ] Add Scroll snap to HomePage, but make sure it works on all browsers (i.e. Firefox)
+- [ ] modify [blog].js to show blog index of all posts matching a hashtag when route begins with # e.g. /blog/#markdown
 - [ ] consider implementing with https://www.contentlayer.dev/ 
 	- [see leerob.io githu](https://github.com/leerob/leerob.io/blob/main/app/blog/page.tsx)
 	- image processing not supported
 	 - [Blog process MDX with contentlayer](https://blog.mrcatdev.com/turns-your-mdx-files-include-yaml-into-data-with-contentlayer-in-nextjs-100daysofcode)
+	- [it makes generating a sitemap trivial](https://github.com/leerob/leerob.io/blob/main/app/sitemap.ts)
 
 ### Known issues
 - `BUG:` right-click heading "Copy Link to Highlight" yields nonsense. Instead, use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
@@ -70,24 +65,31 @@ https://stackoverflow.com/questions/68068186/next-js-error-warning-expected-serv
     - [App Router Roadmap @ 2023-04-05](https://beta.nextjs.org/docs/app-directory-roadmap) 
 
 ### Implemented in this Release
- - [v] Finish adding CV
+ - [x] Finish adding CV
 	 - format CV
-- [v] figure out workflow for import from obsidian library
-	- [v] use Makefile to bash copy files into repo then build and redeploy
-	- [v] Update the publish markdown shell script, use 4 scripts to synchronise the folders to their published location.
+- [x] figure out workflow for import from obsidian library
+	- [x] use Makefile to bash copy files into repo then build and redeploy
+	- [x] Update the publish markdown shell script, use 4 scripts to synchronise the folders to their published location.
 		- blog. 
 		- blog/attachments. 
 		- release. 
 		- release/attachments. 
-- [v] Cleanup GitHub readme.md page for GitHub repo
-- [v] use Frontmatter to create index.js and [slug].js for both 'blog' and 'release' collections
-	- [v] turn index into tiled cards
-	- [v] Add images to cards
-	- [v] Add metadata to customise pages
-		- [v] Add Titles from metadata to blog/release pages 
-		- [v] add metadata `#tags` pages
-- [v] Handle markdown attachments
-- [v] update blog images and store copyright with originals. need a work flow for this
-- [v] Create privacy-policy and terms and conditions pages.
-- [v] add navigation bread crumbs for UX, add <QuickLinks /> component.
-
+- [x] Cleanup GitHub readme.md page for GitHub repo
+- [x] use Frontmatter to create index.js and [slug].js for both 'blog' and 'release' collections
+	- [x] turn index into tiled cards
+	- [x] Add images to cards
+	- [x] Add metadata to customise pages
+		- [x] Add Titles from metadata to blog/release pages 
+		- [x] add metadata `#tags` pages
+- [x] Handle markdown attachments
+- [x] update blog images and store copyright with originals. need a work flow for this
+- [x] Create privacy-policy and terms and conditions pages.
+- [x] add navigation bread crumbs for UX, add <QuickLinks /> component.
+- [x] add contact form and mail service integration
+	- [x] https://mailchimp.com/developer/
+	- [x] https://sendgrid.com/pricing/
+	- [x] make sure email is sent from the server side to protect the api.
+	- [x] implement form rate limiting (Max 2 emails per day)
+		 - [x] this will need some kind of data storage?
+		 - [x] I used lru-cache instead of persistent
+	- [x] Add opt-in check box (on by default) sign up to Jeffrey's newsletter

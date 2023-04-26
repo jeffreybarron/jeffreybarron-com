@@ -53,11 +53,11 @@ module.exports = {
         },
         tertiary: {
           contrast: "#92400e", // amber-800 
+          light: "#fffbeb", // amber-100
           50: "#fffbeb",
-          light: "#fef3c7", // amber-100
+          DEFAULT: "#fef3c7", // amber-300
           100: "#fef3c7",
           200: "#fde68a", 
-          DEFAULT: "#fcd34d", // amber-300
           300:"#fcd34d", // amber-300
           400: "#fbbf24", 
           dark: "#f59e0b", // amber-500
