@@ -1,10 +1,18 @@
 {
-  "name": "nextjs-blog",
-  "version": "0.2.1",
+  "name": "jeffreybarron-com",
+  "version": "0.2.1.1",
+  "homepage" : "https://jeffreybarron.com",
+  "description": "A statically generated blog example using Next.js and Markdown",
+  "author": "Jeffrey Barron",
+  "license": "MIT",
+  "repository": "https://github.com/jeffreybarron/nextjs-blog",
+  "bugs": {
+    "url": "https://github.com/jeffreybarron/nextjs-blog/issues"
+  },
   "private": true,
   "engines": {
-    "npm": "8.19.3",
-    "node": "v18.13.0"
+    "npm": ">=8.19.3 <=9.5.0",
+    "node": ">=v18.13.0 <=v18.15.0"
   },
   "scripts": {
     "dev": "NODE_ENV=development next dev",

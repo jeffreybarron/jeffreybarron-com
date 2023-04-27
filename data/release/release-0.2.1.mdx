@@ -1,95 +1,100 @@
 ---
-modified: 2023-04-09 01:59  
-modifiedTs: 1680969575480  
-created: 2023-04-09 01:59  
-createdTs: 1680969575480   
-layout: MDXLayout  
+modified: 2023-04-09 01:59
+modifiedTs: 1680969575480
+created: 2023-04-09 01:59
+createdTs: 1680969575480
+layout: MDXLayout
 route: /release
 slug: release-0.2.1
 ext: .mdx
-title: Release v0.2.1  
+title: Release v0.2.1
 summary: Release Notes for v0.2.1
-image: /release/images/release-notes.webp   
+image: /release/images/release-notes.webp
 authors: [Jeffrey Barron]
 tags: [release]
 ---
 
----
 # Release Notes
+
 for [`jeffreybarron.com`](https://jeffreybarron.com)
 
-## Release v0.2.1
+## Patch History
 
-### Resources
-[Chouhan, Building a contact form with NextJs, Tailwind, and SendGrid](https://www.youtube.com/watch?v=tPPctY9POIA)  
-https://www.youtube.com/watch?v=MrjeefD8sac  
-https://www.freecodecamp.org/news/how-to-build-a-working-contact-form-with-sendgrid-and-next-js/  
-- [ ] mailing yt https://www.youtube.com/watch?v=FUCoXg2sAg0&t=266s  
-https://www.youtube.com/watch?v=4oCH5WaJHzk  
-https://vercel.com/blog/core-web-vitals  
-https://vercel.com/docs/cli/dev  
-https://tailwindcss.com/docs/hover-focus-and-other-states#form-states  
-https://stackoverflow.com/questions/71791251/in-nextjs-warning-expected-server-html-to-contain-a-matching-div-in-div  
-https://stackoverflow.com/questions/68068186/next-js-error-warning-expected-server-html-to-contain-a-matching-button-in  
-![[attachments/Pasted image 20230424190645.png]]
+# v.0.2.1.1
+- fixed a weird problem with one of the markdown files, unknown cause!!!
+- tidied up Release History notes a bit
 
-### Work in Progress 0.2.1
+## Resources
+
+- [Chouhan, Building a contact form with NextJs, Tailwind, and SendGrid](https://www.youtube.com/watch?v=tPPctY9POIA)
+- [Kogler, Mailing Demo – Build + Test + Send Emails with React](https://www.youtube.com/watch?v=FUCoXg2sAg0&t=266s)
+- [Traversy, Static Blog With Next.js and Markdown](https://www.youtube.com/watch?v=MrjeefD8sac)
+- [Lenehan, How to build elegant React forms with React Hook Form](https://www.youtube.com/watch?v=4oCH5WaJHzk)
+- [Arora, How to Build a Contact Form with SendGrid and Next.js](https://www.freecodecamp.org/news/how-to-build-a-working-contact-form-with-sendgrid-and-next-js/)
+- [Tailwindcss, Form states](https://tailwindcss.com/docs/hover-focus-and-other-states#form-states)
+- [Vercel, How Core Web Vitals Will Impact Google Rankings in 2021](https://vercel.com/blog/core-web-vitals)  
+- [Vercel, CLI: vercel dev ](https://vercel.com/docs/cli/dev)  
+
+## Work in Progress 0.2.1
 
 - [ ] add site map
 - [ ] add robots.txt
 
-### Future Releases
-- [ ] Add code to make script, to update the modified and modified timestamp based on file information. 
-	- [ ] python should be easy
-- [ ] [add Vercel Dynamic Open Graph Image Generation](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation) 
-	https://vercel.com/docs/frameworks/nextjs
-- [ ] make this  more robust to poorly formed Frontmatter.
-	- [x] handle arrays without square braces
-	- [x] handle single items, instead of arrays in square braces
-	- [x] handle missing meta-data without square braces
-	- [ ] handle missing front-matter 
-- [ ] Get rid of @apply directives in global.css 
+## Future Releases
+
+- [ ] Add code to make script, to update the modified and modified timestamp based on file information.
+  - [ ] python should be easy
+- [ ] [add Vercel Dynamic Open Graph Image Generation](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation)
+      https://vercel.com/docs/frameworks/nextjs
+- [ ] make this more robust to poorly formed Frontmatter.
+  - [x] handle arrays without square braces
+  - [x] handle single items, instead of arrays in square braces
+  - [x] handle missing meta-data without square braces
+  - [ ] handle missing front-matter
+- [ ] Get rid of @apply directives in global.css
 - [ ] Add sticky navigation bar to pages
 - [ ] Add Scroll snap to HomePage, but make sure it works on all browsers (i.e. Firefox)
 - [ ] modify [blog].js to show blog index of all posts matching a hashtag when route begins with # e.g. /blog/#markdown
-- [ ] consider implementing with https://www.contentlayer.dev/ 
-	- [see leerob.io githu](https://github.com/leerob/leerob.io/blob/main/app/blog/page.tsx)
-	- image processing not supported
-	 - [Blog process MDX with contentlayer](https://blog.mrcatdev.com/turns-your-mdx-files-include-yaml-into-data-with-contentlayer-in-nextjs-100daysofcode)
-	- [it makes generating a sitemap trivial](https://github.com/leerob/leerob.io/blob/main/app/sitemap.ts)
+- [ ] consider implementing with https://www.contentlayer.dev/
+  - [see leerob.io githu](https://github.com/leerob/leerob.io/blob/main/app/blog/page.tsx)
+  - image processing not supported
+  - [Blog process MDX with contentlayer](https://blog.mrcatdev.com/turns-your-mdx-files-include-yaml-into-data-with-contentlayer-in-nextjs-100daysofcode)
+  - [it makes generating a sitemap trivial](https://github.com/leerob/leerob.io/blob/main/app/sitemap.ts)
 
-### Known issues
+## Known issues
+
 - `BUG:` right-click heading "Copy Link to Highlight" yields nonsense. Instead, use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
-    - [URL# not handled](https://github.com/vercel/next.js/issues/44295) 
-    - [disable-scrolling-to-the-top-of-the-page](https://nextjs.org/docs/api-reference/next/link#disable-scrolling-to-the-top-of-the-page)
-    - [App Router Roadmap @ 2023-04-05](https://beta.nextjs.org/docs/app-directory-roadmap) 
+  - [URL# not handled](https://github.com/vercel/next.js/issues/44295)
+  - [disable-scrolling-to-the-top-of-the-page](https://nextjs.org/docs/api-reference/next/link#disable-scrolling-to-the-top-of-the-page)
+  - [App Router Roadmap @ 2023-04-05](https://beta.nextjs.org/docs/app-directory-roadmap)
 
-### Implemented in this Release
- - [x] Finish adding CV
-	 - format CV
+## Implemented in this Release
+
+- [x] Finish adding CV
+  - format CV
 - [x] figure out workflow for import from obsidian library
-	- [x] use Makefile to bash copy files into repo then build and redeploy
-	- [x] Update the publish markdown shell script, use 4 scripts to synchronise the folders to their published location.
-		- blog. 
-		- blog/attachments. 
-		- release. 
-		- release/attachments. 
+  - [x] use Makefile to bash copy files into repo then build and redeploy
+  - [x] Update the publish markdown shell script, use 4 scripts to synchronise the folders to their published location.
+    - blog.
+    - blog/attachments.
+    - release.
+    - release/attachments.
 - [x] Cleanup GitHub readme.md page for GitHub repo
 - [x] use Frontmatter to create index.js and [slug].js for both 'blog' and 'release' collections
-	- [x] turn index into tiled cards
-	- [x] Add images to cards
-	- [x] Add metadata to customise pages
-		- [x] Add Titles from metadata to blog/release pages 
-		- [x] add metadata `#tags` pages
+  - [x] turn index into tiled cards
+  - [x] Add images to cards
+  - [x] Add metadata to customise pages
+    - [x] Add Titles from metadata to blog/release pages
+    - [x] add metadata `#tags` pages
 - [x] Handle markdown attachments
 - [x] update blog images and store copyright with originals. need a work flow for this
 - [x] Create privacy-policy and terms and conditions pages.
-- [x] add navigation bread crumbs for UX, add <QuickLinks /> component.
+- [x] add navigation bread crumbs for UX, add `<QuickLinks />` component.
 - [x] add contact form and mail service integration
-	- [x] https://mailchimp.com/developer/
-	- [x] https://sendgrid.com/pricing/
-	- [x] make sure email is sent from the server side to protect the api.
-	- [x] implement form rate limiting (Max 2 emails per day)
-		 - [x] this will need some kind of data storage?
-		 - [x] I used lru-cache instead of persistent
-	- [x] Add opt-in check box (on by default) sign up to Jeffrey's newsletter
+  - [x] (https://mailchimp.com/developer/)
+  - [x] (https://sendgrid.com/pricing/)
+  - [x] make sure email is sent from the server side to protect the api.
+  - [x] implement rate limiting
+    - [x] this will need some kind of data storage?
+    - [x] I used lru-cache instead of persistent
+  - [x] Add opt-in check box (on by default) sign up to Jeffrey's newsletter

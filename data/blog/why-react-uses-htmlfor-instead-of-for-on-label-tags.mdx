@@ -48,101 +48,90 @@ In summary, React uses the `htmlFor` attribute instead of the `for` attribute in
 
 ## Other React modifications
 
-| HTML Attribute | React Attribute |
-| --- | --- |
-| class | className |
-| for | htmlFor |
-| tabindex | tabIndex |
-| colspan | colSpan |
-| rowspan | rowSpan |
-| contenteditable | contentEditable |
-| autofocus | autoFocus |
-| onblur | onBlur |
-| onchange | onChange |
-| onclick | onClick |
-| oncontextmenu | onContextMenu |
-| oncopy | onCopy |
-| oncut | onCut |
-| ondblclick | onDoubleClick |
-| ondrag | onDrag |
-| ondragend | onDragEnd |
-| ondragenter | onDragEnter |
-| ondragleave | onDragLeave |
-| ondragover | onDragOver |
-| ondragstart | onDragStart |
-| ondrop | onDrop |
-| onerror | onError |
-| onfocus | onFocus |
-| oninput | onInput |
-| onkeydown | onKeyDown |
-| onkeypress | onKeyPress |
-| onkeyup | onKeyUp |
-| onload | onLoad |
-| onmousedown | onMouseDown |
-| onmouseenter | onMouseEnter |
-| onmouseleave | onMouseLeave |
-| onmousemove | onMouseMove |
-| onmouseout | onMouseOut |
-| onmouseover | onMouseOver |
-| onmouseup | onMouseUp |
-| onpaste | onPaste |
-| onscroll | onScroll |
-| onsubmit | onSubmit |
-| checked | defaultChecked |
-| selected | defaultValue (for `select` elements) |
-| value | defaultValue (for uncontrolled inputs) or value (for controlled inputs) |
-| style | style (as an object) |
-| target | target (as a prop of the `a` tag) |
-| href | href (as a prop of the `a` tag) |
-| dangerouslySetInnerHTML | dangerouslySetInnerHTML (as an object) <br /> Please note that in general, you should avoid using `dangerouslySetInnerHTML` as it can introduce security vulnerabilities if not used properly. |
+Tip: This list may not be exhaustive, so dont depend on it.
 
+| HTML Attribute | React Attribute                                                                   |
+| :------------- | :-------------------------------------------------------------------------------- |
+| accept-charset | **acceptCharset**                                                                 |
+| class          | className                                                                         |
+| checked        | defaultChecked                                                                    |
+| selected       | defaultValue (for `select` elements)                                              |
+| value          | defaultValue (for uncontrolled inputs)<br />or<br />value (for controlled inputs) |
+| for            | htmlFor                                                                           |
 
-Here are some more HTML attributes that have a different name in React:
+TL;DR: attributes should be camelCased, not kebab-cased. This applies to all attributes, not just event handlers.
 
-| HTML Attribute | React Attribute |
-| --- | --- |
-| accept-charset | acceptCharset |
+| HTML Attribute  | React Attribute |
+| :-------------- | :-------------- |
+| ondblclick      | onDoubleClick   |
 | allowfullscreen | allowFullScreen |
-| autocomplete | autoComplete |
-| autocorrect | autoCorrect |
-| autocapitalize | autoCapitalize |
-| cellspacing | cellSpacing |
-| cellpadding | cellPadding |
-| charset | charSet |
-| classid | classID |
-| classname | className |
-| colspan | colSpan |
+| autocapitalize  | autoCapitalize  |
+| autocomplete    | autoComplete    |
+| autocorrect     | autoCorrect     |
+| autofocus       | autoFocus       |
+| cellpadding     | cellPadding     |
+| cellspacing     | cellSpacing     |
+| charset         | charSet         |
+| classid         | classID         |
+| colspan         | colSpan         |
 | contenteditable | contentEditable |
-| crossorigin | crossOrigin |
-| datetime | dateTime |
-| enctype | encType |
-| formaction | formAction |
-| formenctype | formEncType |
-| formmethod | formMethod |
-| formnovalidate | formNoValidate |
-| formtarget | formTarget |
-| frameborder | frameBorder |
-| hreflang | hrefLang |
-| inputmode | inputMode |
-| keyparams | keyParams |
-| keytype | keyType |
-| marginheight | marginHeight |
-| marginwidth | marginWidth |
-| maxlength | maxLength |
-| mediagroup | mediaGroup |
-| novalidate | noValidate |
-| radiogroup | radioGroup |
-| readonly | readOnly |
-| rowspan | rowSpan |
-| spellcheck | spellCheck |
-| srcdoc | srcDoc |
-| srcset | srcSet |
-| tabindex | tabIndex |
-| usemap | useMap |
-| wrap | wrap |
-
-It's worth noting that most of these attributes are related to form input elements or the `iframe` tag, which may not be used as frequently as other HTML tags.
-
+| crossorigin     | crossOrigin     |
+| datetime        | dateTime        |
+| enctype         | encType         |
+| formaction      | formAction      |
+| formenctype     | formEncType     |
+| formmethod      | formMethod      |
+| formnovalidate  | formNoValidate  |
+| formtarget      | formTarget      |
+| frameborder     | frameBorder     |
+| hreflang        | hrefLang        |
+| inputmode       | inputMode       |
+| keyparams       | keyParams       |
+| keytype         | keyType         |
+| marginheight    | marginHeight    |
+| marginwidth     | marginWidth     |
+| maxlength       | maxLength       |
+| mediagroup      | mediaGroup      |
+| novalidate      | noValidate      |
+| onblur          | onBlur          |
+| onchange        | onChange        |
+| onclick         | onClick         |
+| oncontextmenu   | onContextMenu   |
+| oncopy          | onCopy          |
+| oncut           | onCut           |
+| ondrag          | onDrag          |
+| ondragend       | onDragEnd       |
+| ondragenter     | onDragEnter     |
+| ondragleave     | onDragLeave     |
+| ondragover      | onDragOver      |
+| ondragstart     | onDragStart     |
+| ondrop          | onDrop          |
+| onerror         | onError         |
+| onfocus         | onFocus         |
+| oninput         | onInput         |
+| onkeydown       | onKeyDown       |
+| onkeypress      | onKeyPress      |
+| onkeyup         | onKeyUp         |
+| onload          | onLoad          |
+| onmousedown     | onMouseDown     |
+| onmouseenter    | onMouseEnter    |
+| onmouseleave    | onMouseLeave    |
+| onmousemove     | onMouseMove     |
+| onmouseout      | onMouseOut      |
+| onmouseover     | onMouseOver     |
+| onmouseup       | onMouseUp       |
+| onpaste         | onPaste         |
+| onscroll        | onScroll        |
+| onsubmit        | onSubmit        |
+| radiogroup      | radioGroup      |
+| readonly        | readOnly        |
+| rowspan         | rowSpan         |
+| spellcheck      | spellCheck      |
+| srcdoc          | srcDoc          |
+| srcset          | srcSet          |
+| tabindex        | tabIndex        |
+| usemap          | useMap          |
+| wrap            | wrap            |
 
 <br />
 <hr />{' '}

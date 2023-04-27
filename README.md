@@ -25,7 +25,7 @@ tags: [draft]
 
 ##### .env.local
 ``` env.devlopment 
-SENDGRID_API_KEY='XXXXX'
+SENDGRID_API_KEY=XXXXX
 ```
 
 ##### .env.development
