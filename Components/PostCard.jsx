@@ -35,7 +35,7 @@ export default function PostCard({index, collection, post}) {
         </div>
       </Link>
       <div className="min-w-sm flex justify-center p-2">
-        <Link href={`/blog/${post.slug}`}>
+        <Link href={`/${collection}/${post.slug}`}>
           <button className="bg-secondary hover:bg-secondary-700 text-white font-bodyText font-bold py-2 px-4 rounded">
             Read More
           </button>

@@ -1,6 +1,6 @@
 {
   "name": "jeffreybarron-com",
-  "version": "0.2.1.1",
+  "version": "0.2.1.2",
   "homepage" : "https://jeffreybarron.com",
   "description": "A statically generated blog example using Next.js and Markdown",
   "author": "Jeffrey Barron",
