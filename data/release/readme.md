@@ -9,7 +9,7 @@ slug: readme
 ext: .md
 title: github readme.md
 summary: Portfolio website of Jeffrey Barron
-image: /release/images/read-me.webp
+image: /pages/images/read-me.webp
 authors: [Jeffrey Barron]
 tags: [readme]
 ---
@@ -30,7 +30,7 @@ modifiedTs: { { date:x } }
 created: { { date:YYYY-MM-DD HH:mm } }
 createdTs: { { date:x } }
 layout: MDXLayout
-route: /blog
+route: /articles
 slug: __SLUG__
 ext: .mdx or .md
 title: { { title } }

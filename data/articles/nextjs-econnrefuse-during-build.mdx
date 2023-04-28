@@ -1,0 +1,42 @@
+---
+modified: 2023-04-09 13:26
+modifiedTs: 1680965182842  
+created: 2023-04-09 00:46
+createdTs: 1680965182842  
+layout: MDXLayout  
+route: /blog  
+slug: nextjs-econnrefuse-during-build  
+ext: .mdx  
+title: NextJS ECONNREFUSED during build  
+summary: Explainer for getStaticPaths noob mistake  
+image: /blog/images/nextjs-staticPaths.png
+authors: [Jeffrey Barron]
+tags: [nextjs]  
+---
+
+---
+
+`TL;DR` don't call your own API for getStaticPaths()
+
+Nextjs documentation is slightly misleading for examples on getStaticPaths, showing the use of fetch from an API. However, the not so obvious gotcha happens if you fetch from your app's own API. While working in `npm run dev` everything works fine, but it all breaks when you build your app. The solution, however, is quite obvious.
+
+Reducing client calls as much as possible and pre-rendering on server greatly reduces application complexity. Therefore, we ought to use Static Site Generation (SSG) where ever practical. When you run `npm next build`, NextJS iterates all the pages that it can build statically. i.e. those without getServerSideProps, but which possibly define getStaticProps and getStaticPaths.
+
+To build those pages, Next calls getStaticPaths to decide which pages you want to build, and then getStaticProps to get the actual data needed to build the page.
+
+Now, if in either of getStaticPaths or getStaticProps you do an API call, e.g. to a JSON backend REST server, then this will get called by next build.
+
+However, if you've integrated both front and backend nicely into a single server, chances are that you have just quit your development server (next dev) and are now trying out a build to see if things still work as sanity check before deployment.
+
+So in that case, the build will try to access your server, and it won't be running, so you get an error like that.
+
+The correct approach is, instead of going through the REST API, you should just do database queries directly from getStaticPaths or getStaticProps. That code never gets run on the client anyway, and it will also be slightly more efficient than doing a useless trip to the API, which then calls the database indirectly
+
+You should then only do client API calls from the React components on the browser after the initial pages load (i.e. from useEffect et al.), not from getStaticPaths or getStaticProps.
+
+<br /><hr />
+
+## References
+
+- [Stack Contributor](https://stackoverflow.com/a/67676463/18296218)  
+- [Next Manuals](https://nextjs.org/docs/basic-features/data-fetching/get-static-props#write-server-side-code-directly)  

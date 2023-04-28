@@ -1,0 +1,145 @@
+---
+modified: 2023-04-09 13:26
+modifiedTs: 1680965050349  
+created: 2023-04-09 00:44
+createdTs: 1680965050349  
+layout: MDXLayout  
+route: /blog  
+slug: markdown-examples  
+ext: .mdx
+title: Markdown Examples  
+summary: This article displays shows examples of code and rendered markdown
+image: /blog/images/markdown-example-1.png
+authors: Jeffrey Barron
+tags: "markdown"
+---
+
+---
+
+## Markdown Code and example
+
+### 3 Paragraphs of Lorem Ipsum
+``` md
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, reiciendis minus consequatur sed quibusdam voluptate quam explicabo architecto sint nesciunt autem at animi? Repudiandae atque voluptas, natus exercitationem corporis quibusdam.  
+Aperiam, sit id enim eaque veritatis quasi accusantium reprehenderit iure possimus, nobis quia aliquam praesentium nulla qui pariatur quis deleniti! Eius hic laboriosam possimus quam cum vitae itaque esse facilis.  
+Vitae facere rerum quae distinctio voluptatum? Quidem explicabo quod omnis ad neque mollitia voluptate, illo cumque impedit perferendis beatae qui eum alias libero sequi ea repudiandae autem optio cupiditate labore.  
+```
+==Renders As==  
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, reiciendis minus consequatur sed quibusdam voluptate quam explicabo architecto sint nesciunt autem at animi? Repudiandae atque voluptas, natus exercitationem corporis quibusdam.  
+Aperiam, sit id enim eaque veritatis quasi accusantium reprehenderit iure possimus, nobis quia aliquam praesentium nulla qui pariatur quis deleniti! Eius hic laboriosam possimus quam cum vitae itaque esse facilis.  
+Vitae facere rerum quae distinctio voluptatum? Quidem explicabo quod omnis ad neque mollitia voluptate, illo cumque impedit perferendis beatae qui eum alias libero sequi ea repudiandae autem optio cupiditate labore.  
+
+### Anchor Tag
+```md 
+[A link to the home page](https://jeffreybarron.com)
+```
+==Renders As==  
+[A link to the home page](https://jeffreybarron.com)
+
+### Headings
+
+```md
+# Heading 1
+```
+==Renders As==  
+## Heading 1
+
+``` md
+## Heading 2
+```
+==Renders As==  
+### Heading 2
+
+``` md
+### Heading 3
+```
+==Renders As==  
+#### Heading 3
+
+``` md
+#### Heading 4
+```
+==Renders As==  
+##### Heading 4
+
+``` md
+##### Heading 5
+```
+==Renders As==  
+###### Heading 5
+
+``` md
+###### Heading 6
+```
+==Renders As==  
+###### Heading 6
+
+### PreFormatted Code
+
+``` md
+here is a file with just `three` bits `of` code
+```
+==Renders As==  
+here is a file with just `three` bits `of` code
+
+and here is a code block inside triple tick with language 
+==Renders As==  
+``` python
+# Traverse the folder structure
+def traverse_folder(folder_path):
+    for root, _, files in os.walk(folder_path):
+        for file_name in files:
+            if is_markdown_file(file_name):
+                file_path = os.path.join(root, file_name)
+                process_markdown_file(file_path)
+
+```
+
+### Un-Ordered Lists
+
+``` md
+- level 1
+  - level 2
+    - level 3
+      - level 4
+        - level 5
+          - level 6
+```
+==Renders As==  
+- level 1
+  - level 2
+    - level 3
+      - level 4
+        - level 5
+          - level 6
+
+### Ordered Lists
+``` md
+1. level 1
+    1. level 2
+    2. level 2
+2. level 1
+    1. level 2
+        1. level 3
+        2. level 3
+    2. level 2
+        1. level 3
+            1. level 4
+            2. level 4
+                1. level 5
+                2. level 5 (MAX)
+```
+==Renders As==  
+1. level 1
+    1. level 2
+    2. level 2
+2. level 1
+    1. level 2
+        1. level 3
+        2. level 3
+    2. level 2
+        1. level 3
+            1. level 4
+            2. level 4
+                1. level 5
+                2. level 5 (MAX)

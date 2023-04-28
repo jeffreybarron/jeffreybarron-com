@@ -16,6 +16,17 @@ SRC_ROOT="/Users/jeffbarron/Dropbox/Documents/ObsidianVault/Client Library/jeffr
 DST_ROOT="/Users/jeffbarron/dev-local/clients/jeffreybarron.com/jeffreybarron-com"
 
 echo "# -------------------------------------"
+echo "# Publish Articles"
+echo "# -------------------------------------"
+SRC="$SRC_ROOT/articles/"
+DST="$DST_ROOT/data/articles"
+rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+
+SRC="$SRC_ROOT/articles/attachments/"
+DST="$DST_ROOT/public/articles/attachments/"
+rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+
+echo "# -------------------------------------"
 echo "# Publish Blog"
 echo "# -------------------------------------"
 SRC="$SRC_ROOT/blog/"
@@ -25,6 +36,7 @@ rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_
 SRC="$SRC_ROOT/blog/attachments/"
 DST="$DST_ROOT/public/blog/attachments/"
 rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+
 
 echo "# -------------------------------------"
 echo "# Publish Release Notes"
@@ -41,6 +53,11 @@ echo "# -------------------------------------"
 echo "# Publish Public Images"
 echo "# -------------------------------------"
 SRC_ROOT="/Users/jeffbarron/dev-local/digital-media/clients/jeffreybarron.com/published/jeffreybarron.com"
+
+SRC="$SRC_ROOT/public/articles/images/"
+DST="$DST_ROOT/public/articles/images"
+rsync -tlptgoDvuhd --delete "$SRC" "$DST" --exclude=".DS_Store" --exclude="node_modules"
+
 
 SRC="$SRC_ROOT/public/blog/images/"
 DST="$DST_ROOT/public/blog/images"

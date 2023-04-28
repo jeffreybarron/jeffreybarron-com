@@ -1,0 +1,262 @@
+---
+modified: 2023-04-09 13:20
+modifiedTs: 1680964851593  
+created: 2023-04-09 00:40
+createdTs: 1680964851593   
+layout: MDXLayout  
+route: /blog 
+slug: git-cheatsheet  
+ext: .mdx  
+title: Git Cheatsheet  
+summary: A Cheatsheet of gists and oneliners for github and gitlab version control software.
+image: /blog/images/git-cheatsheet.webp
+authors: Jeffrey Barron
+tags: cheatsheet
+---
+
+## Configure Git
+```shell
+# Config
+git config user.name <name>
+git config --global user.name <name>
+git config --global user.email <email>
+
+# Git Basics
+git init <directory>
+
+git init -b <name> # initialise and call the first branch main or anthing else
+
+git clone <repo>
+```
+
+## Managing Code Versions
+
+```shell
+# addd files to git for tracking
+git add .
+
+# commit staged files
+git commit -m "<message>"
+
+# Combine git add . && git commit -m "<message>"
+git commit -am "<message>"
+or
+git add . && git commit -m "initial commit"
+
+
+# Change the commit message on the   latest commit
+git commit --amend -m "<message>"
+
+# add some extra files to the last commit (if not already pushed to remote)
+git add .
+git commit --amend -m "<new message>"
+or
+git commit --amend --no-edit
+
+# Revert to a previous commit, like undue
+git revert <branch-name>
+
+```
+
+### Git Stash
+
+```shell
+# Save changes for later use, and remove from current working directory
+git stash
+
+# restore stashed changes
+git stash pop
+
+# save with a name
+git stash save <name>
+
+# show lis of saved stashs'
+git stash list
+
+# restore stash from list using index. e.g. where stash@{0}, the <index> is 0
+git stash apply <index>
+```
+
+### Analysis
+
+```shell
+git satus
+
+git log
+
+# show view like that in vscode extension Git Graph
+git log --graph --oneline --decorate
+
+git diff
+
+```
+
+### Looking for Last Known Good Code
+
+```shell
+git bisect start
+git bisect bad
+git bisect good <commit id>
+```
+
+### Git Branches
+
+#### Definitions
+
+*__head:__* When working with Git, only *one* branch can be checked out at a time - and this is what's called the "HEAD" branch. Often, this is also referred to as the "active" or "current" branch.  
+*__detached head:__* In rare cases, the HEAD file does NOT contain a branch reference, but an SHA-1 value of a specific revision. This happens when you check out a specific commit, tag, or remote branch. Your repository is then in a state called Detached Head [^1]  
+
+```shell
+# List all of the branches in your repo. Add a <branch> argument to create a new branch with the name <branch>.
+git branch
+# show all branches
+git branch -a
+
+# Create and check out a new branch named <branch>. Drop the -b flag to checkout an existing branch.
+git checkout -b <branch>
+
+#Merge <branch> into the current branch.
+# from the master merge in the branch
+git merge <branch>
+
+git branch -delete <branch>
+```
+
+### Remote Repositories
+
+`git push remote` requires ssh setup on the local server.
+
+```shell
+# Show remotes
+git remote show
+git remote show <remote repository name>
+e.g.
+git remote show origin
+
+# Create a new connection to a remote repo. After adding a remote, you can use <name> as a shortcut for <url> in other commands.
+git remote add <name> <url>
+
+# Verifies the new remote URL
+git remote -v
+
+# Remove remote repo by name
+git remote remove [name of the remote]
+
+# Push the branch to <remote>, along with necessary commits and objects.
+git push <remote> <branch>
+
+# push a locally created **branch** up to the remote origin
+git push --set-upstream origin <this branch name>
+or
+git push -u origin main
+```
+
+## Git Pull Request
+
+```shell
+placeholder
+```
+
+## Git Merge Request
+
+```shell
+placeholder
+```
+
+## Git Merge Pull Request
+
+1. PERSON 2: fork repo
+2. PERSON 2: make a branch
+3. PERSON 2: make change in branch
+4. PERSON 2:add the change to the branch
+5. PERSON 2:commit the changes to the branch
+6. PERSON 2:issue pull request to origin
+7. PERSON 1: make a branch by the same name as PERSON2 branch
+8. pull PERSON 2 branch into PERSON1 Branch
+9. review, change, merge commit as normal
+
+```shell
+--no-ff means ??
+```
+
+**Figure 1**
+<Image
+ src={`/blog/attachments/Pasted image 20230119182734.png`}
+ alt={`Screen shot of Merge pull request button.`}
+ aria-label={`Screen shot of Merge pull request button.`}
+/>
+
+## Rebase and Merge
+
+```shell
+placeholder
+```
+
+### Rebase, Squash
+
+```shell
+# git rebase squash
+placeholder
+```
+
+## Git Cherry-pick
+
+```shell
+placeholder
+```
+
+## GitLab
+
+### Command line Instructions from GitLab
+
+You can also upload existing files from your computer using the instructions below.
+
+### Git Global Setup
+
+```shell
+git config --global user.name "John Doe"
+git config --global user.email "john.doe@gmail.com"
+```
+
+### Create a New Repository
+
+```shell
+git clone git@gitlab.com:uow-itms/greenfields-nextjs.git
+cd greenfields-nextjs
+git switch -c main
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin main
+```
+
+### Push an Existing Folder
+
+first create a GitLab repo on the server with no readme.md
+
+```shell
+cd existing_folder
+git init --initial-branch=main
+git remote add origin git@gitlab.com:uow-itms/greenfields-nextjs.git
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+```
+
+### Push an Existing Git Repository
+
+```shell
+cd existing_repo
+git remote rename origin old-origin
+git remote add origin git@gitlab.com:uow-itms/greenfields-nextjs.git
+git push -u origin --all
+git push -u origin --tags
+```
+
+<br /><hr />
+
+### Related Links
+
+- [Scott 'the legend' Hanselman talks about git](https://youtu.be/Mfz8NQncwiQ?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr)
+
+[^1]: [Detached HEAD](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit)  

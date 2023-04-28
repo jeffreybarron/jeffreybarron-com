@@ -1,0 +1,557 @@
+---
+modified: 2023-04-09 13:27
+modifiedTs: 1680965678223
+created: 2023-04-09 00:54
+createdTs: 1680965678223
+layout: MDXLayout
+route: /blog
+slug: use-chatgpt-to-create-python-script-that-adds-meta-data-to-markdown
+ext: .mdx
+title: Use ChatGPT to create a Python script that can add meta-data to obsidian markdown files
+summary: This article is a transcript of a conversation between ChatGPT3 and myself.
+image: /blog/images/ai-not-code.png
+authors: [Jeffrey Barron, ChatGPT]
+tags: [chat, 'gpt', AI, A.I]
+---
+
+---
+
+I have been writing software since 1987, therefore, I have I've witnessed a number of milestones in the world of software development and building large robust Network and server infrastructures.
+
+Many important milestones came and went before I even touched a computer, nevertheless, I have personally witnessed and believe, the following list of developments functionally changed our world. And yet these say nothing of the 1000s of other essential building blocks upon which these stand.
+
+- x86 Personal Computers
+- MS DOS
+- Commodore International's Commodore and Amiga computers
+- Apple I, II and early Apple Mac
+- x186 personal computers
+- Windows 95
+- Ethernet
+- TCP/IP
+- Bulletin boards
+- Dial-up Modems
+- The Internet
+- broadband internet access
+- Apple iPhone
+- The World Wide Web
+
+Then there is ChatGPT, the name that made the decade's old field of machine learning a household name in a day. The math and mental paradigms in machine learning have being building over several decades, but ChatGPT is the exponential hockey stick.
+
+Today's blog is to re-count my short, absurdly easy experiment to create a simple script that would recurse a folder structure, to add metadata to its files, so that I can use them in this website. The transcript of that "conversation"… and this blog marks a moment in time for me for the next great technology shift.
+
+If history is anything to go by, those embrace change enjoy surfing the wave of change rather than being dumped by it.
+
+## Transcript
+
+### Me
+
+write me a python script to traverse a folder structure, inspect all markdown files and output a list of lines beginning with `![[Pasted" for each file`
+
+#### ChatGPT4
+
+Sure, here's a Python Script that should do what you're asking for:
+
+```python
+import os
+
+# Function to check if a file is a markdown file
+def is_markdown_file(file_name):
+    return file_name.endswith('.md') or file_name.endswith('.markdown')
+
+# Function to check if a line starts with "![[Pasted"
+def is_pasted_line(line):
+    return line.strip().startswith('![[Pasted')
+
+# Function to process a markdown file
+def process_markdown_file(file_path):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+        pasted_lines = [line for line in lines if is_pasted_line(line)]
+        if pasted_lines:
+            print(f'Pasted lines in file "{file_path}":')
+            for line in pasted_lines:
+                print(line.strip())
+            print()
+
+# Traverse the folder structure
+def traverse_folder(folder_path):
+    for root, _, files in os.walk(folder_path):
+        for file_name in files:
+            if is_markdown_file(file_name):
+                file_path = os.path.join(root, file_name)
+                process_markdown_file(file_path)
+
+# Usage
+if __name__ == '__main__':
+    traverse_folder('/path/to/folder')
+
+```
+
+Here's a brief overview of how the script works:
+
+1. The `is_markdown_file` function checks if a given file name ends with either `.md` or `.markdown`, which are the common file extensions for Markdown files.
+2. The `is_pasted_line` function checks if a given line of text starts with the string `![[Pasted` (ignoring leading and trailing whitespace).
+3. The `process_markdown_file` function reads the contents of a given Markdown file, finds all lines that start with `![[Pasted`, and outputs them to the console.
+4. The `traverse_folder` function recursively traverses a given folder structure, finds all Markdown files, and processes them using the `process_markdown_file` function.
+5. Finally, the script calls `traverse_folder` on a given folder path (which you'll need to replace with the actual path to the folder you want to search), which should output a list of all lines starting with `![[Pasted` in all Markdown files in the folder structure.
+
+### Me
+
+modify this to output to txt file in the current working directory
+
+#### ChatGPT4
+
+Sure, here's the modified script that writes the output to a text file in the current working directory:
+
+```python
+import os
+
+# Function to check if a file is a markdown file
+def is_markdown_file(file_name):
+    return file_name.endswith('.md') or file_name.endswith('.markdown')
+
+# Function to check if a line starts with "![[Pasted"
+def is_pasted_line(line):
+    return line.strip().startswith('![[Pasted')
+
+# Function to process a markdown file
+def process_markdown_file(file_path, output_file):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+        pasted_lines = [line for line in lines if is_pasted_line(line)]
+        if pasted_lines:
+            output_file.write(f'Pasted lines in file "{file_path}":\n')
+            for line in pasted_lines:
+                output_file.write(line.strip() + '\n')
+            output_file.write('\n')
+
+# Traverse the folder structure
+def traverse_folder(folder_path, output_file):
+    for root, _, files in os.walk(folder_path):
+        for file_name in files:
+            if is_markdown_file(file_name):
+                file_path = os.path.join(root, file_name)
+                process_markdown_file(file_path, output_file)
+
+# Usage
+if __name__ == '__main__':
+    output_file_path = os.path.join(os.getcwd(), 'pasted_lines.txt')
+    with open(output_file_path, 'w') as output_file:
+        traverse_folder('/path/to/folder', output_file)
+    print(f'Output written to file "{output_file_path}"')
+
+```
+
+Here's what's changed:
+
+1. The `process_markdown_file` function now takes an additional argument `output_file`, which is an open file object that the function will write its output to.
+2. Instead of printing the output to the console, the `process_markdown_file` function now writes it to the `output_file` object.
+3. The `traverse_folder` function now takes an additional argument `output_file`, which is passed to `process_markdown_file` to write its output.
+4. The script now opens a new text file in write mode in the current working directory, and passes it to `traverse_folder` as the `output_file` argument.
+5. Finally, the script prints a message indicating the path to the output file.
+
+With these changes, the script should now write the output to a text file called `pasted_lines.txt` in the current working directory.
+
+### Me
+
+write a python script to traverse a folder structure adding a new folder named "attachments" to every folder
+
+#### ChatGPT4
+
+Sure, here's a Python script that should do what you're asking for:
+
+```python
+import os
+
+# Function to create the "attachments" folder in a given folder path
+def create_attachments_folder(folder_path):
+    attachments_folder_path = os.path.join(folder_path, 'attachments')
+    if not os.path.exists(attachments_folder_path):
+        os.mkdir(attachments_folder_path)
+
+# Traverse the folder structure and create "attachments" folders
+def traverse_folder(folder_path):
+    for root, dirs, _ in os.walk(folder_path):
+        create_attachments_folder(root)
+        for dir_name in dirs:
+            dir_path = os.path.join(root, dir_name)
+            create_attachments_folder(dir_path)
+
+# Usage
+if __name__ == '__main__':
+    traverse_folder('/path/to/folder')
+
+```
+
+Here's a brief overview of how the script works:
+
+1. The `create_attachments_folder` function takes a folder path as input, creates a new folder called `attachments` in that path if it doesn't already exist.
+2. The `traverse_folder` function recursively traverses a given folder structure, and for each folder it encounters, it calls `create_attachments_folder` to create the `attachments` folder.
+3. Finally, the script calls `traverse_folder` on a given folder path (which you'll need to replace with the actual path to the folder you want to traverse), which should create an `attachments` folder in every folder in the folder structure.
+
+With this script, you should be able to easily add an `attachments` folder to every folder in a given folder structure.
+
+### Me
+
+create a python script to traverse a folder and prepend the following YAML to each markdown file, then replace the variables in double curly braces. use the file name excluding the file extension for the `{{title}}` and format `{{date} with time now in date:YYYY-MM-DDTHH:mm:ss[Z]ZZ format` and `{{timestamp}}` with format `date:X`
+
+#### ChatGPT4
+
+Sure, here's a Python script that should do what you're asking for:
+
+```python
+import os
+import datetime
+import re
+
+# Function to prepend YAML front matter to a markdown file
+def prepend_front_matter(file_path):
+    # Get the file name and extension
+    file_name = os.path.splitext(os.path.basename(file_path))[0]
+    # Set the title and date variables
+    title = file_name
+    date = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+    timestamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S')
+    # Build the front matter string
+    front_matter = f'---\ntitle: "{title}"\ndate: {date}\ntimestamp: {timestamp}\n---\n\n'
+    # Read the file contents
+    with open(file_path, 'r') as file:
+        contents = file.read()
+    # Prepend the front matter to the contents
+    contents_with_front_matter = front_matter + contents
+    # Replace variables in double curly braces
+    contents_with_variables_replaced = re.sub(r'{{title}}', title, contents_with_front_matter)
+    contents_with_variables_replaced = re.sub(r'{{date}}', date, contents_with_variables_replaced)
+    contents_with_variables_replaced = re.sub(r'{{timestamp}}', timestamp, contents_with_variables_replaced)
+    # Write the updated contents back to the file
+    with open(file_path, 'w') as file:
+        file.write(contents_with_variables_replaced)
+
+# Traverse the folder structure and prepend YAML front matter to each markdown file
+def traverse_folder(folder_path):
+    for root, _, files in os.walk(folder_path):
+        for file_name in files:
+            if file_name.endswith('.md'):
+                file_path = os.path.join(root, file_name)
+                prepend_front_matter(file_path)
+
+# Usage
+if __name__ == '__main__':
+    traverse_folder('/path/to/folder')
+
+```
+
+Here's a brief overview of how the script works:
+
+1. The `prepend_front_matter` function takes a file path as input and does the following:
+
+- Extracts the file name (excluding the extension) to use as the title variable
+- Sets the date variable to the current date and time in UTC in the specified format
+- Sets the timestamp variable to the current date and time in UTC in the specified format
+- Builds a YAML front matter string with the title, date, and timestamp variables
+- Reads the contents of the file
+- Prepends the front matter string to the contents
+- Replaces the title, date, and timestamp variables in double curly braces with their corresponding values
+- Writes the updated contents back to the file
+
+2. The `traverse_folder` function recursively traverses a given folder structure, and for each markdown file it encounters, it calls `prepend_front_matter` to prepend the YAML front matter.
+3. Finally, the script calls `traverse_folder` on a given folder path (which you'll need to replace with the actual path to the folder you want to traverse), which should prepend YAML front matter to each markdown file in the folder structure, and replace the variables in double curly braces with their corresponding values.
+
+With this script, you should be able to easily prepend YAML front matter to each markdown file in a given folder structure, and replace variables in double curly braces with their corresponding values.
+
+### Me
+
+change timestamp to be Unix Millisecond timstamp
+
+#### ChatGPT4
+
+Sure! Here's the modified script:
+
+```python
+import os
+import datetime
+import re
+
+# Function to prepend YAML front matter to a markdown file
+def prepend_front_matter(file_path):
+    # Get the file name and extension
+    file_name = os.path.splitext(os.path.basename(file_path))[0]
+    # Set the title and date variables
+    title = file_name
+    date = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+    timestamp = str(int(datetime.datetime.utcnow().timestamp() * 1000))
+    # Build the front matter string
+    front_matter = f'---\ntitle: "{title}"\ndate: {date}\ntimestamp: {timestamp}\n---\n\n'
+    # Read the file contents
+    with open(file_path, 'r') as file:
+        contents = file.read()
+    # Prepend the front matter to the contents
+    contents_with_front_matter = front_matter + contents
+    # Replace variables in double curly braces
+    contents_with_variables_replaced = re.sub(r'{{title}}', title, contents_with_front_matter)
+    contents_with_variables_replaced = re.sub(r'{{date}}', date, contents_with_variables_replaced)
+    contents_with_variables_replaced = re.sub(r'{{timestamp}}', timestamp, contents_with_variables_replaced)
+    # Write the updated contents back to the file
+    with open(file_path, 'w') as file:
+        file.write(contents_with_variables_replaced)
+
+# Traverse the folder structure and prepend YAML front matter to each markdown file
+def traverse_folder(folder_path):
+    for root, _, files in os.walk(folder_path):
+        for file_name in files:
+            if file_name.endswith('.md'):
+                file_path = os.path.join(root, file_name)
+                prepend_front_matter(file_path)
+
+# Usage
+if __name__ == '__main__':
+    traverse_folder('/path/to/folder')
+
+```
+
+The main change here is to set the `timestamp` variable to the current Unix Millisecond timestamp, which is obtained by multiplying the current Unix timestamp by 1000 and converting it to an integer. The `timestamp` variable is then converted to a string before being used in the front matter string.
+
+With this modification, the script should prepend YAML front matter to each markdown file in the specified folder structure, with the timestamp variable set to the current Unix Millisecond timestamp.
+
+### Me
+
+change the script to use the file created date, time and timezone for date and timestamp variables
+
+#### ChatGPT4
+
+Sure! Here's the modified script that uses the file creation date, time, and timezone for the date and timestamp variables:
+
+```python
+import os
+import datetime
+import pytz
+import re
+
+# Function to prepend YAML front matter to a markdown file
+def prepend_front_matter(file_path):
+    # Get the file name and extension
+    file_name = os.path.splitext(os.path.basename(file_path))[0]
+    # Get the file creation time and timezone
+    creation_time = os.path.getctime(file_path)
+    timezone = pytz.timezone(datetime.datetime.now(pytz.timezone('UTC')).strftime('%Z'))
+    # Convert the creation time to a datetime object and localize it to the timezone
+    creation_datetime = datetime.datetime.fromtimestamp(creation_time, timezone)
+    # Set the title, date, and timestamp variables
+    title = file_name
+    date = creation_datetime.strftime('%Y-%m-%dT%H:%M:%SZ')
+    timestamp = str(int(creation_datetime.timestamp() * 1000))
+    # Build the front matter string
+    front_matter = f'---\ntitle: "{title}"\ndate: {date}\ntimestamp: {timestamp}\n---\n\n'
+    # Read the file contents
+    with open(file_path, 'r') as file:
+        contents = file.read()
+    # Prepend the front matter to the contents
+    contents_with_front_matter = front_matter + contents
+    # Replace variables in double curly braces
+    contents_with_variables_replaced = re.sub(r'{{title}}', title, contents_with_front_matter)
+    contents_with_variables_replaced = re.sub(r'{{date}}', date, contents_with_variables_replaced)
+    contents_with_variables_replaced = re.sub(r'{{timestamp}}', timestamp, contents_with_variables_replaced)
+    # Write the updated contents back to the file
+
+```
+
+### Me
+
+disregard last request.  
+Comment: I was not confident that this would work, but I was wrong, and it was fine as is.
+
+#### ChatGPT4
+
+Sure, no problem! If you have any other questions or requests, feel free to ask.
+
+### Me
+
+change the script prior to last output to use each files created at value
+
+#### ChatGPT4
+
+Sure, here's the modified script that uses the created at value of each file instead of the current time for the date and timestamp variables:
+
+```python
+import os
+import datetime
+import pytz
+import re
+
+# Function to prepend YAML front matter to a markdown file
+def prepend_front_matter(file_path):
+    # Get the file name and extension
+    file_name = os.path.splitext(os.path.basename(file_path))[0]
+    # Get the file creation time and timezone
+    creation_time = os.path.getctime(file_path)
+    timezone = pytz.timezone(datetime.datetime.now(pytz.timezone('UTC')).strftime('%Z'))
+    # Convert the creation time to a datetime object and localize it to the timezone
+    creation_datetime = datetime.datetime.fromtimestamp(creation_time, timezone)
+    # Set the title, date, and timestamp variables
+    title = file_name
+    date = creation_datetime.strftime('%Y-%m-%dT%H:%M:%SZ')
+    timestamp = str(int(creation_datetime.timestamp() * 1000))
+    # Build the front matter string
+    front_matter = f'---\ntitle: "{title}"\ndate: {date}\ntimestamp: {timestamp}\n---\n\n'
+    # Read the file contents
+    with open(file_path, 'r') as file:
+        contents = file.read()
+    # Prepend the front matter to the contents
+    contents_with_front_matter = front_matter + contents
+    # Replace variables in double curly braces
+    contents_with_variables_replaced = re.sub(r'{{title}}', title, contents_with_front_matter)
+    contents_with_variables_replaced = re.sub(r'{{date}}', date, contents_with_variables_replaced)
+    contents_with_variables_replaced = re.sub(r'{{timestamp}}', timestamp, contents_with_variables_replaced)
+    # Write the updated contents back to the file
+    with open(file_path, 'w') as file:
+        file.write(contents_with_variables_replaced)
+
+# Traverse the folder structure and prepend YAML front matter to each markdown file
+def traverse_folder(folder_path):
+    for root, _, files in os.walk(folder_path):
+        for file_name in files:
+            if file_name.endswith('.md'):
+                file_path = os.path.join(root, file_name)
+                prepend_front_matter(file_path)
+
+# Usage
+if __name__ == '__main__':
+    traverse_folder('/path/to/folder')
+```
+
+This modified script uses the `os.path.getctime()` function to get the creation time of each file and then converts it to a datetime object with the `datetime.datetime.fromtimestamp()` function. The datetime object is localized to the timezone of the machine running the script with the `pytz.timezone()` function.
+
+Then, the title, date, and timestamp variables are set using the file name and the created at value of the file. Finally, the front matter is prepended to the markdown file, and the variables in double curly braces are replaced.
+
+### Me
+
+rewrite this without pytz to use in visual studio code
+
+#### ChatGPT4
+
+Sure, here's the modified script that doesn't use `pytz`:
+
+```python
+import os
+import datetime
+import re
+
+# Function to prepend YAML front matter to a markdown file
+def prepend_front_matter(file_path):
+    # Get the file name and extension
+    file_name = os.path.splitext(os.path.basename(file_path))[0]
+    # Get the file creation time
+    creation_time = os.path.getctime(file_path)
+    # Get the UTC offset in seconds
+    utc_offset = -datetime.datetime.now(datetime.timezone.utc).utcoffset().total_seconds()
+    # Convert the creation time to a datetime object and add the UTC offset
+    creation_datetime = datetime.datetime.fromtimestamp(creation_time) + datetime.timedelta(seconds=utc_offset)
+    # Set the title, date, and timestamp variables
+    title = file_name
+    date = creation_datetime.strftime('%Y-%m-%dT%H:%M:%SZ')
+    timestamp = str(int(creation_datetime.timestamp() * 1000))
+    # Build the front matter string
+    front_matter = f'---\ntitle: "{title}"\ndate: {date}\ntimestamp: {timestamp}\n---\n\n'
+    # Read the file contents
+    with open(file_path, 'r') as file:
+        contents = file.read()
+    # Prepend the front matter to the contents
+    contents_with_front_matter = front_matter + contents
+    # Replace variables in double curly braces
+    contents_with_variables_replaced = re.sub(r'{{title}}', title, contents_with_front_matter)
+    contents_with_variables_replaced = re.sub(r'{{date}}', date, contents_with_variables_replaced)
+    contents_with_variables_replaced = re.sub(r'{{timestamp}}', timestamp, contents_with_variables_replaced)
+    # Write the updated contents back to the file
+    with open(file_path, 'w') as file:
+        file.write(contents_with_variables_replaced)
+
+# Traverse the folder structure and prepend YAML front matter to each markdown file
+def traverse_folder(folder_path):
+    for root, _, files in os.walk(folder_path):
+        for file_name in files:
+            if file_name.endswith('.md'):
+                file_path = os.path.join(root, file_name)
+                prepend_front_matter(file_path)
+
+# Usage
+if __name__ == '__main__':
+    traverse_folder('/path/to/folder')
+```
+
+This modified script uses `datetime.datetime.now(datetime.timezone.utc).utcoffset().total_seconds()` to get the UTC offset in seconds for the machine running the script. Then, the creation time of each file is converted to a datetime object and the UTC offset is added to get the localized datetime object.
+
+The rest of the script remains the same, including setting the title, date, and timestamp variables, building the front matter string, and replacing variables in double curly braces.
+
+### Me
+
+rewrite this to get created time on macos not last metadata change
+
+#### ChatGPT4
+
+Sure, here's a modified version of the script that uses the file creation time on macOS:
+
+```python
+import os
+import datetime
+import re
+
+# Function to get the file creation time on macOS
+def get_creation_time_macos(file_path):
+    stat = os.stat(file_path)
+    try:
+        return stat.st_birthtime
+    except AttributeError:
+        return stat.st_mtime
+
+# Function to prepend YAML front matter to a markdown file
+def prepend_front_matter(file_path):
+    # Get the file name and extension
+    file_name = os.path.splitext(os.path.basename(file_path))[0]
+    # Get the file creation time on macOS
+    creation_time = get_creation_time_macos(file_path)
+    # Get the UTC offset in seconds
+    utc_offset = -datetime.datetime.now(datetime.timezone.utc).utcoffset().total_seconds()
+    # Convert the creation time to a datetime object and add the UTC offset
+    creation_datetime = datetime.datetime.fromtimestamp(creation_time) + datetime.timedelta(seconds=utc_offset)
+    # Set the title, date, and timestamp variables
+    title = file_name
+    date = creation_datetime.strftime('%Y-%m-%dT%H:%M:%SZ')
+    timestamp = str(int(creation_datetime.timestamp() * 1000))
+    # Build the front matter string
+    front_matter = f'---\ntitle: "{title}"\ndate: {date}\ntimestamp: {timestamp}\n---\n\n'
+    # Read the file contents
+    with open(file_path, 'r') as file:
+        contents = file.read()
+    # Prepend the front matter to the contents
+    contents_with_front_matter = front_matter + contents
+    # Replace variables in double curly braces
+    contents_with_variables_replaced = re.sub(r'{{title}}', title, contents_with_front_matter)
+    contents_with_variables_replaced = re.sub(r'{{date}}', date, contents_with_variables_replaced)
+    contents_with_variables_replaced = re.sub(r'{{timestamp}}', timestamp, contents_with_variables_replaced)
+    # Write the updated contents back to the file
+    with open(file_path, 'w') as file:
+        file.write(contents_with_variables_replaced)
+
+# Traverse the folder structure and prepend YAML front matter to each markdown file
+def traverse_folder(folder_path):
+    for root, _, files in os.walk(folder_path):
+        for file_name in files:
+            if file_name.endswith('.md'):
+                file_path = os.path.join(root, file_name)
+                prepend_front_matter(file_path)
+
+# Usage
+if __name__ == '__main__':
+    traverse_folder('/path/to/folder')
+
+```
+
+This modified script uses the `os.stat()` function to get the file metadata, and then returns the `st_birthtime` attribute if it's available (which is the file creation time on macOS), or the `st_mtime` attribute if `st_birthtime` is not available. The rest of the script remains the same, including setting the title, date, and timestamp variables, building the front matter string, and replacing variables in double curly braces.
+
+### Me
+
+you're amazing
+
+#### ChatGPT4
+
+Thank you! I'm glad I could help. If you have any other questions or requests, feel free to ask!

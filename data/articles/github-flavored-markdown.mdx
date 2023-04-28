@@ -1,0 +1,151 @@
+---
+modified: 2023-04-09 13:56
+modifiedTs: 1680964867558  
+created: 2023-04-09 00:41
+createdTs: 1680964867558  
+layout: MDXLayout  
+route: /blog  
+slug: github-flavored-markdown  
+ext: .mdx  
+title: GitHub Flavoured Markdown
+summary: This article lists a selection of handy tips for using git version control
+image: /blog/images/github-flavoured-markdown.webp
+authors: [Jeffrey Barron]
+tags: [git, github]
+---
+
+---
+
+## Tables
+
+Tables aren't part of the core Markdown spec, but they are part of GFM and Markdown Here supports them. They are an easy way of adding tables to your email -- a task that would otherwise require copy-pasting from another application.
+
+```markdown
+Colons can be used to align columns.
+
+| Tables        |      Are      |  Cool |
+| ------------- | :-----------: | ----: |
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      |   centered    |   $12 |
+| zebra stripes |   are neat    |    $1 |
+
+There must be at least 3 dashes separating each header cell.
+The outer pipes (|) are optional, and you don't need to make the
+raw Markdown line up prettily. You can also use inline Markdown.
+
+| Markdown | Less      | Pretty     |
+| -------- :| ---------: | ----------: |
+| _Still_  | `renders` | **nicely** |
+| 1        | 2         | 3          |
+```
+
+### Tables Render as
+
+Tables aren't part of the core Markdown spec, but they are part of GFM and Markdown Here supports them. They are an easy way of adding tables to your email -- a task that would otherwise require copy-pasting from another application.
+
+Colons can be used to align columns.
+
+| Tables | Are | Cool |
+| :------------- | :-----------: | ----: |
+| col 3 is | right-aligned | $1600 |
+| col 2 is | centered | $12 |
+| zebra stripes | are neat | $1 |
+
+There must be at least 3 dashes separating each header cell.
+
+The outer pipes (|) are optional, and you don't need to make the
+
+raw Markdown line up prettily. You can also use inline Markdown.
+
+| Markdown | Less | Pretty |
+| :-------- | ---------: | ----------: |
+| *Still* | `renders` | __nicely__ |
+| 1 | 2 | 3 |
+
+## Headers
+
+```
+# H1 Heading
+## H2 Heading
+### H3 Heading
+#### H4 Heading
+##### H5 Heading
+###### H6 Heading
+
+Alternatively, for H1 and H2, an underline-ish style:
+
+Alt-H1
+======
+
+Alt-H2
+------
+```
+
+### Headers Render as
+
+## H1 Heading
+
+### H2 Heading
+
+#### H3 Heading
+
+##### H4 Heading
+
+###### H5 Heading
+
+###### H6 Heading
+
+Alternatively, for H1 and H2, an underline
+
+Alt-H1
+==========
+
+Alt-H2
+----------
+
+### Footnotes
+
+Footnotes aren't part of the core Markdown spec, but they supported by GFM.
+
+```text
+Here is a simple footnote[^1].
+
+A footnote can also have multiple lines[^2].
+
+You can also use words, to fit your writing style more closely[^note].
+
+[^1]: My reference.
+[^2]:
+    Every new line should be prefixed with 2 spaces.  
+    This allows you to have a footnote with multiple lines.
+
+[^note]:
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
+    This footnote also has been made with a different syntax using 4 spaces for new lines.
+```
+
+#### Renders to
+
+Here is a simple footnote [^1]  
+
+A footnote can also have multiple lines[^2]  
+
+You can also use words, to fit your writing style more closely[^3]
+
+<br /><hr />
+
+### Useful Links
+
+- [Markdown Cheatsheet by Adam Pritchard](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+[^1]: My reference.
+
+[^2]:
+
+    Every new line should be prefixed with 2 spaces.  
+    This allows you to have a footnote with multiple lines.
+
+[^3]:
+
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
+    This footnote also has been made with a different syntax, using 4 spaces for new lines.
