@@ -1,18 +1,18 @@
 ---
 modified: 2023-04-09 13:26
-modifiedTs: 1680965256641  
+modifiedTs: 1680965256641
 created: 2023-04-09 00:47
-createdTs: 1680965256641  
-layout: MDXLayout  
-route: /blog   
+createdTs: 1680965256641
+layout: MDXLayout
+route: /articles
 slug: postgresql-cheatsheet-admin
 ext: .mdx
-title: PostgreSQL Cheatsheet Admin  
-summary: Administration shell commands for PostgreSQL  
-image: /blog/images/postgres-betterthan-mysql.png
+title: PostgreSQL Cheatsheet Admin
+summary: Administration shell commands for PostgreSQL
+image: /articles/images/postgres-betterthan-mysql.png
 authors: [Jeffrey Barron]
 tags: [postgresql, cheatsheet]
-aliases: ["References"]
+aliases: ['References']
 ---
 
 ---
@@ -22,36 +22,37 @@ aliases: ["References"]
 ### Configure to Allow Remote Connections (Shell) [^1]
 
 Change postgresql.conf as follows, or choose an IP address for security.  
-`$ sudo nano /etc/postgresql/14/main/postgresql.conf`  
+`$ sudo nano /etc/postgresql/14/main/postgresql.conf`
 
 **Figure 1**
-<Image
- src={`/blog/attachments/Pasted image 20220812100426.png`}
- alt={`Screenshot of postgresql.conf`}
- aria-label={`Screenshot of postgresql.conf`}
-/>
 
-Open `/etc/postgresql/14/main/pg_hba.conf` and replace  
+<Image src={`/articles/attachments/Pasted image 20220812100426.png`} alt={`Screenshot of postgresql.conf`} aria-label={`Screenshot of postgresql.conf`} />
+
+Open `/etc/postgresql/14/main/pg_hba.conf` and replace
 
 **Figure 2 - Before**
- <Image
- src={`/blog/attachments/Pasted image 20220812100705.png`}
- alt={`Before screenshot of PostgreSQL pg_hba.conf`}
- aria-label={`Before screenshot of PostgreSQL pg_hba.conf`}
+
+{' '}
+<Image
+  src={`/articles/attachments/Pasted image 20220812100705.png`}
+  alt={`Before screenshot of PostgreSQL pg_hba.conf`}
+  aria-label={`Before screenshot of PostgreSQL pg_hba.conf`}
 />
 
 with
 
 **Figure 3 - After**
- <Image
- src={`/blog/attachments/Pasted image 20220812100836.png`}
- alt={`After screenshot of PostgreSQL pg_hba.conf`}
- aria-label={`After screenshot of PostgreSQL pg_hba.conf`}
+
+{' '}
+<Image
+  src={`/articles/attachments/Pasted image 20220812100836.png`}
+  alt={`After screenshot of PostgreSQL pg_hba.conf`}
+  aria-label={`After screenshot of PostgreSQL pg_hba.conf`}
 />
 
-then run  the following commands in the terminal
+then run the following commands in the terminal
 
-``` sh
+```sh
 sudo service postgresql stop
 sudo service postgresql start
 ```
@@ -78,7 +79,7 @@ psql
 
 ## Connect to Database [^2]
 
-Connect to a PostgreSQL database “test” as “postgres” user (psql)  
+Connect to a PostgreSQL database “test” as “postgres” user (psql)
 
 ```shell
 \c test
@@ -111,8 +112,8 @@ select version();
 
 Output:
 
-``` output
-version                                                  
+```output
+version
 -----------------------------------------------------------------------------------------------------------
  PostgreSQL 9.6.12 on x86_64-pc-linux-gnu, compiled by gcc (Debian 6.3.0-18+deb9u1) 6.3.0 20170516, 64-bit
 (1 row)
@@ -135,7 +136,7 @@ service postgresql start
 ```
 
 Restart postgresql service through root user (Linux)  
-__note__: If running from non root user you must prefix your command with “sudo” and non-root user should already be there in sudo list. Also be careful with running these commands because some distributors don’t provide them these days.
+**note**: If running from non root user you must prefix your command with “sudo” and non-root user should already be there in sudo list. Also be careful with running these commands because some distributors don’t provide them these days.
 
 ```shell
 service postgresql restart
@@ -167,9 +168,9 @@ SELECT current_setting('max_connections');
 
 Output:
 
-``` output
+```output
 max_connections
- current_setting 
+ current_setting
 -----------------
  100
 (1 row)
@@ -179,7 +180,7 @@ max_connections
 
 Show PostgreSQL configuration file location (psql)  
 The PostgreSQL configuration files are stored in directory from above command output.  
-The main configuration file is called “__postgresql.conf__“.  
+The main configuration file is called “**postgresql.conf**“.
 
 ```shell
 show config_file;
@@ -187,8 +188,8 @@ show config_file;
 
 Output:
 
-``` output
-config_file                
+```output
+config_file
 ------------------------------------------
  /etc/postgresql/9.6/main/postgresql.conf
 (1 row)
@@ -202,7 +203,7 @@ postgres@localhost:~$ less /etc/postgresql/9.6/main/postgresql.conf
 
 Output:
 
-``` ouput
+```ouput
 postgresql.conf
 . . . .
 data_directory = '/var/lib/postgresql/9.6/main'         # use data in another directory
@@ -216,7 +217,7 @@ listen_addresses = '*'                  # what IP address(es) to listen on;
                                         # defaults to 'localhost'; use '*' for all
                                         # (change requires restart)
 port = 5432                             # (change requires restart)
- 
+
 . . . .
 ```
 
@@ -231,7 +232,7 @@ Definitions:
 
 ### Garbage Collect (Reclaim Storage)[^2]
 
-Use the vacuum command to reclaim storage from deleted rows in the employee table (SQL)  
+Use the vacuum command to reclaim storage from deleted rows in the employee table (SQL)
 
 1. Table rows that are deleted or obsoleted by an update are not physically removed from their table; they remain present until a VACUUM command is executed. Therefore it’s necessary to do VACUUM periodically, especially on frequently-updated tables.
 2. Verbose Prints a detailed vacuum activity report for each table.
@@ -243,7 +244,7 @@ vacuum(verbose, analyze) employee;
 
 Output:
 
-``` output
+```output
 INFO:  vacuuming "public.employee"
 INFO:  scanned index "employee_pkey" to remove 1 row versions
 . . .
@@ -267,7 +268,7 @@ analyze verbose employee;
 
 Output:
 
-``` output
+```output
 INFO:  analyzing "public.employee"
 INFO:  "employee": scanned 1 of 1 pages, containing 1 live rows and 0 dead rows; 1 rows in sample, 1 estimated total rows
 ANALYZE
@@ -303,7 +304,7 @@ Running pg_dump on client computer to back up data on a remote postgres server
 note: Use the -h flag to specify the IP address of your remote Host and -p to identify the port on which PostgreSQL is listening:
 
 ```shell
-$ pg_dump -h <remote_host> -p <port> -U <user> -f mydb.bak mydb 
+$ pg_dump -h <remote_host> -p <port> -U <user> -f mydb.bak mydb
 ```
 
 ### All Databases Backup
@@ -340,7 +341,7 @@ $ pg_restore -d db_name /path/to/your/file/db_name.bak -c -U db_user
 
 ### Session Monitor
 
-Monitors Postgres sessions (SQL)  
+Monitors Postgres sessions (SQL)
 
 - Few important parameters to know
 - Pid - Backend Process ID
@@ -351,7 +352,7 @@ Monitors Postgres sessions (SQL)
 - Query - Query executed
 
 ```shell
-SELECT 
+SELECT
     pid
     ,datname
     ,usename
@@ -361,13 +362,13 @@ SELECT
     ,client_port
     ,backend_start
     ,query_start
-    ,query  
+    ,query
 FROM pg_stat_activity
 ```
 
 ### Cancel Running Query
 
-To cancel a running query with pid provided. This is useful in case of killing long running queries  
+To cancel a running query with pid provided. This is useful in case of killing long running queries
 
 ```shell
 SELECT pg_cancel_backend(pid);
@@ -375,7 +376,7 @@ SELECT pg_cancel_backend(pid);
 
 ### Biggest Postgres Table/Indexes by Their Sizes
 
-Top 20 Big tables/Indexes (Excluding catalog tables)  
+Top 20 Big tables/Indexes (Excluding catalog tables)
 
 ```shell
 SELECT
@@ -415,8 +416,8 @@ postgres=# \d employee;
 
 Output:
 
-``` output
-   Column   |         Type          |                         Modifiers                         
+```output
+   Column   |         Type          |                         Modifiers
 ------------+-----------------------+-----------------------------------------------------------
  emp_id     | integer               | not null default nextval('employee_emp_id_seq'::regclass)
  emp_name   | character varying(50) | not null
@@ -436,9 +437,9 @@ List all indexes from all tables
 
 Output:
 
-``` ouput
+```ouput
                       List of relations
- Schema |         Name          | Type  |  Owner   |  Table   
+ Schema |         Name          | Type  |  Owner   |  Table
 --------+-----------------------+-------+----------+----------
  public | employee_pkey         | index | postgres | employee
  public | idx_employee_emp_name | index | postgres | employee
@@ -453,8 +454,8 @@ Drop an existing index from a table (SQL)
 drop index idx_employee_emp_name;
 ```
 
-<br /><hr />
+<br />
+<hr />
 
 [^1]: [postgrescheatsheet.com](https://postgrescheatsheet.com)
-
 [^2]: [Postgresql Docs, SQL Vacuum](https://www.postgresql.org/docs/current/sql-vacuum.html)

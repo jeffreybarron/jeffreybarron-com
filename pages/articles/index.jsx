@@ -6,7 +6,7 @@ import matter from "gray-matter";
 import PagesLayout from "../../Layout/PagesLayout";
 import PostCard from '../../Components/PostCard';
 import { sortByDate } from '../../lib';
-const COLLECTION = "article"
+const COLLECTION = "articles"
 
 
 export default function BlogIndexPage( {blog} ) {

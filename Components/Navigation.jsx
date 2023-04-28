@@ -17,6 +17,11 @@ export default function Navigation() {
             curriculum vitae
           </div>
         </Link>
+        <Link href="/articles" className="border-primary-contrast border-b border-dotted">
+          <div className="hover:text-tertiary flex items-center justify-start sm:justify-center p-1 sm:hover:-rotate-1">
+            Articles
+          </div>
+        </Link>
         <Link href="/blog" className="border-primary-contrast border-b border-dotted">
           <div className="hover:text-tertiary flex items-center justify-start sm:justify-center p-1 sm:hover:-rotate-1">
             blog

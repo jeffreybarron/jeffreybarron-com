@@ -1,20 +1,21 @@
 ---
 modified: 2023-04-09 13:20
-modifiedTs: 1680964851593  
+modifiedTs: 1680964851593
 created: 2023-04-09 00:40
-createdTs: 1680964851593   
-layout: MDXLayout  
-route: /blog 
-slug: git-cheatsheet  
-ext: .mdx  
-title: Git Cheatsheet  
+createdTs: 1680964851593
+layout: MDXLayout
+route: /articles
+slug: git-cheatsheet
+ext: .mdx
+title: Git Cheatsheet
 summary: A Cheatsheet of gists and oneliners for github and gitlab version control software.
-image: /blog/images/git-cheatsheet.webp
+image: /articles/images/git-cheatsheet.webp
 authors: Jeffrey Barron
 tags: cheatsheet
 ---
 
 ## Configure Git
+
 ```shell
 # Config
 git config user.name <name>
@@ -103,8 +104,8 @@ git bisect good <commit id>
 
 #### Definitions
 
-*__head:__* When working with Git, only *one* branch can be checked out at a time - and this is what's called the "HEAD" branch. Often, this is also referred to as the "active" or "current" branch.  
-*__detached head:__* In rare cases, the HEAD file does NOT contain a branch reference, but an SHA-1 value of a specific revision. This happens when you check out a specific commit, tag, or remote branch. Your repository is then in a state called Detached Head [^1]  
+_**head:**_ When working with Git, only *one* branch can be checked out at a time - and this is what's called the "HEAD" branch. Often, this is also referred to as the "active" or "current" branch.  
+_**detached head:**_ In rare cases, the HEAD file does NOT contain a branch reference, but an SHA-1 value of a specific revision. This happens when you check out a specific commit, tag, or remote branch. Your repository is then in a state called Detached Head [^1]
 
 ```shell
 # List all of the branches in your repo. Add a <branch> argument to create a new branch with the name <branch>.
@@ -180,10 +181,11 @@ placeholder
 ```
 
 **Figure 1**
+
 <Image
- src={`/blog/attachments/Pasted image 20230119182734.png`}
- alt={`Screen shot of Merge pull request button.`}
- aria-label={`Screen shot of Merge pull request button.`}
+  src={`/articles/attachments/Pasted image 20230119182734.png`}
+  alt={`Screen shot of Merge pull request button.`}
+  aria-label={`Screen shot of Merge pull request button.`}
 />
 
 ## Rebase and Merge
@@ -253,10 +255,11 @@ git push -u origin --all
 git push -u origin --tags
 ```
 
-<br /><hr />
+<br />
+<hr />
 
 ### Related Links
 
 - [Scott 'the legend' Hanselman talks about git](https://youtu.be/Mfz8NQncwiQ?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr)
 
-[^1]: [Detached HEAD](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit)  
+[^1]: [Detached HEAD](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit)

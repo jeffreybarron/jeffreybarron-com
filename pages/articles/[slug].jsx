@@ -2,7 +2,7 @@ import path from "path";
 import matter from 'gray-matter';
 import dynamic from "next/dynamic";
 import MDXLayout from "../../Layout/MDXLayout";
-const COLLECTION = "article"
+const COLLECTION = "articles"
 
 export default function BlogPage({ slug, frontMatter }) {
   const Post = dynamic(() => import(`/data/${COLLECTION}/${slug}${frontMatter.ext}`), {
