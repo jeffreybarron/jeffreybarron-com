@@ -24,7 +24,7 @@ export default function HeroPage() {
           website developer, <br className="sm:hidden"/>
           UX designer, <br className="sm:hidden"/> 
           software engineer, <br className=""/>
-          Amatuer photographer, <br className="sm:hidden"/>
+          amateur photographer, <br className="sm:hidden"/>
           human behaviour affectionado
         </div>
         <div className="text-tertiary sm:text-primary italic sm:text-right text-base sm:text-lg mt-2 xl:mt-2">
