@@ -13,7 +13,7 @@
 
 echo "# ====================================="
 SRC_ROOT="/Users/jeffbarron/Dropbox/Documents/ObsidianVault/Client Library/jeffreybarron.com"
-DST_ROOT="/Users/jeffbarron/dev-local/clients/jeffreybarron.com/nextjs-blog"
+DST_ROOT="/Users/jeffbarron/dev-local/clients/jeffreybarron.com/jeffreybarron-com"
 
 echo "# -------------------------------------"
 echo "# Publish Blog"

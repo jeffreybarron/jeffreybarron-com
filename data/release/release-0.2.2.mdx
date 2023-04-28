@@ -22,30 +22,43 @@ for [`jeffreybarron.com`](https://jeffreybarron.com)
 
 ## Work in Progress
 
+
+
 ## Future Releases
 
-- [ ] Add code to make script, to update the modified and modified timestamp based on file information.
-  - [ ] python should be easy
+### SEO Tasks
 - [ ] [add Vercel Dynamic Open Graph Image Generation](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation)
       https://vercel.com/docs/frameworks/nextjs
-- [ ] make this more robust to poorly formed Frontmatter.
-  - [x] handle arrays without square braces
-  - [x] handle single items, instead of arrays in square braces
-  - [x] handle missing meta-data without square braces
-  - [ ] handle missing front-matter
+- [ ] Add Vercel Analytics
+- [ ] Add Google Analytics
+- [ ] Register with Search Engines
+- [x] Create robots.txt
+- [x] create sitemap.xml
+
+### User Experience
 - [ ] on mdx pages add a 'scroll to top' and 'return to blog' roll link at the bottom of markdown
 - [ ] Add sticky navigation bar to pages
 - [ ] Add Scroll snap to HomePage, but make sure it works on all browsers (i.e. Firefox)
 - [ ] modify [blog].js to show blog index of all posts matching a hashtag when route begins with # e.g. /blog/#markdown
-- [ ] Get rid of @apply directives in global.css
+
+### Editorial
+- [ ] make script, to update the 'modified' and 'modified timestamp' of markdown, based on file information.
+  - [ ] python should be easy
+
+### General
 - [ ] consider implementing with https://www.contentlayer.dev/
   - [see leerob.io githu](https://github.com/leerob/leerob.io/blob/main/app/blog/page.tsx)
   - image processing not supported
   - [Blog process MDX with contentlayer](https://blog.mrcatdev.com/turns-your-mdx-files-include-yaml-into-data-with-contentlayer-in-nextjs-100daysofcode)
   - [it makes generating a sitemap trivial](https://github.com/leerob/leerob.io/blob/main/app/sitemap.ts)
+- [ ] make markdown pages more robust to poorly formed Frontmatter.
+  - [x] handle arrays without square braces
+  - [x] handle single items, instead of arrays in square braces
+  - [x] handle missing meta-data without square braces
+  - [ ] handle missing front-matter
+- [ ] Get rid of @apply directives in global.css
 
 ## Known issues
-
 - `BUG:` right-click heading "Copy Link to Highlight" yields nonsense. Instead, use `<Link>` in MDXStyle.jsx to add "Copy Link Address"
   - [URL# not handled](https://github.com/vercel/next.js/issues/44295)
   - [disable-scrolling-to-the-top-of-the-page](https://nextjs.org/docs/api-reference/next/link#disable-scrolling-to-the-top-of-the-page)
