@@ -1,5 +1,5 @@
 ---
-modified: 2023-04-09 13:20
+modified: 2023-05-05 14:25
 modifiedTs: 1680964851593
 created: 2023-04-09 00:40
 createdTs: 1680964851593
@@ -104,17 +104,26 @@ git bisect good <commit id>
 
 #### Definitions
 
-_**head:**_ When working with Git, only *one* branch can be checked out at a time - and this is what's called the "HEAD" branch. Often, this is also referred to as the "active" or "current" branch.  
-_**detached head:**_ In rare cases, the HEAD file does NOT contain a branch reference, but an SHA-1 value of a specific revision. This happens when you check out a specific commit, tag, or remote branch. Your repository is then in a state called Detached Head [^1]
+*__head:__*  
+Only *one* branch called "HEAD" (also known as "active" or "current") can be checked out at a time.  
+*__detached head:__*  
+If you check out a specific commit, tag, or remote branch, your repository is then in a state called "Detached Head". In this case, the HEAD file does NOT contain a branch reference, but an SHA-1 value of a specific revision.  
 
 ```shell
-# List all of the branches in your repo. Add a <branch> argument to create a new branch with the name <branch>.
+# List all of the branches in your repository. 
 git branch
+
+# create a new branch.
+git branch <branch>
+
 # show all branches
 git branch -a
 
-# Create and check out a new branch named <branch>. Drop the -b flag to checkout an existing branch.
+# Create and check out a new branch. 
 git checkout -b <branch>
+
+# checkout an existing branch
+git checkout <branch>
 
 #Merge <branch> into the current branch.
 # from the master merge in the branch
@@ -134,7 +143,8 @@ git remote show <remote repository name>
 e.g.
 git remote show origin
 
-# Create a new connection to a remote repo. After adding a remote, you can use <name> as a shortcut for <url> in other commands.
+# Create a new connection to a remote repository. 
+# Note: After adding a remote you can use <name> as a shortcut for <url> in other commands.  
 git remote add <name> <url>
 
 # Verifies the new remote URL
@@ -180,12 +190,12 @@ placeholder
 --no-ff means ??
 ```
 
-**Figure 1**
+__Figure 1__
 
-<Image
-  src={`/articles/attachments/Pasted image 20230119182734.png`}
-  alt={`Screen shot of Merge pull request button.`}
-  aria-label={`Screen shot of Merge pull request button.`}
+<Image  
+  src={`/articles/attachments/Pasted image 20230119182734.png`}  
+  alt={`Screen shot of Merge pull request button.`}  
+  aria-label={`Screen shot of Merge pull request button.`}  
 />
 
 ## Rebase and Merge
@@ -208,10 +218,6 @@ placeholder
 ```
 
 ## GitLab
-
-### Command line Instructions from GitLab
-
-You can also upload existing files from your computer using the instructions below.
 
 ### Git Global Setup
 
@@ -254,12 +260,3 @@ git remote add origin git@gitlab.com:uow-itms/greenfields-nextjs.git
 git push -u origin --all
 git push -u origin --tags
 ```
-
-<br />
-<hr />
-
-### Related Links
-
-- [Scott 'the legend' Hanselman talks about git](https://youtu.be/Mfz8NQncwiQ?list=PL0M0zPgJ3HSesuPIObeUVQNbKqlw5U2Vr)
-
-[^1]: [Detached HEAD](https://www.git-tower.com/learn/git/faq/detached-head-when-checkout-commit)

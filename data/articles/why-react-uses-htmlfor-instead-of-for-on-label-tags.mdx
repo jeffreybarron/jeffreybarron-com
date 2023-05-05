@@ -1,5 +1,5 @@
 ---
-modified: 2023-04-25 14:26
+modified: 2023-05-05 13:52
 modifiedTs: 1682396523244
 created: 2023-04-25 14:22
 createdTs: 1682396523244
@@ -7,16 +7,18 @@ layout: MDXLayout
 route: /articles
 slug: why-react-uses-htmlfor-instead-of-for-on-label-tags
 ext: .mdx
-title: Why React Uses 'htmlFor' Instead of 'for' on Label Tags
-summary: React 'label' vs 'htmlFor' attribute? Why React requires 'htmlFor'.
+title: "Why React Uses 'htmlFor' Instead of 'for' on Label Tags"
+summary: "React 'label' vs 'htmlFor' attribute? Why React requires 'htmlFor'."
 image: /pages/images/hot-off-the-press.webp
 authors: [Jeffrey Barron]
 tags: [react, html, javascript, label, htmlFor]
 ---
 
-React is a popular JavaScript library used for building user interfaces. One of the features in React is the ability to use components to create reusable UI elements. When creating forms, developers often use the `label` tag to associate a label with an input element. However, in React, the `label` tag requires the `htmlFor` attribute instead of the standard `for` attribute. In this blog post, we will explore why this is the case and what benefits it brings.
+React is a widely used popular JavaScript library used for building user interfaces. One of the features of React is the ability to use components to create reusable UI elements. For example, developers often use the `label` tag to associate a label with an input element when creating forms. However, the `label` tag in React requires the `htmlFor` attribute instead of the standard `for` attribute. In this blog post, I explore why this is the case and what benefits it brings.
 
-The `label` tag is used to provide a label for an input element, such as a text input, checkbox, or radio button. This label helps users understand the purpose of the input and makes it easier to interact with the form. In HTML, the `label` tag is associated with an input element using the `for` attribute, which specifies the ID of the associated input element. For example, the following code creates a label for a text input:
+The `label` tag provides a label for an input element, such as a text input, checkbox, or radio button. This label helps users understand the purpose of the input and makes it easier to interact with the form. In HTML, the `label` tag is associated with an input element using the `for` attribute, which specifies the ID of the associated input element.
+
+For example, label syntax for text input:
 
 ```html
 <form>
@@ -27,7 +29,7 @@ The `label` tag is used to provide a label for an input element, such as a text 
 
 The `for` attribute in the `label` tag specifies the ID of the associated input element, which in this case is "username". When a user clicks on the label, the browser focuses on the associated input element, making it easier to interact with the form.
 
-However, in React, using the `for` attribute in the `label` tag causes a syntax error. This is because `for` is a reserved keyword in JavaScript, and using it as an attribute name would result in a syntax error. To avoid this issue, React uses the `htmlFor` attribute instead.
+However, using the `for` attribute in the `label` tag causes a syntax error in React because `for` is a reserved keyword in JavaScript, and using it as an attribute name would result in a syntax error. To avoid this issue, React uses the `htmlFor` attribute instead.
 
 ```jsx
 <form>
@@ -36,23 +38,23 @@ However, in React, using the `for` attribute in the `label` tag causes a syntax 
 </form>
 ```
 
-So, why did React choose to use `htmlFor` instead of `for`? The reason has to do with how React handles attributes and properties.
+So, why did React use `htmlFor` instead of `for`? It has to do with how React handles attributes and properties.
 
-In React, attributes and properties are different things. Attributes are the initial values that are set when an element is created, while properties are the current values of the element's state. When an attribute is changed, React updates the property to reflect the new value. However, when a property is changed, React does not update the corresponding attribute. This is because some properties cannot be expressed as attributes in HTML, such as the `checked` property of a checkbox.
+In React, attributes and properties are different things. Attributes are the initial values that are set when an element is created, while properties are the current values of the element's state. When an attribute is changed, React updates the property to reflect the new value. However, React does not update the corresponding attribute when a property is changed because some properties cannot be expressed as attributes in HTML, such as the `checked` property of a checkbox.
 
-In the case of the `label` tag, the `for` attribute is actually a property in JavaScript, not an attribute in HTML. This means that when a user clicks on the label, the browser sets the `htmlFor` attribute to the value of the `for` property. However, if a developer sets the `for` property directly in JavaScript, React does not update the `htmlFor` attribute to reflect the new value. This can result in unexpected behavior, such as the label no longer being associated with the input element.
+In the case of the `label` tag, the `for` attribute is a property in JavaScript, not an attribute in HTML. This means that when a user clicks on the label, the browser sets the `htmlFor` attribute to the value of the `for` property. However, if a developer sets the `for` property directly in JavaScript, React does not update the `htmlFor` attribute to reflect the new value. This can result in unexpected behaviour, such as the label no longer being associated with the input element.
 
-To avoid this issue, React uses the `htmlFor` attribute instead of the `for` attribute. This ensures that the `label` tag is always associated with the correct input element, regardless of how the `for` property is set in JavaScript.
+React uses the `htmlFor` attribute instead of the `for` attribute to avoid this issue. This ensures that the `label` tag is always associated with the correct input element, regardless of how the `for` property is set in JavaScript.
 
-In summary, React uses the `htmlFor` attribute instead of the `for` attribute in the `label` tag to avoid conflicts with the `for` reserved keyword in JavaScript. This also ensures that the `label` tag is always associated with the correct input element, regardless of how the `for` property is set in JavaScript. While this may seem like a small detail, it is an important part of building reliable and accessible forms in React.
+In summary, React uses the `htmlFor` attribute instead of the `for` attribute in the `label` tag to avoid conflicts with the `for` reserved keyword in JavaScript. This also ensures that the `label` tag is always associated with the correct input element, regardless of how the `for` property is set in JavaScript. While this may seem like a small detail, it is essential to building reliable and accessible forms in React.
 
-## Other React modifications
+## Other React Modifications
 
-Tip: This list may not be exhaustive, so dont depend on it.
+Tip: This list may be partial, so don't depend on it.
 
 | HTML Attribute | React Attribute                                                                   |
 | :------------- | :-------------------------------------------------------------------------------- |
-| accept-charset | **acceptCharset**                                                                 |
+| accept-charset | __acceptCharset__                                                                 |
 | class          | className                                                                         |
 | checked        | defaultChecked                                                                    |
 | selected       | defaultValue (for `select` elements)                                              |
@@ -132,6 +134,3 @@ TL;DR: attributes should be camelCased, not kebab-cased. This applies to all att
 | tabindex        | tabIndex        |
 | usemap          | useMap          |
 | wrap            | wrap            |
-
-<br />
-<hr />{' '}
