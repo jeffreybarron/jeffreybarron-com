@@ -1,5 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# CMS
+.obsidian
+/data/.templates
+/data/drafts
+
 # dependencies
 /node_modules
 /.pnp
@@ -31,3 +36,4 @@ yarn-error.log*
 # env files
 .env*.local
 sendgrid.env
+.zshrc

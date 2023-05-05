@@ -53,10 +53,6 @@ make build
 make start
 ```
 
-#### Cloud Deployment
-``` shell
-placeholder
-```
 
 ## Useful links
 - [Customise Markdown](https://www.programcreek.com/typescript/?code=juliencrn%2Fusehooks-ts%2Fusehooks-ts-master%2Fsite%2Fsrc%2Fcomponents%2FmdxRenderer.tsx)

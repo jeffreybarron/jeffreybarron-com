@@ -38,7 +38,8 @@ const nextConfig = {
 };
 
 export default nextMDX({
-  extension: /\.mdx?$/,
+  extension: /\/data\/(articles|blog|release)\/.+\.mdx?$/,
+  // extension: /\.mdx?$/,
   options: {
     // https://github.com/remarkjs/remark-gfm#install
     remarkPlugins: [remarkMdx, [remarkFrontmatter, 'yaml'], remarkGfm],
