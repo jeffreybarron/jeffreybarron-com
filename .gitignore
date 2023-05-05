@@ -2,8 +2,7 @@
 
 # CMS
 .obsidian
-/data/.templates
-/data/drafts
+/data/drafts/*
 
 # dependencies
 /node_modules
