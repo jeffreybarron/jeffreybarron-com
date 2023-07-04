@@ -1,0 +1,26 @@
+---
+modified: 2023-07-04 14:02
+modifiedTs: 1683290011312  
+created: 2023-05-05 22:33
+createdTs: 1683290011312  
+layout: MDXLayout  
+route: /articles  
+slug: javascript-objects-vs-java-objects-what-are-the-differences
+ext: .mdx 
+title: What is the difference between Javascript Objects and Java Objects
+summary: What is the difference between Javascript Objects and Java Objects
+image: /pages/images/hot-off-the-press.webp
+authors: [Jeffrey Barron]  
+tags: [javascript, OOP, ]
+---
+
+JavaScript uses prototypes instead of classes to achieve object-oriented inheritance.  
+
+In a class-based language like Java or C++, classes define the blueprint for objects, and instances of a class are created from that blueprint. In contrast, in a prototype-based language like JavaScript, objects inherit properties and behaviour from other objects rather than from classes.  
+
+In JavaScript, every object has a hidden property called the prototype, which can be used to inherit properties and methods from another object. When you access a property or method on an object, JavaScript first looks for that property or method on the object itself. Then, if it can't find it there, it looks for it on the object's prototype, then on the prototype of the prototype, and so on, until it reaches the end of the prototype chain.  
+When you create an object in JavaScript, you can set its prototype to be another object, effectively creating a new object that inherits properties and methods from the other object. This is called prototypal inheritance.  
+
+In contrast to class-based inheritance, prototypal inheritance is more dynamic and flexible, allowing you to add or remove properties and methods from an object's prototype at runtime. This makes it easier to create complex and highly customisable objects.  
+
+While class-based inheritance provides a more structured and formal approach to object-oriented programming, prototypal inheritance is a powerful and flexible alternative allowing more dynamic and customisable object creation.

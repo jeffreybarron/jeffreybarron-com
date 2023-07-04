@@ -1,5 +1,5 @@
 ---
-modified: 2023-05-05 14:25
+modified: 2023-07-04 14:21
 modifiedTs: 1680964851593
 created: 2023-04-09 00:40
 createdTs: 1680964851593
@@ -57,6 +57,51 @@ git commit --amend --no-edit
 # Revert to a previous commit, like undue
 git revert <branch-name>
 
+```
+
+### Git Tag / Labels
+
+[git-scm.com Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)
+
+#### Show Tags
+
+``` sh
+git tag
+git show [tag id]
+```
+
+#### Create Tags
+
+``` sh
+git tag -a v1.0.0 -m "Version 1.0.0 Tagged 2023-07-04"
+```
+
+#### Create Tags on Earlier Commits
+
+First, get the GUID for a commit, then create tag on the commit GUID
+
+``` sh
+git log --pretty=oneline
+git tag -a v1.0.0 [GUID]
+```
+
+#### Push Tags
+
+``` sh
+// push by tag
+git push origin v1.0.0
+
+// push all
+git push origin --tags
+```
+
+#### Deleting Tags
+
+``` sh
+// delete local
+git tag -d [tag id]
+// delete origin
+git push origin --delete [tag id]
 ```
 
 ### Git Stash

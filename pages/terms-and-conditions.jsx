@@ -7,7 +7,7 @@ export default function TermsAndConditionsPage() {
       <div className="sm:px-32 px-4 py-6 bg-primary text-primary-contrast">
         <h2><strong>Terms and Conditions of Use for jeffreybarron.com</strong></h2>
         
-        <p className="py-1">Welcome to jeffreybarron.com. These terms and conditions (&ldquo;Terms&ldquo;) apply to your use of the website located at [website URL] (&ldquo;Site&ldquo;) and any content contained herein. By accessing or using the Site, you agree to be bound by these Terms. If you do not agree to these Terms, you should not use the Site.</p>
+        <p className="py-1">Welcome to jeffreybarron.com. These terms and conditions (&ldquo;Terms&ldquo;) apply to your use of the website located at jeffreybarron.com (&ldquo;Site&ldquo;) and any content contained herein. By accessing or using the Site, you agree to be bound by these Terms. If you do not agree to these Terms, you should not use the Site.</p>
         
         <h3><strong>1. Copyright and Intellectual Property</strong></h3>
         <p className="py-1">All content on this Site, including without limitation, text, graphics, logos, images, audio clips, video clips, and data compilations (collectively, &ldquo;Content&ldquo;), is the property of jeffreybarron.com or its content suppliers and is protected by States or Territories of the Commonwealth of Australian and international copyright laws. You may not reproduce, modify, distribute, transmit, display, perform, publish, license, create derivative works from, transfer or sell any Content, except as expressly permitted in these Terms or with the prior written consent of jeffreybarron.com.</p>
