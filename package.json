@@ -11,8 +11,8 @@
   },
   "private": true,
   "engines": {
-    "npm": ">=8.19.3 <=9.5.0",
-    "node": ">=v18.13.0 <=v18.15.0"
+    "npm": ">=8.19.3 <=9.5",
+    "node": ">=v18.13.0 <=v18.16"
   },
   "scripts": {
     "dev": "NODE_ENV=development next dev",
